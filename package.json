@@ -1,0 +1,46 @@
+{
+  "name": "namma-dina",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "start": "npm run start -w server",
+    "build": "npm run build -w server && npm run build -w client",
+    "android:apk": "node scripts/build-android.mjs",
+    "android:release": "node scripts/build-android.mjs --release",
+    "android:bundle": "node scripts/build-android.mjs --bundle",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "lint": "npm run lint -w server && npm run lint -w client",
+    "test": "npm run test -w server && npm run test -w client",
+    "db:migrate": "npm run prisma -w server -- migrate dev",
+    "db:deploy": "npm run prisma -w server -- migrate deploy",
+    "db:seed": "npm run seed -w server",
+    "db:studio": "npm run prisma -w server -- studio"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "dotenv-cli": "^8.0.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "prisma@6.19.3": true,
+    "@prisma/client@6.19.3": true,
+    "@prisma/engines@6.19.3": true
+  },
+  "dependencies": {
+    "@neon/config": "^1.14.0",
+    "@neon/env": "^2.1.3"
+  }
+}

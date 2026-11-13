@@ -1,0 +1,79 @@
+import { useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useForm, type FieldErrors, type Path, type UseFormRegister } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { ArrowDownRight, ArrowRight, Check, ChevronRight, Leaf, Sparkles, Star } from 'lucide-react';
+import { api, sendData, setAuthTokens, type AuthTokens } from '../lib/api';
+import { Button, Card, Field, TextInput } from '../components/ui';
+
+const loginSchema = z.object({ email: z.email('Enter a valid email address.'), password: z.string().min(1, 'Enter your password.') });
+const registerSchema = z.object({ displayName: z.string().trim().min(1, 'Add your name.').max(60), email: z.email('Enter a valid email address.'), password: z.string().min(10, 'Use at least 10 characters.').max(100) });
+type LoginValues = z.infer<typeof loginSchema>; type RegisterValues = z.infer<typeof registerSchema>;
+
+function Brand() { return <Link to="/" className="brand auth-brand"><span className="brand-mark"><span /></span><span><strong>namma dina</strong><small>ನಮ್ಮ ದಿನ · OUR DAY</small></span></Link>; }
+function AuthInput<T extends Record<string, string>>({ label, name, register, errors, type = 'text', placeholder }: { label: string; name: Path<T>; register: UseFormRegister<T>; errors: FieldErrors<T>; type?: string; placeholder?: string }) { const error = errors[name]?.message as string | undefined; return <Field label={label}><TextInput {...register(name)} type={type} placeholder={placeholder} aria-invalid={!!error} />{error && <small className="field-error">{error}</small>}</Field>; }
+
+export function LandingPage() {
+  return <div className="landing"><div className="aurora-orb orb-one"/><div className="aurora-orb orb-two"/><header className="landing-header"><Brand/><nav><a href="#how-it-works">How it works</a><Link to="/login">Sign in</Link><Link to="/register" className="button button-primary header-cta">Start your day <ArrowRight size={15}/></Link></nav></header>
+    <main><section className="hero"><div className="hero-copy"><div className="hero-tag"><span className="pulse-dot"/> A gentler way to plan your day</div><h1>Make today<br/><span>meaningful.</span></h1><p className="hero-tomorrow">Make tomorrow better.</p><p className="hero-description">A thoughtful space for your plans, habits and wellbeing. When a day goes sideways, find your way back without the guilt.</p><div className="hero-actions"><Link className="button button-primary hero-button" to="/register">Create your free space <ArrowRight size={16}/></Link><a href="#how-it-works" className="text-button">Explore the rhythm <ArrowDownRight size={16}/></a></div><div className="hero-proof"><div className="proof-avatars"><span>ಸ</span><span>日</span><span>✦</span></div><span>Small steps. Your pace. Always yours.</span></div></div>
+      <div className="hero-visual"><div className="visual-glow"/><Card className="preview-card"><div className="preview-top"><div><p className="eyebrow">TUESDAY · 11 NOV</p><h2>A little room to begin.</h2></div><div className="weather-mark"><Sparkles size={17}/></div></div><div className="preview-progress"><div className="ring"><svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="39"/><circle className="ring-value" cx="48" cy="48" r="39"/></svg><span>62<small>%</small></span></div><div><strong>You're finding your rhythm</strong><p className="muted">4 of 6 gentle intentions</p></div></div><div className="preview-list"><div className="preview-row done"><span className="check-circle"><Check size={13}/></span><span>Take a slow morning walk</span><small>8:30</small></div><div className="preview-row"><span className="check-circle"/><span>Make space for a focus block</span><small>10:00</small></div><div className="preview-row"><span className="check-circle"/><span>Read a few pages</span><small>Anytime</small></div></div><div className="preview-nudge"><span><Sparkles size={14}/></span><p>Plans change. A 15-minute reset still counts.</p></div></Card><div className="float-note"><span className="float-icon"><Leaf size={15}/></span><span><small>COMEBACK SCORE</small><strong>73 <em>↗</em></strong></span></div><div className="float-bubble">ಒಂದು ದಿನ<br/><strong>one day</strong><br/>at a time</div></div>
+      </section>
+      <section className="landing-values" id="how-it-works"><div><span className="value-no">01</span><h3>Plan with breathing room</h3><p>Shape the day around what matters, leaving room for life to happen.</p></div><div><span className="value-no">02</span><h3>Notice the patterns</h3><p>See how your time and energy move, with insights based on your own entries.</p></div><div><span className="value-no">03</span><h3>Come back gently</h3><p>Missed a plan? Get a useful next step, never a lecture about your streak.</p></div></section>
+      <section className="landing-closer"><div className="closer-spark"><Star size={18}/></div><div><h2>Every day is a new page.</h2><p>Your day management space, in English and ಕನ್ನಡ.</p></div><Link className="button button-outline" to="/register">Find your rhythm <ChevronRight size={16}/></Link></section></main><footer className="landing-footer"><Brand/><span>Built for imperfect, meaningful days.</span><span>ನಮ್ಮ ದಿನ · OUR DAY</span></footer></div>;
+}
+
+function AuthFrame({ children, title, description, aside = 'Your day does not have to be perfect to be worth planning.' }: { children: React.ReactNode; title: string; description: string; aside?: string }) { return <div className="auth-layout"><div className="auth-glow"/><section className="auth-card glass-card"><Brand/><p className="eyebrow">YOUR DAY, AT YOUR PACE</p><h1>{title}</h1><p className="muted auth-description">{description}</p>{children}<div className="auth-divider"/><p className="auth-aside"><Sparkles size={14}/>{aside}</p></section><p className="auth-foot">ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.</p></div>; }
+
+export function LoginPage() {
+  const navigate = useNavigate(); const queryClient = useQueryClient();
+  const form = useForm<LoginValues>({ resolver: zodResolver(loginSchema), defaultValues: { email: '', password: '' } });
+  const login = useMutation({
+    mutationFn: async (values: LoginValues) => {
+      const res = await api<{ user: { onboardingDone: boolean }; tokens?: AuthTokens }>('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(values),
+      });
+      if (res.data.tokens) await setAuthTokens(res.data.tokens);
+      return res.data;
+    },
+    onSuccess: (data) => {
+      void queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+      navigate(data.user.onboardingDone ? '/app/day' : '/onboarding');
+    },
+  });
+  return <AuthFrame title="Welcome back." description="Pick up where you left off, or take a breath before you begin."><form className="form-stack" onSubmit={form.handleSubmit((values) => login.mutate(values))}><AuthInput<LoginValues> label="Email address" name="email" type="email" placeholder="you@example.com" register={form.register} errors={form.formState.errors}/><AuthInput<LoginValues> label="Password" name="password" type="password" placeholder="Your password" register={form.register} errors={form.formState.errors}/><div className="form-row-right"><Link to="/forgot-password" className="inline-link">Forgot password?</Link></div>{login.isError && <p className="inline-error">{login.error instanceof Error ? login.error.message : 'Could not sign in.'}</p>}<Button disabled={login.isPending} className="full-width">{login.isPending ? 'Finding your space…' : 'Sign in'} <ArrowRight size={16}/></Button></form><p className="auth-switch">New to Namma Dina? <Link to="/register">Create an account</Link></p></AuthFrame>;
+}
+
+export function RegisterPage() {
+  const navigate = useNavigate(); const queryClient = useQueryClient();
+  const form = useForm<RegisterValues>({ resolver: zodResolver(registerSchema), defaultValues: { displayName: '', email: '', password: '' } });
+  const register = useMutation({
+    mutationFn: async (values: RegisterValues) => {
+      const res = await api<{ user: { onboardingDone: boolean }; tokens?: AuthTokens }>('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(values),
+      });
+      if (res.data.tokens) await setAuthTokens(res.data.tokens);
+      return res.data;
+    },
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+      navigate('/onboarding');
+    },
+  });
+  return <AuthFrame title="A space for your day." description="A few details to create your personal Namma Dina space."><form className="form-stack" onSubmit={form.handleSubmit((values) => register.mutate(values))}><AuthInput<RegisterValues> label="What should we call you?" name="displayName" placeholder="Your name" register={form.register} errors={form.formState.errors}/><AuthInput<RegisterValues> label="Email address" name="email" type="email" placeholder="you@example.com" register={form.register} errors={form.formState.errors}/><AuthInput<RegisterValues> label="Create a password" name="password" type="password" placeholder="At least 10 characters" register={form.register} errors={form.formState.errors}/><p className="field-hint">Use at least 10 characters. Your private notes stay in your account.</p>{register.isError && <p className="inline-error">{register.error instanceof Error ? register.error.message : 'Could not create your account.'}</p>}<Button disabled={register.isPending} className="full-width">{register.isPending ? 'Making your space…' : 'Create my space'} <ArrowRight size={16}/></Button></form><p className="auth-switch">Already have an account? <Link to="/login">Sign in</Link></p></AuthFrame>;
+}
+
+export function ForgotPage() {
+  const [email, setEmail] = useState(''); const [token, setToken] = useState(''); const [sent, setSent] = useState(false); const [error, setError] = useState('');
+  const request = useMutation({ mutationFn: () => api<{ message: string; resetToken?: string }>('/auth/forgot-password', { method: 'POST', body: JSON.stringify({ email }) }).then((r) => r.data), onSuccess: (data) => { setSent(true); if (data.resetToken) setToken(data.resetToken); } });
+  return <AuthFrame title="Let’s find your way in." description="Enter your email and we’ll help you choose a new password." aside="Reset links expire after 30 minutes."><form className="form-stack" onSubmit={(e) => { e.preventDefault(); setError(''); if (!z.email().safeParse(email).success) return setError('Enter a valid email address.'); request.mutate(); }}><Field label="Email address"><TextInput type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" /></Field>{sent && <div className="success-note"><Check size={15}/> If that email exists, password reset instructions are ready.</div>}{token && <Field label="Local development reset token"><TextInput value={token} onChange={(e) => setToken(e.target.value)} /><small>Copy this token into the next step. Production email delivery needs a configured sender.</small></Field>}{(error || request.isError) && <p className="inline-error">{error || (request.error instanceof Error ? request.error.message : 'Could not request a reset.')}</p>}<Button disabled={request.isPending} className="full-width">Send reset instructions <ArrowRight size={16}/></Button>{token && <Link className="button button-outline full-width" to={`/reset-password?token=${encodeURIComponent(token)}`}>Choose a new password <ChevronRight size={15}/></Link>}</form><p className="auth-switch"><Link to="/login">Back to sign in</Link></p></AuthFrame>;
+}
+
+export function ResetPage() {
+  const [params] = useSearchParams(); const [token, setToken] = useState(params.get('token') ?? ''); const [password, setPassword] = useState(''); const [done, setDone] = useState(false); const [error, setError] = useState('');
+  const reset = useMutation({ mutationFn: () => sendData('/auth/reset-password', 'POST', { token, password }), onSuccess: () => setDone(true) });
+  return <AuthFrame title="A fresh start." description="Choose a new password for your Namma Dina space."><form className="form-stack" onSubmit={(event) => { event.preventDefault(); setError(''); if (password.length < 10) return setError('Use at least 10 characters.'); reset.mutate(); }}><Field label="Reset token"><TextInput value={token} onChange={(e) => setToken(e.target.value)} required /></Field><Field label="New password"><TextInput type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={10} /></Field>{done ? <div className="success-note"><Check size={15}/> Password updated. You can sign in now.</div> : <Button disabled={reset.isPending} className="full-width">Save new password <ArrowRight size={16}/></Button>}{(error || reset.isError) && <p className="inline-error">{error || (reset.error instanceof Error ? reset.error.message : 'Could not update your password.')}</p>}{done && <Link className="button button-primary full-width" to="/login">Go to sign in <ArrowRight size={16}/></Link>}</form></AuthFrame>;
+}

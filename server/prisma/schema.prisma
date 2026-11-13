@@ -1,0 +1,396 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  POSTPONED
+  CANCELLED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum HabitFrequency {
+  DAILY
+  WEEKLY
+  CUSTOM
+}
+
+enum FoodKind {
+  HOME
+  COOKED_OUTSIDE
+  DELIVERY
+}
+
+enum ReminderState {
+  ACTIVE
+  DISMISSED
+  DONE
+}
+
+enum RescheduleState {
+  SUGGESTED
+  ACCEPTED
+  REJECTED
+}
+
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  passwordHash    String
+  displayName     String
+  timezone        String   @default("Asia/Kolkata")
+  onboardingDone  Boolean  @default(false)
+  tokenVersion    Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  settings        UserSettings?
+  categories      TaskCategory[]
+  tasks           Task[]
+  taskEvents      TaskEvent[]
+  habits          Habit[]
+  habitLogs       HabitLog[]
+  scheduleBlocks  ScheduleBlock[]
+  reminders       Reminder[]
+  reflections     DailyReflection[]
+  wellnessLogs    WellnessLog[]
+  waterLogs       WaterLog[]
+  sleepLogs       SleepLog[]
+  workoutLogs     WorkoutLog[]
+  screenTimeLogs  ScreenTimeLog[]
+  foodLogs        FoodLog[]
+  insights        DailyInsight[]
+  rescheduleEvents RescheduleEvent[]
+  notifications   Notification[]
+  pushSubscriptions PushSubscription[]
+  passwordResets  PasswordResetToken[]
+
+  @@index([createdAt])
+}
+
+model UserSettings {
+  id                      String   @id @default(cuid())
+  userId                  String   @unique
+  wakeTime                String   @default("07:00")
+  sleepTime               String   @default("23:00")
+  goals                   Json     @default("[]")
+  notificationPreferences Json     @default("{\"reminders\":true,\"dailySummary\":false}")
+  planningStyle           String   @default("balanced")
+  dailyWaterGoalMl        Int      @default(2000)
+  dailyScreenGoalMinutes  Int      @default(180)
+  monthlyFoodBudgetCents  Int      @default(0)
+  browserNotifications    Boolean  @default(false)
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+  user                    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model TaskCategory {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  color     String   @default("#67E8D0")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks     Task[]
+
+  @@unique([userId, name])
+  @@index([userId])
+}
+
+model Task {
+  id               String     @id @default(cuid())
+  userId           String
+  categoryId       String?
+  title            String
+  description      String?
+  status           TaskStatus @default(PENDING)
+  priority         Priority   @default(MEDIUM)
+  dueAt            DateTime?
+  scheduledStart   DateTime?
+  scheduledMinutes Int        @default(30)
+  actualMinutes    Int?
+  recurrenceRule   String?
+  completedAt      DateTime?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  user             User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category         TaskCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  events           TaskEvent[]
+  scheduleBlocks   ScheduleBlock[]
+  rescheduleEvents RescheduleEvent[]
+
+  @@index([userId, dueAt])
+  @@index([userId, status, priority])
+  @@index([userId, scheduledStart])
+}
+
+model TaskEvent {
+  id        String   @id @default(cuid())
+  userId    String
+  taskId    String
+  kind      String
+  detail    Json?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([taskId, createdAt])
+}
+
+model Habit {
+  id          String         @id @default(cuid())
+  userId      String
+  name        String
+  description String?
+  frequency   HabitFrequency @default(DAILY)
+  daysOfWeek  Int[]          @default([])
+  targetValue Float          @default(1)
+  targetUnit  String         @default("times")
+  flexible    Boolean        @default(true)
+  isActive    Boolean        @default(true)
+  startDate   DateTime       @default(now()) @db.Date
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  logs        HabitLog[]
+
+  @@index([userId, isActive])
+}
+
+model HabitLog {
+  id        String   @id @default(cuid())
+  userId    String
+  habitId   String
+  date      DateTime @db.Date
+  value     Float    @default(1)
+  note      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  habit     Habit    @relation(fields: [habitId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, habitId, date])
+  @@index([userId, date])
+}
+
+model ScheduleBlock {
+  id          String   @id @default(cuid())
+  userId      String
+  taskId      String?
+  title       String
+  description String?
+  startsAt    DateTime
+  endsAt      DateTime
+  isFixed     Boolean  @default(false)
+  status      String   @default("planned")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: SetNull)
+
+  @@index([userId, startsAt, endsAt])
+}
+
+model Reminder {
+  id          String        @id @default(cuid())
+  userId      String
+  title       String
+  body        String?
+  entityType  String?
+  entityId    String?
+  dueAt       DateTime
+  recurrence  String?
+  state       ReminderState @default(ACTIVE)
+  notifiedAt  DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, dueAt, state])
+}
+
+model DailyReflection {
+  id             String   @id @default(cuid())
+  userId         String
+  date           DateTime @db.Date
+  wentWell       String?
+  offPlan        String?
+  distractions   String?
+  gratitude      String?
+  improve        String?
+  mood           Int?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@index([userId, date])
+}
+
+model WellnessLog {
+  id        String   @id @default(cuid())
+  userId    String
+  date      DateTime @db.Date
+  mood      Int?
+  energy    Int?
+  notes     String?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date])
+}
+
+model WaterLog {
+  id        String   @id @default(cuid())
+  userId    String
+  date      DateTime @db.Date
+  amountMl  Int
+  loggedAt  DateTime @default(now())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date])
+}
+
+model SleepLog {
+  id            String   @id @default(cuid())
+  userId        String
+  date          DateTime @db.Date
+  bedtime       DateTime
+  wakeTime      DateTime
+  durationMins  Int
+  notes         String?
+  createdAt     DateTime @default(now())
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@index([userId, date])
+}
+
+model WorkoutLog {
+  id           String   @id @default(cuid())
+  userId       String
+  activityType String
+  durationMins Int
+  loggedAt     DateTime @default(now())
+  notes        String?
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, loggedAt])
+}
+
+model ScreenTimeLog {
+  id                String   @id @default(cuid())
+  userId            String
+  date              DateTime @db.Date
+  category          String
+  appName           String?
+  minutes           Int
+  distractionCount  Int      @default(0)
+  notes             String?
+  createdAt         DateTime @default(now())
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date])
+}
+
+model FoodLog {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  kind        FoodKind
+  spendCents  Int      @default(0)
+  loggedAt    DateTime @default(now())
+  notes       String?
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, loggedAt])
+  @@index([userId, kind, loggedAt])
+}
+
+model DailyInsight {
+  id          String   @id @default(cuid())
+  userId      String
+  date        DateTime @db.Date
+  type        String
+  title       String
+  explanation String
+  value       Json
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date, type])
+  @@index([userId, date])
+}
+
+model RescheduleEvent {
+  id                  String          @id @default(cuid())
+  userId              String
+  taskId              String?
+  title               String
+  reason              String
+  suggestedStart      DateTime?
+  suggestedMinutes    Int?
+  state               RescheduleState @default(SUGGESTED)
+  actionedAt          DateTime?
+  createdAt           DateTime        @default(now())
+  user                User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task                Task?           @relation(fields: [taskId], references: [id], onDelete: SetNull)
+
+  @@index([userId, state, createdAt])
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  body        String
+  kind        String   @default("reminder")
+  readAt      DateTime?
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt, createdAt])
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}

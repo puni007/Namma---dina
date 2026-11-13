@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namma Dina — Offline</title>
+    <style>
+      :root {
+        --bg: #01070a;
+        --card: rgba(14, 27, 33, 0.7);
+        --text: #f0f7f7;
+        --muted: #8b9fa8;
+        --mint: #7ef2bf;
+        --border: rgba(126, 242, 191, 0.15);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Noto Sans Kannada", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 36px 28px;
+        max-width: 420px;
+        text-align: center;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      }
+      .icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(126, 242, 191, 0.12);
+        color: var(--mint);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      h1 { font-size: 22px; margin-bottom: 8px; font-weight: 600; }
+      p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+      button {
+        background: var(--mint);
+        color: #01070a;
+        font-weight: 600;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 999px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: transform 0.15s ease;
+      }
+      button:active { transform: scale(0.97); }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+          <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+        </svg>
+      </div>
+      <h1>You are offline</h1>
+      <p>Namma Dina will keep your space ready. Check your internet connection and try again.</p>
+      <button onclick="window.location.reload()">Retry connection</button>
+    </div>
+  </body>
+</html>
+

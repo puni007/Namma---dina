@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: namma-dina-api
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: .
+    buildCommand: npm install && npm run build -w server
+    startCommand: npm run start -w server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CLIENT_ORIGIN
+        sync: false # Set to your Vercel URL or custom domain (e.g. https://app.yourdomain.com)
+      - key: DATABASE_URL
+        sync: false # Set to your Neon pooled connection string from .env
+      - key: DATABASE_URL_UNPOOLED
+        sync: false # Set to your Neon direct connection string (for migrations)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SESSION_SECRET
+        generateValue: true
+
