@@ -14,13 +14,13 @@ services:
       - key: PORT
         value: 10000
       - key: CLIENT_ORIGIN
-        sync: false # Set to your Vercel URL or custom domain (e.g. https://app.yourdomain.com)
+        value: https://namma-dina.vercel.app
       - key: DATABASE_URL
         sync: false # Set to your Neon pooled connection string from .env
       - key: DATABASE_URL_UNPOOLED
         sync: false # Set to your Neon direct connection string (for migrations)
       - key: JWT_SECRET
         generateValue: true
-      - key: SESSION_SECRET
+      - key: COOKIE_SECRET
         generateValue: true
 

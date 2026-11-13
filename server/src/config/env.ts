@@ -8,10 +8,17 @@ dotenv.config();
 const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().int().positive().default(4000),
-  CLIENT_ORIGIN: z.string().url().default('http://localhost:5173'),
+  CLIENT_ORIGIN: z.string().default('https://namma-dina.vercel.app').transform((val) => {
+    try {
+      new URL(val);
+      return val;
+    } catch {
+      return 'https://namma-dina.vercel.app';
+    }
+  }),
   DATABASE_URL: z.string().min(1),
   JWT_SECRET: z.string().min(32),
-  COOKIE_SECRET: z.string().min(32),
+  COOKIE_SECRET: z.string().min(32).default(() => process.env.SESSION_SECRET || 'a_fallback_cookie_secret_at_least_32_characters_long'),
   VAPID_PUBLIC_KEY: z.string().optional(),
   VAPID_PRIVATE_KEY: z.string().optional(),
   VAPID_SUBJECT: z.string().default('mailto:admin@namma-dina.local'),

@@ -23,8 +23,16 @@ app.set('trust proxy', 1);
 app.use(helmet({ contentSecurityPolicy: { directives: { defaultSrc: ["'self'"], baseUri: ["'self'"], fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'], styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'], imgSrc: ["'self'", 'data:', 'blob:'], connectSrc: ["'self'"], objectSrc: ["'none'"], frameAncestors: ["'none'"] } } }));
 
 const privateLanOrigin = /^http:\/\/(?:(?:10(?:\.\d{1,3}){3})|(?:192\.168(?:\.\d{1,3}){2})|(?:172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}))(?::\d{1,5})?$/;
+const isAllowedOrigin = (origin: string | undefined): boolean => {
+  if (!origin) return true;
+  if (origin === env.CLIENT_ORIGIN) return true;
+  if (origin === 'http://localhost' || origin === 'https://localhost' || origin === 'capacitor://localhost') return true;
+  if (origin.endsWith('.vercel.app')) return true;
+  if (env.NODE_ENV !== 'production' && privateLanOrigin.test(origin)) return true;
+  return false;
+};
 app.use(cors({
-  origin: (origin, callback) => callback(null, !origin || origin === env.CLIENT_ORIGIN || origin === 'http://localhost' || origin === 'https://localhost' || origin === 'capacitor://localhost' || (env.NODE_ENV !== 'production' && privateLanOrigin.test(origin))),
+  origin: (origin, callback) => callback(null, isAllowedOrigin(origin)),
   credentials: true,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'X-CSRF-Token', 'Authorization', 'X-Client-Type']
