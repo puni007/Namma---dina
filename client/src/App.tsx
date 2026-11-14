@@ -397,6 +397,7 @@ function OnboardingPage({ user }: { user: User }) {
   const [timezone, setTimezone] = useState(user.timezone);
   const [selectedHabits, setSelectedHabits] = useState<string[]>([]);
   const [reminders, setReminders] = useState(true);
+  const [step, setStep] = useState(0);
   const habitChoices = ['Take a walk', 'Read a little', 'Stretch', 'Drink water'];
 
   const save = useMutation({
@@ -430,53 +431,34 @@ function OnboardingPage({ user }: { user: User }) {
         <p className="eyebrow">A GENTLE START</p>
         <h1>Shape a day that feels like yours.</h1>
         <p className="muted">A few preferences help us make your first plan feel more natural. You can change these anytime.</p>
-        <div className="form-stack">
-          <Field label="When do you like to start your day?"><TextInput type="time" value={wake} onChange={(e) => setWake(e.target.value)} /></Field>
-          <Field label="When do you usually wind down?"><TextInput type="time" value={sleep} onChange={(e) => setSleep(e.target.value)} /></Field>
-          <Field label="Timezone"><TextInput value={timezone} onChange={(e) => setTimezone(e.target.value)} placeholder="Asia/Kolkata" /></Field>
-          <Field label="One thing you want more room for"><TextInput value={goal} onChange={(e) => setGoal(e.target.value)} placeholder="e.g. time to read, regular walks" /></Field>
-          <Field label="Planning style">
-            <SelectInput value={style} onChange={(e) => setStyle(e.target.value)}>
-              <option value="focused">Focused blocks</option>
-              <option value="balanced">A balanced mix</option>
-              <option value="flexible">Loose and flexible</option>
-            </SelectInput>
-          </Field>
-          <div className="onboarding-choices">
-            <span>Any habits you’d like to start with? <small>Optional</small></span>
-            <div>
-              {habitChoices.map((name) => (
-                <label key={name}>
-                  <input
-                    type="checkbox"
-                    checked={selectedHabits.includes(name)}
-                    onChange={(e) => setSelectedHabits((current) => e.target.checked ? [...current, name] : current.filter((item) => item !== name))}
-                  />
-                  {name}
-                </label>
-              ))}
-            </div>
-          </div>
-          <label className="check-row">
-            <input type="checkbox" checked={reminders} onChange={(e) => setReminders(e.target.checked)}/>
-            <span><strong>Keep gentle reminders on</strong><small>Browser permission is optional and can be enabled later.</small></span>
-          </label>
-          {save.isError && <p className="inline-error">{save.error instanceof Error ? save.error.message : 'Could not save onboarding.'}</p>}
-          <Button onClick={() => save.mutate()} disabled={save.isPending}>
-            {save.isPending ? 'Saving…' : 'Finish setup'} <ChevronRight size={16} />
-          </Button>
-          <button
-            className="text-button"
-            onClick={() => {
-              sendData('/users/profile', 'PATCH', { onboardingDone: true }).then(() => {
-                void queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
-                navigate('/app/day');
-              });
-            }}
-          >
-            Skip for now
-          </button>
+        <div className="onboarding-progress" role="progressbar" aria-label="Onboarding progress" aria-valuemin={1} aria-valuemax={3} aria-valuenow={step + 1}>
+          <div className="onboarding-dots" aria-hidden="true">{[0, 1, 2].map((index) => <span key={index} className={index <= step ? 'complete' : ''}/>)}</div>
+          <span>Step {step + 1} of 3</span>
         </div>
+        <div key={step} className={`onboarding-step onboarding-step-${step}`}>
+          <svg className="onboarding-illustration" viewBox="0 0 64 48" aria-hidden="true"><circle cx="49" cy="11" r="4"/><path d="M3 34c10-12 18-12 29-3 7 6 14 7 22 0 3-3 5-4 7-3v17H3Z"/><path d="M3 39c9-5 16-5 25 0s17 5 25 0 7-3 8-2"/></svg>
+          <h2>{step === 0 ? 'Start with your day.' : step === 1 ? 'Make room for what matters.' : 'Choose a gentle rhythm.'}</h2>
+          {step === 0 && <div className="form-stack"><Field label="When do you like to start your day?"><TextInput type="time" value={wake} onChange={(e) => setWake(e.target.value)} /></Field><Field label="When do you usually wind down?"><TextInput type="time" value={sleep} onChange={(e) => setSleep(e.target.value)} /></Field><Field label="Timezone"><TextInput value={timezone} onChange={(e) => setTimezone(e.target.value)} placeholder="Asia/Kolkata" /></Field></div>}
+          {step === 1 && <div className="form-stack"><Field label="One thing you want more room for"><TextInput value={goal} onChange={(e) => setGoal(e.target.value)} placeholder="e.g. time to read, regular walks" /></Field><Field label="Planning style"><SelectInput value={style} onChange={(e) => setStyle(e.target.value)}><option value="focused">Focused blocks</option><option value="balanced">A balanced mix</option><option value="flexible">Loose and flexible</option></SelectInput></Field></div>}
+          {step === 2 && <div className="form-stack"><div className="onboarding-choices"><span>Any habits you’d like to start with? <small>Optional</small></span><div>{habitChoices.map((name) => <label key={name}><input type="checkbox" checked={selectedHabits.includes(name)} onChange={(e) => setSelectedHabits((current) => e.target.checked ? [...current, name] : current.filter((item) => item !== name))}/>{name}</label>)}</div></div><label className="check-row"><input type="checkbox" checked={reminders} onChange={(e) => setReminders(e.target.checked)}/><span><strong>Keep gentle reminders on</strong><small>Browser permission is optional and can be enabled later.</small></span></label></div>}
+        </div>
+        {save.isError && <p className="inline-error">{save.error instanceof Error ? save.error.message : 'Could not save onboarding.'}</p>}
+        <div className="onboarding-actions">
+          {step > 0 && <Button variant="quiet" onClick={() => setStep(step - 1)} disabled={save.isPending}>Back</Button>}
+          {step < 2 && <Button onClick={() => setStep(step + 1)}>Continue <ChevronRight size={16}/></Button>}
+          {step === 2 && <Button onClick={() => save.mutate()} disabled={save.isPending}>{save.isPending ? 'Saving…' : 'Finish setup'} <ChevronRight size={16}/></Button>}
+        </div>
+        <button
+          className="text-button"
+          onClick={() => {
+            sendData('/users/profile', 'PATCH', { onboardingDone: true }).then(() => {
+              void queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+              navigate('/app/day');
+            });
+          }}
+        >
+          Skip for now
+        </button>
       </section>
       <p className="auth-foot">{user.displayName}, your day can start small.</p>
     </div>

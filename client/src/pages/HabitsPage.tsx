@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { Archive, ArrowUpRight, Check, Leaf, Plus, RefreshCw, Sparkles, Target } from 'lucide-react';
+import { Archive, ArrowUpRight, Check, Leaf, Plus, Sparkles, Target } from 'lucide-react';
 import { getData, sendData, type Habit } from '../lib/api';
 import { todayKey } from '../lib/format';
 import { Badge, Button, Card, ConfirmDialog, EmptyState, Field, Loading, Modal, PageHeading, SelectInput, TextArea, TextInput, ProgressBar } from '../components/ui';
@@ -45,6 +45,7 @@ export function HabitsPage() {
       const currentToday = todayLogs.get(habit.id) ?? 0;
       const progress = Math.min(100, current / habit.targetValue * 100);
       const weekly = weekStats(habit);
+      const bloomDays = (logs.data ?? []).filter((log) => log.habitId === habit.id && log.value > 0).length;
       const input = values[habit.id] ?? String(currentToday || '');
       return <Card className="habit-card" key={habit.id}>
         <div className="habit-card-top">
@@ -88,7 +89,7 @@ export function HabitsPage() {
         </div>
 
         <div className="habit-log-row"><TextInput type="number" min="0" max={habit.targetValue * 5} step="any" value={input} onChange={(e) => setValues({ ...values, [habit.id]: e.target.value })} aria-label={`${habit.name} progress`}/><Button variant={progress >= 100 ? 'outline' : 'primary'} disabled={logMutation.isPending || input === '' || Number(input) < 0} onClick={() => logMutation.mutate({ habit, value: Number(input) })}>{progress >= 100 ? <><Check size={15}/> Update</> : 'Log progress'}</Button></div>
-        <div className="habit-card-bottom"><span><RefreshCw size={13}/> {weekly} {habit.frequency === 'WEEKLY' ? 'of this week’s goal' : 'full check-ins in 7 days'}</span><button className="text-button" onClick={() => setEditing(habit)}>Edit <ArrowUpRight size={13}/></button></div>
+        <div className="habit-card-bottom"><span><span className="habit-bloom" role="img" aria-label={`${bloomDays} days with a check-in in the past week`}><svg viewBox="0 0 24 24" aria-hidden="true">{Array.from({ length: 7 }, (_, index) => <ellipse key={index} className={index < bloomDays ? 'filled' : ''} cx="12" cy="5" rx="2.7" ry="4.1" transform={`rotate(${index * (360 / 7)} 12 12)`}/>) }<circle cx="12" cy="12" r="2.4"/></svg></span>{weekly} {habit.frequency === 'WEEKLY' ? 'of this week’s goal' : 'full check-ins in 7 days'}</span><button className="text-button" onClick={() => setEditing(habit)}>Edit <ArrowUpRight size={13}/></button></div>
       </Card>;
     })}</div>}
     {logMutation.isError && <p className="inline-error">Could not save this check-in. {logMutation.error instanceof Error ? logMutation.error.message : ''}</p>}
