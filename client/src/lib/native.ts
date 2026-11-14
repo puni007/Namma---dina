@@ -26,6 +26,10 @@ export function useNativeLifecycle() {
 
     // Handle Android hardware back button
     const backListenerPromise = CapApp.addListener('backButton', ({ canGoBack }) => {
+      if (document.documentElement.dataset.mitraOpen === 'true') {
+        window.dispatchEvent(new Event('mitra:back'));
+        return;
+      }
       const path = location.pathname;
       if (path === '/app/day' || path === '/login' || path === '/') {
         void CapApp.exitApp();

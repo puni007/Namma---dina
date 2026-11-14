@@ -34,6 +34,20 @@ AI routes require a signed-in user, server-side Anthropic configuration, a deplo
 | POST | `/ai/weekly-reflection` | Summarize the last seven days; body `{ "language": "en" | "kn" }` |
 | DELETE | `/ai/data` | Delete token-count rows and briefing cache and turn off AI opt-ins |
 
+## Mitra personal assistant
+
+Mitra provides bilingual navigation and guide replies without an AI provider. Optional open-ended chat requires `AI_MITRA_ENABLED`, a server-side provider key/model, and explicit user consent. Saved actions are validated, shown as previews, and written only after confirmation. History is owner-scoped, capped at 50 messages, retained for up to 30 days, and included in account export.
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET/PATCH | `/assistant/settings` | Read or change launcher, language, nudge, quiet-hour, voice, tour, and AI preferences/consent |
+| GET | `/assistant/history` | Read the latest 50 unexpired Mitra messages |
+| DELETE | `/assistant/history` | Clear Mitra conversation messages |
+| GET | `/assistant/nudges` | Create and return eligible in-app nudges (at most two per local day); called only while the app is active and the panel is open |
+| POST | `/assistant/nudges/:id/dismiss` | Dismiss an active nudge for the signed-in owner |
+| POST | `/assistant/message` | Send `{ "text": "...", "language": "en" | "kn" }`, confirm/cancel `{ "confirmActionId": "...", "decision": "confirm" | "cancel" }`, or undo `{ "undoActionId": "..." }` |
+| DELETE | `/assistant/data` | Delete Mitra history/preferences and token usage, then turn off AI opt-ins |
+
 ## Daily planning
 
 | Method | Path | Purpose |

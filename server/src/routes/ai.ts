@@ -5,14 +5,12 @@ import { localDayBounds, parseDateOnly, todayInTimezone } from '../lib/dates.js'
 import { HttpError } from '../lib/errors.js';
 import { prisma } from '../lib/prisma.js';
 import { requireUser } from '../middleware/auth.js';
+import { AI_DAILY_QUOTA, hasAIProvider, runAIRequest } from '../services/ai/provider.js';
 import { habitSchema, taskSchema } from './resources.js';
 
-const DAILY_QUOTA = 20;
-const REQUEST_TIMEOUT_MS = 15_000;
+const DAILY_QUOTA = AI_DAILY_QUOTA;
 type Feature = 'morningBriefing' | 'quickAdd' | 'comebackPlan' | 'weeklyReflection';
 type Language = 'en' | 'kn';
-type Usage = { inputTokens: number; outputTokens: number };
-type AIProvider = (system: string, message: string, maxTokens: number) => Promise<{ text: string; usage: Usage }>;
 type AISettingKey = 'aiMorningBriefingEnabled' | 'aiQuickAddEnabled' | 'aiComebackPlanEnabled' | 'aiWeeklyReflectionEnabled';
 
 const featureEnv: Record<Feature, boolean> = {
@@ -31,56 +29,6 @@ const languageSchema = z.enum(['en', 'kn']);
 
 async function getSettings(userId: string) {
   return prisma.userSettings.findUnique({ where: { userId } });
-}
-
-function providerConfigured() {
-  return Boolean(env.ANTHROPIC_API_KEY && env.AI_MODEL);
-}
-
-const anthropicProvider: AIProvider = async (system, message, maxTokens) => {
-  if (!env.ANTHROPIC_API_KEY || !env.AI_MODEL) throw new HttpError(503, 'AI features are not configured.', 'AI_UNAVAILABLE');
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({ model: env.AI_MODEL, max_tokens: maxTokens, system, messages: [{ role: 'user', content: message }] }),
-      signal: controller.signal,
-    });
-    if (!response.ok) throw new HttpError(503, 'Your AI companion is taking a pause. Please try again later.', 'AI_PROVIDER_UNAVAILABLE');
-    const result = await response.json() as {
-      content?: Array<{ type?: string; text?: string }>;
-      usage?: { input_tokens?: number; output_tokens?: number };
-    };
-    const text = result.content?.find((part) => part.type === 'text')?.text?.trim();
-    if (!text) throw new HttpError(503, 'Your AI companion could not prepare a response. Please try again.', 'AI_INVALID_RESPONSE');
-    return {
-      text,
-      usage: {
-        inputTokens: Math.max(0, Math.trunc(result.usage?.input_tokens ?? 0)),
-        outputTokens: Math.max(0, Math.trunc(result.usage?.output_tokens ?? 0)),
-      },
-    };
-  } catch (error) {
-    if (error instanceof HttpError) throw error;
-    throw new HttpError(503, 'Your AI companion is taking a pause. Please try again later.', 'AI_PROVIDER_UNAVAILABLE');
-  } finally {
-    clearTimeout(timeout);
-  }
-};
-
-let provider: AIProvider = anthropicProvider;
-export function setAIProviderForTests(next: AIProvider | null) {
-  provider = next ?? anthropicProvider;
-}
-
-export async function askAI(system: string, message: string, maxTokens: number) {
-  return provider(system, message, maxTokens);
 }
 
 export function parseAIJson(text: string): unknown {
@@ -104,32 +52,12 @@ export function looksLikeDistress(values: string[]) {
   return /\b(?:suicid(?:e|al)|kill myself|end my life|want to die|self[- ]?harm|hurt myself|can't go on|cannot go on)\b|ಸಾಯಬೇಕು|ಆತ್ಮಹತ್ಯೆ|ಜೀವ ಬಿಡ|ಬದುಕಲು ಇಷ್ಟವಿಲ್ಲ|ನನ್ನನ್ನು ನಾನೇ ನೋಯಿಸ/u.test(text);
 }
 
-async function reserveUsage(userId: string, timezone: string, feature: Feature) {
-  const today = todayInTimezone(timezone);
-  const bounds = localDayBounds(today, timezone);
-  return prisma.$transaction(async (tx) => {
-    // Serializing by user row keeps simultaneous requests from exceeding the daily quota.
-    await tx.$queryRaw`SELECT "id" FROM "User" WHERE "id" = ${userId} FOR UPDATE`;
-    const count = await tx.aIUsage.count({ where: { userId, createdAt: { gte: bounds.start, lt: bounds.end } } });
-    if (count >= DAILY_QUOTA) throw new HttpError(429, 'You have reached today’s AI companion limit. You can try again tomorrow.', 'AI_DAILY_QUOTA');
-    return tx.aIUsage.create({ data: { userId, feature } });
-  }, { isolationLevel: 'Serializable' });
-}
-
 async function callAI(userId: string, timezone: string, feature: Feature, system: string, message: string, maxTokens: number) {
-  const usageRow = await reserveUsage(userId, timezone, feature);
-  try {
-    const response = await askAI(system, message, maxTokens);
-    await prisma.aIUsage.update({ where: { id: usageRow.id }, data: response.usage });
-    return response.text;
-  } catch (error) {
-    await prisma.aIUsage.delete({ where: { id: usageRow.id } }).catch(() => undefined);
-    throw error;
-  }
+  return (await runAIRequest(userId, timezone, feature, system, message, maxTokens)).text;
 }
 
 async function assertFeature(userId: string, feature: Feature) {
-  if (!providerConfigured() || !featureEnv[feature]) throw new HttpError(404, 'This AI feature is not available.', 'AI_UNAVAILABLE');
+  if (!hasAIProvider() || !featureEnv[feature]) throw new HttpError(404, 'This AI feature is not available.', 'AI_UNAVAILABLE');
   const settings = await getSettings(userId);
   if (!settings?.aiCompanionEnabled || !settings[userFeatureSetting[feature]]) {
     throw new HttpError(403, 'Turn on this AI feature in Settings to use it.', 'AI_OPT_IN_REQUIRED');
@@ -146,6 +74,9 @@ function cacheSet(key: string, value: string) {
   if (cache.size >= 500) cache.delete(cache.keys().next().value as string);
   cache.set(key, value);
 }
+export function clearAICache(userId: string) {
+  for (const key of cache.keys()) if (key.startsWith(`${userId}:`)) cache.delete(key);
+}
 
 export const aiRouter = Router();
 
@@ -158,11 +89,11 @@ aiRouter.get('/status', async (req, res) => {
   const featuresAvailable = { ...featureEnv };
   const features = Object.fromEntries((Object.keys(featureEnv) as Feature[]).map((feature) => [
     feature,
-    Boolean(providerConfigured() && featureEnv[feature] && settings?.aiCompanionEnabled && settings[userFeatureSetting[feature]]),
+    Boolean(hasAIProvider() && featureEnv[feature] && settings?.aiCompanionEnabled && settings[userFeatureSetting[feature]]),
   ])) as Record<Feature, boolean>;
   res.json({ data: {
-    available: providerConfigured() && Object.values(featureEnv).some(Boolean),
-    configured: providerConfigured(),
+    available: hasAIProvider() && Object.values(featureEnv).some(Boolean),
+    configured: hasAIProvider(),
     companionEnabled: settings?.aiCompanionEnabled ?? false,
     featuresAvailable,
     features,
@@ -181,7 +112,7 @@ aiRouter.delete('/data', async (req, res) => {
       update: { aiCompanionEnabled: false, aiMorningBriefingEnabled: false, aiQuickAddEnabled: false, aiComebackPlanEnabled: false, aiWeeklyReflectionEnabled: false },
     }),
   ]);
-  for (const key of cache.keys()) if (key.startsWith(`${user.id}:`)) cache.delete(key);
+  clearAICache(user.id);
   res.status(204).end();
 });
 

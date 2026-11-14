@@ -4,6 +4,7 @@ const localDbUrl = process.env.TEST_DATABASE_URL || 'postgresql://namma:namma_lo
 
 export default defineConfig({
   test: {
+    fileParallelism: false,
     include: ['tests/**/*.test.ts'],
     exclude: ['dist/**', 'node_modules/**'],
     env: {

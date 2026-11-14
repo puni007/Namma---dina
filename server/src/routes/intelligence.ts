@@ -4,7 +4,7 @@ import { prisma } from '../lib/prisma.js';
 import { localDayBounds, parseDateOnly, todayInTimezone } from '../lib/dates.js';
 import { HttpError } from '../lib/errors.js';
 import { requireUser } from '../middleware/auth.js';
-import { comebackScore, scoreExplanation } from '../services/score.js';
+import { comebackScoreFromRecords } from '../services/score.js';
 import { hasScheduleConflict, suggestSlots, type WorkItem } from '../services/scheduling.js';
 import { completionPercent, habitTargetMet, isHabitDue, weekStartDate } from '../services/habits.js';
 
@@ -72,29 +72,8 @@ insightsRouter.get('/', async (req, res) => {
   const dueTasks = tasks.filter((task) => task.dueAt);
   const completed = dueTasks.filter((task) => task.status === 'COMPLETED').length;
   const planned = dueTasks.length;
-  const last7 = dates.slice(-7);
-  const last7Logs = habitLogs.filter((log) => log.date >= parseDateOnly(last7[0]!) && log.date <= parseDateOnly(today));
-  let loggedHabits = 0;
-  let scheduledHabitOpportunities = 0;
-  for (const habit of habits) {
-    if (habit.frequency === 'WEEKLY') {
-      scheduledHabitOpportunities += 1;
-      if (last7Logs.filter((log) => log.habitId === habit.id).reduce((sum, log) => sum + log.value, 0) >= habit.targetValue) loggedHabits += 1;
-      continue;
-    }
-    for (const day of last7) {
-      if (habit.frequency === 'CUSTOM' && !habit.daysOfWeek.includes(parseDateOnly(day).getUTCDay())) continue;
-      scheduledHabitOpportunities += 1;
-      if (last7Logs.some((log) => log.habitId === habit.id && log.date.getTime() === parseDateOnly(day).getTime() && habitTargetMet(log.value, habit.targetValue))) loggedHabits += 1;
-    }
-  }
-  const recoveryEvents = Math.min(2, blocks.filter((block) => block.taskId && tasks.some((task) => task.id === block.taskId && task.status === 'COMPLETED' && task.completedAt && task.completedAt > block.endsAt && task.completedAt.getTime() - block.endsAt.getTime() <= 14 * 86400000)).length);
-  const activeDays = new Set([
-    ...tasks.filter((t) => t.status === 'COMPLETED' && t.completedAt && t.completedAt >= start && t.completedAt < end && todayInTimezone(user.timezone, t.completedAt) >= last7[0]!).map((t) => todayInTimezone(user.timezone, t.completedAt!)),
-    ...last7Logs.filter((l) => l.value > 0).map((l) => l.date.toISOString().slice(0, 10)),
-  ]).size;
-  const hasData = tasks.length > 0 || habitLogs.length > 0;
-  const score = hasData ? comebackScore({ completionRate: planned ? completed / planned : 0, habitRate: scheduledHabitOpportunities ? Math.min(1, loggedHabits / scheduledHabitOpportunities) : 0, recoveryEvents, activeDays: Math.min(7, activeDays) }) : null;
+  const scoreSummary = comebackScoreFromRecords({ tasks, habitLogs, habits, missedBlocks: blocks, today, timezone: user.timezone });
+  const { value: score, recoveryEvents, activeDays, loggedHabits } = scoreSummary;
   const postponedCounts = new Map<string, number>();
   for (const event of events) { const title = event.task.title; postponedCounts.set(title, (postponedCounts.get(title) ?? 0) + 1); }
   const mostPostponed = [...postponedCounts.entries()].sort((a, b) => b[1] - a[1])[0] ?? null;
@@ -117,7 +96,7 @@ insightsRouter.get('/', async (req, res) => {
   const totalPlannedMinutes = dueTasks.reduce((sum, task) => sum + task.scheduledMinutes, 0);
   const totalActualMinutes = dueTasks.reduce((sum, task) => sum + (task.actualMinutes ?? 0), 0);
   const averageSleepMinutes = sleeps.length ? Math.round(sleeps.reduce((sum, log) => sum + log.durationMins, 0) / sleeps.length) : null;
-  res.json({ data: { score: { value: score, explanation: scoreExplanation, recoveryEvents, activeDays: Math.min(7, activeDays) }, trend, summary: { tasksCompleted: completed, tasksPlanned: planned, totalPlannedMinutes, totalActualMinutes, habitCompletions: loggedHabits, screenMinutesLast7Days: totalScreen, breathingSessionsLast7Days: breathingSessions.length, breathingMinutesLast7Days: breathingSessions.reduce((total, session) => total + session.durationMinutes, 0), screenGoalMinutes: settings?.dailyScreenGoalMinutes ?? 180, foodSpendCents: totalFood, deliveryCount, repeatedFood: repeatedFood ? { name: repeatedFood[0], times: repeatedFood[1] } : null, monthlyFoodBudgetCents: settings?.monthlyFoodBudgetCents ?? 0, averageSleepMinutes, mostPostponed: mostPostponed ? { title: mostPostponed[0], times: mostPostponed[1] } : null, productiveHour, productiveHourExplanation: productiveHour === null ? 'Not enough completed tasks with scheduled times to calculate a reliable pattern. Three or more are required.' : 'The local scheduled hour with the most completed tasks in the last 14 days.' } } });
+  res.json({ data: { score: { value: score, explanation: scoreSummary.explanation, recoveryEvents, activeDays }, trend, summary: { tasksCompleted: completed, tasksPlanned: planned, totalPlannedMinutes, totalActualMinutes, habitCompletions: loggedHabits, screenMinutesLast7Days: totalScreen, breathingSessionsLast7Days: breathingSessions.length, breathingMinutesLast7Days: breathingSessions.reduce((total, session) => total + session.durationMinutes, 0), screenGoalMinutes: settings?.dailyScreenGoalMinutes ?? 180, foodSpendCents: totalFood, deliveryCount, repeatedFood: repeatedFood ? { name: repeatedFood[0], times: repeatedFood[1] } : null, monthlyFoodBudgetCents: settings?.monthlyFoodBudgetCents ?? 0, averageSleepMinutes, mostPostponed: mostPostponed ? { title: mostPostponed[0], times: mostPostponed[1] } : null, productiveHour, productiveHourExplanation: productiveHour === null ? 'Not enough completed tasks with scheduled times to calculate a reliable pattern. Three or more are required.' : 'The local scheduled hour with the most completed tasks in the last 14 days.' } } });
 });
 
 export const rescheduleRouter = Router();

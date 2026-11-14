@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { askAI, looksLikeDistress, parseAIJson, setAIProviderForTests, validateQuickAddResponse } from '../src/routes/ai.js';
+import { looksLikeDistress, parseAIJson, validateQuickAddResponse } from '../src/routes/ai.js';
+import { requestAI, setAIProviderForTests } from '../src/services/ai/provider.js';
 
 afterEach(() => setAIProviderForTests(null));
 
@@ -7,7 +8,7 @@ describe('AI companion safeguards', () => {
   it('uses an injected provider in tests without making a network request', async () => {
     const fakeProvider = vi.fn(async () => ({ text: 'A calm note.', usage: { inputTokens: 12, outputTokens: 4 } }));
     setAIProviderForTests(fakeProvider);
-    await expect(askAI('system rules', 'untrusted text', 100)).resolves.toEqual({
+    await expect(requestAI('system rules', 'untrusted text', 100)).resolves.toEqual({
       text: 'A calm note.', usage: { inputTokens: 12, outputTokens: 4 },
     });
     expect(fakeProvider).toHaveBeenCalledWith('system rules', 'untrusted text', 100);

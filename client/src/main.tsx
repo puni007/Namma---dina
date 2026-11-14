@@ -7,6 +7,7 @@ import { initAuthTokens } from './lib/api';
 import './styles.css';
 import './aurora.css';
 import './ai.css';
+import './mitra.css';
 
 void initAuthTokens();
 

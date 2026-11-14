@@ -53,6 +53,7 @@ const ForgotPage = lazy(() => import('./pages/AuthPages').then((module) => ({ de
 const ResetPage = lazy(() => import('./pages/AuthPages').then((module) => ({ default: module.ResetPage })));
 const WellnessPage = lazy(() => import('./pages/WellnessPage').then((module) => ({ default: module.WellnessPage })));
 const BreathePage = lazy(() => import('./pages/BreathePage').then((module) => ({ default: module.BreathePage })));
+const MitraWidget = lazy(() => import('./components/MitraWidget').then((module) => ({ default: module.MitraWidget })));
 
 function buildNav(t: TranslationDict) {
   return [
@@ -157,6 +158,7 @@ function AppRoot() {
           </Routes>
         </Suspense>
       </div>
+      {user && location.pathname.startsWith('/app') && <Suspense fallback={null}><MitraWidget/></Suspense>}
       {!isOnline && <OfflineBanner />}
     </>
   );

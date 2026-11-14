@@ -38,6 +38,7 @@ const schema = z.object({
   AI_QUICK_ADD_ENABLED: featureFlag,
   AI_COMEBACK_PLAN_ENABLED: featureFlag,
   AI_WEEKLY_REFLECTION_ENABLED: featureFlag,
+  AI_MITRA_ENABLED: featureFlag,
 });
 
 export const env = schema.parse(process.env);

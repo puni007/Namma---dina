@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ArrowLeft, Check, Clock3, Heart, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Capacitor } from '@capacitor/core';
 import { AuroraParticles } from '../components/AuroraParticles';
 import { Button, Card, Field, PageHeading } from '../components/ui';
@@ -49,6 +49,8 @@ function getPhase(elapsedSeconds: number, inhale: number, hold: number, exhale: 
 }
 
 export function BreathePage() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [durationMinutes, setDurationMinutes] = useState<1 | 3 | 5>(1);
   const [inhaleSeconds, setInhaleSeconds] = useState(4);
@@ -111,14 +113,23 @@ export function BreathePage() {
     setPhase('ready');
   };
 
-  const start = () => {
+  const startSession = useCallback((minutes = durationMinutes) => {
     const nextStartedAt = new Date().toISOString();
     finishedSession.current = null;
+    setDurationMinutes(minutes);
     setStartedAt(nextStartedAt);
-    setRemaining(durationMinutes * 60);
+    setRemaining(minutes * 60);
     setPhase('inhale');
     setRunning(true);
-  };
+  }, [durationMinutes]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('start') !== '1') return;
+    const requested = Number(params.get('minutes'));
+    startSession(([1, 3, 5] as number[]).includes(requested) ? requested as 1 | 3 | 5 : 1);
+    navigate(location.pathname, { replace: true });
+  }, [location.pathname, location.search, navigate, startSession]);
 
   const reset = () => {
     setRunning(false);
@@ -146,10 +157,10 @@ export function BreathePage() {
         <p className="breath-session-note">{phase === 'complete' ? 'Your pause has been recorded.' : 'Nothing to get right. Follow the gentle cue if it feels comfortable.'}</p>
         {recordSession.isError && <p className="inline-error" role="alert">The session ended, but its log could not be saved. Please try saving again.</p>}
         <div className="breath-actions">
-          {!running && phase !== 'complete' && <Button onClick={start} disabled={recordSession.isPending}>Begin {durationMinutes} minute{durationMinutes === 1 ? '' : 's'}</Button>}
+          {!running && phase !== 'complete' && <Button onClick={() => startSession()} disabled={recordSession.isPending}>Begin {durationMinutes} minute{durationMinutes === 1 ? '' : 's'}</Button>}
           {running && <Button variant="outline" onClick={reset}>End session</Button>}
           {phase === 'complete' && recordSession.isError && sessionInput && <Button onClick={() => saveSession(sessionInput)} disabled={recordSession.isPending}>{recordSession.isPending ? 'Saving…' : 'Save session'}</Button>}
-          {phase === 'complete' && !recordSession.isError && !recordSession.isPending && <Button variant="outline" onClick={start}>Take another pause</Button>}
+          {phase === 'complete' && !recordSession.isError && !recordSession.isPending && <Button variant="outline" onClick={() => startSession()}>Take another pause</Button>}
         </div>
         {phase === 'complete' && <div className="breath-completion-note"><Sparkles size={15}/><span>This time belongs to you, with no streak or score attached.</span></div>}
       </Card>

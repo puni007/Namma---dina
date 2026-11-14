@@ -16,6 +16,7 @@ Namma Dina is a personal day-management and lifestyle app for planning, routines
 - **Habits & Wellbeing:** Daily/weekly/custom habits with 7-day visual rhythm indicators, water tracking, sleep logs, workouts, mood/energy rating, manual digital wellbeing tracking, food spending, private daily reflections, and completed breathing sessions.
 - **Aurora motion:** User-selectable Full/Calm/Off motion, reduced-motion support, time-of-day tint, and a lightweight ambient particle canvas that pauses in the background.
 - **Optional AI companion:** Server-only Anthropic integration for morning briefings, confirmed quick-add previews, deterministic comeback explanations, and weekly reflections. Every feature is off by default; see [AI companion privacy and configuration](docs/AI.md).
+- **Mitra personal guide:** Original animated lantern mascot, bilingual navigation and searchable offline help, a guided app tour, optional private 30-day chat history, confirmation-first actions with undo, and quiet in-app nudges. See [Mitra guide and data controls](docs/MITRA.md).
 - **Native Android Experience:**
   - Hardware back-button routing via `@capacitor/app`.
   - Polished status-bar theming and splash screen via `@capacitor/status-bar` and `@capacitor/splash-screen`.
