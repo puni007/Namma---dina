@@ -60,3 +60,53 @@ body{background:#01060a}
 @keyframes spark-tilt{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(12deg) scale(1.18)}}
 @media(max-width:700px){.aurora-curtain{filter:blur(24px)}.aurora-curtain-one{opacity:.62}.aurora-curtain-two{opacity:.43}.aurora-curtain-three{opacity:.26;filter:blur(32px)}.aurora-stars{opacity:.22}.aurora-cursor{display:none}.dashboard-grid>.glass-card:hover{transform:none}.priority-row:hover,.today-habit:hover,.habit-card:hover,.schedule-event:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.aurora-curtain,.aurora-stars,.aurora-cursor,.page-route>*,.progress-spark,.comeback-icon,.topbar-pulse,.bottom-link.active::before,.dashboard-heading .greeting-spark{animation:none!important;will-change:auto}.aurora-curtain-one{transform:rotate(-9deg) skewY(-6deg)}.aurora-curtain-two{transform:rotate(-11deg) skewY(-8deg)}.aurora-curtain-three{transform:rotate(-10deg) skewY(-6deg)}.dashboard-grid>.glass-card,.large-ring,.large-ring .ring-value,.priority-row,.today-habit,.habit-card,.schedule-event,.task-check,.habit-check,.bottom-link,.icon-button,.nav-link{transition:none!important}}
+
+/* Shared Aurora tokens and CSS-only motion variants. */
+:root{
+  --color-midnight:#01070a;
+  --color-emerald:#45d99f;
+  --color-aurora:#7ef2bf;
+  --color-mint:#a2ffd2;
+  --color-teal:#36cdb6;
+  --color-cyan:#80d9d5;
+  --gradient-aurora:linear-gradient(120deg,var(--color-emerald),var(--color-teal) 58%,var(--color-cyan));
+  --glow-aurora:0 0 24px rgba(69,217,159,.18);
+  --glow-soft:0 18px 54px rgba(0,0,0,.26);
+  --radius-card:18px;
+  --radius-control:10px;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --motion-fast:150ms;
+  --motion-base:280ms;
+  --motion-slow:600ms;
+  --ease-standard:cubic-bezier(.2,.7,.2,1);
+  --ease-enter:cubic-bezier(.18,.72,.22,1);
+  --time-glow:rgba(59,205,160,.085);
+  --mint:var(--color-aurora);
+  --green:var(--color-emerald);
+  --sky:var(--color-cyan);
+  --night:var(--color-midnight);
+}
+html[data-time-of-day='dawn']{--time-glow:rgba(98,227,168,.09)}
+html[data-time-of-day='day']{--time-glow:rgba(51,196,173,.07)}
+html[data-time-of-day='dusk']{--time-glow:rgba(35,158,151,.09)}
+html[data-time-of-day='night']{--time-glow:rgba(38,126,160,.075)}
+.aurora-atmosphere::before{position:absolute;inset:0;background:radial-gradient(ellipse 72% 46% at 52% 21%,var(--time-glow),transparent 74%);content:'';transition:background var(--motion-slow) var(--ease-standard)}
+.motion-fade-up{animation:page-rise var(--motion-slow) var(--ease-enter) both}
+.motion-scale-in{animation:scale-in var(--motion-base) var(--ease-enter) both}
+.motion-stagger-children>*{animation:page-rise var(--motion-slow) var(--ease-enter) both}
+.motion-stagger-children>*:nth-child(2){animation-delay:60ms}
+.motion-stagger-children>*:nth-child(3){animation-delay:120ms}
+.motion-stagger-children>*:nth-child(4){animation-delay:180ms}
+.motion-shared-element{transition:transform var(--motion-base) var(--ease-standard),border-radius var(--motion-base) var(--ease-standard),box-shadow var(--motion-base) var(--ease-standard)}
+@keyframes scale-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+html[data-motion='calm'] .aurora-curtain,html[data-motion='calm'] .aurora-stars,html[data-motion='calm'] .aurora-cursor,html[data-motion='calm'] .progress-spark,html[data-motion='calm'] .comeback-icon,html[data-motion='calm'] .topbar-pulse{animation:none!important}
+html[data-motion='calm'] .page-route>*{animation-duration:var(--motion-base)}
+html[data-motion='off'] *,html[data-motion='off'] *::before,html[data-motion='off'] *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+html[data-long-form='true'] .aurora-curtain,html[data-long-form='true'] .aurora-stars,html[data-long-form='true'] .aurora-cursor{animation:none!important}
+html:lang(kn) body{line-height:1.65}
+@media(prefers-reduced-motion:reduce){.aurora-atmosphere::before{transition:none}.motion-fade-up,.motion-scale-in,.motion-stagger-children>*{animation:none!important}}

@@ -28,6 +28,7 @@ import { Button, Field, Loading, OfflineBanner, SelectInput, TextInput } from '.
 import { useNativeLifecycle, useNetworkStatus } from './lib/native';
 import { setPreferredTimezone, todayKey } from './lib/format';
 import { useLanguage, type TranslationDict } from './lib/i18n';
+import { getTimeOfDay, resolveMotionMode } from './lib/motion';
 import {
   AccountPage,
   CategoriesPage,
@@ -79,8 +80,33 @@ function useCurrentUser() {
 
 function AppRoot() {
   useNativeLifecycle();
+  const location = useLocation();
   const isOnline = useNetworkStatus();
   const userQuery = useCurrentUser();
+  const savedMotionMode = userQuery.data?.settings?.motionMode;
+  const timezone = userQuery.data?.timezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone;
+  useEffect(() => {
+    const root = document.documentElement;
+    const preference = savedMotionMode ?? 'auto';
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const device = navigator as Navigator & { deviceMemory?: number };
+    const applyMotion = () => {
+      root.dataset.motion = resolveMotionMode(preference, media.matches, device);
+    };
+    const applyTime = () => {
+      root.dataset.timeOfDay = getTimeOfDay(timezone);
+    };
+    const longForm = ['/onboarding', '/app/settings', '/app/account', '/app/reflection'].includes(location.pathname);
+    root.dataset.longForm = String(longForm);
+    applyMotion();
+    applyTime();
+    media.addEventListener('change', applyMotion);
+    const clock = window.setInterval(applyTime, 60_000);
+    return () => {
+      media.removeEventListener('change', applyMotion);
+      window.clearInterval(clock);
+    };
+  }, [location.pathname, savedMotionMode, timezone]);
   if (userQuery.isLoading) {
     return (
       <>

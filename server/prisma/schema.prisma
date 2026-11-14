@@ -93,6 +93,7 @@ model UserSettings {
   dailyScreenGoalMinutes  Int      @default(180)
   monthlyFoodBudgetCents  Int      @default(0)
   browserNotifications    Boolean  @default(false)
+  motionMode              String   @default("auto")
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
   user                    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
