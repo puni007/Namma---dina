@@ -78,6 +78,7 @@ model User {
   pushSubscriptions PushSubscription[]
   passwordResets  PasswordResetToken[]
   breathingSessions BreathingSession[]
+  aiUsage         AIUsage[]
 
   @@index([createdAt])
 }
@@ -95,6 +96,11 @@ model UserSettings {
   monthlyFoodBudgetCents  Int      @default(0)
   browserNotifications    Boolean  @default(false)
   motionMode              String   @default("auto")
+  aiCompanionEnabled      Boolean  @default(false)
+  aiMorningBriefingEnabled Boolean @default(false)
+  aiQuickAddEnabled       Boolean  @default(false)
+  aiComebackPlanEnabled   Boolean  @default(false)
+  aiWeeklyReflectionEnabled Boolean @default(false)
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
   user                    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -312,6 +318,18 @@ model BreathingSession {
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, date])
+}
+
+model AIUsage {
+  id           String   @id @default(cuid())
+  userId       String
+  feature      String
+  inputTokens  Int      @default(0)
+  outputTokens Int      @default(0)
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
 }
 
 model ScreenTimeLog {

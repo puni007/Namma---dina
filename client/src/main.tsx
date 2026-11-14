@@ -6,6 +6,7 @@ import App from './App';
 import { initAuthTokens } from './lib/api';
 import './styles.css';
 import './aurora.css';
+import './ai.css';
 
 void initAuthTokens();
 

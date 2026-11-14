@@ -5,6 +5,7 @@ import { getData, sendData, type Task } from '../lib/api';
 import { Badge, Button, Card, ConfirmDialog, EmptyState, Field, Loading, Modal, PageHeading, SelectInput, TextArea, TextInput } from '../components/ui';
 import { formatTime } from '../lib/format';
 import { dateTimeFromLocal, dateTimeLocalInput } from '../lib/format';
+import { AIQuickAddCard } from '../components/AICompanion';
 
 type EditTask = Partial<Task> & { id?: string };
 const priorities = ['LOW', 'MEDIUM', 'HIGH', 'URGENT'];
@@ -64,6 +65,7 @@ export function TasksPage() {
 
   return <><PageHeading eyebrow="MAKE ROOM FOR WHAT MATTERS" title="Tasks" subtitle="A clear list, with room to change your mind." action={<Button onClick={() => setEditing(null)}><Plus size={16} /> New task</Button>} />
     <Card className="quick-add-card"><div className="quick-add-icon"><Plus size={17} /></div><form onSubmit={quickSubmit} className="quick-add-form"><TextInput value={title} onChange={(e) => setTitle(e.target.value)} placeholder="What would you like to make space for?" aria-label="Quick add a task" /><SelectInput value={priority} onChange={(e) => setPriority(e.target.value)} aria-label="Task priority">{priorities.map((item) => <option key={item}>{item}</option>)}</SelectInput><Button disabled={!title.trim() || addQuick.isPending}>{addQuick.isPending ? 'Adding…' : 'Add task'}</Button></form></Card>
+    <AIQuickAddCard onSaved={() => { void queryClient.invalidateQueries({ queryKey: ['tasks'] }); void queryClient.invalidateQueries({ queryKey: ['habits'] }); void queryClient.invalidateQueries({ queryKey: ['overview'] }); }} />
     {addQuick.isError && <p className="inline-error">{addQuick.error instanceof Error ? addQuick.error.message : 'Could not add this task.'}</p>}
     <Card className="task-card">
       <div className="task-toolbar">

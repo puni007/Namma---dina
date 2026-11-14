@@ -13,7 +13,9 @@ Namma Dina is a personal day-management and lifestyle app for planning, routines
   - **Android Native:** Short-lived JWT access tokens with long-lived refresh tokens stored securely via `@capacitor/preferences`, with automatic 401 interception and token refresh.
 - **Daily Command Center:** Localized greeting (English / ಕನ್ನಡ), task and habit progress, schedule blocks, hydration, screen-time summary, and Comeback Score.
 - **Task Management & Scheduling:** Prioritized tasks, deadlines, recurring schedules, categories, bidirectional sync between tasks and calendar blocks, and smart gap-filling rescheduling.
-- **Habits & Wellbeing:** Daily/weekly/custom habits with 7-day visual rhythm indicators, water tracking, sleep logs, workouts, mood/energy rating, manual digital wellbeing tracking, food spending, and private daily reflections.
+- **Habits & Wellbeing:** Daily/weekly/custom habits with 7-day visual rhythm indicators, water tracking, sleep logs, workouts, mood/energy rating, manual digital wellbeing tracking, food spending, private daily reflections, and completed breathing sessions.
+- **Aurora motion:** User-selectable Full/Calm/Off motion, reduced-motion support, time-of-day tint, and a lightweight ambient particle canvas that pauses in the background.
+- **Optional AI companion:** Server-only Anthropic integration for morning briefings, confirmed quick-add previews, deterministic comeback explanations, and weekly reflections. Every feature is off by default; see [AI companion privacy and configuration](docs/AI.md).
 - **Native Android Experience:**
   - Hardware back-button routing via `@capacitor/app`.
   - Polished status-bar theming and splash screen via `@capacitor/status-bar` and `@capacitor/splash-screen`.

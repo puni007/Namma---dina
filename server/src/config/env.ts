@@ -2,6 +2,9 @@ import path from 'node:path';
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
+const featureFlag = z.enum(['true', 'false']).default('false').transform((value) => value === 'true');
+const optionalTrimmed = z.string().optional().transform((value) => value?.trim() || undefined);
+
 dotenv.config({ path: path.resolve(process.cwd(), '../.env.local') });
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
@@ -29,6 +32,12 @@ const schema = z.object({
   SMTP_USER: z.string().optional(),
   SMTP_PASSWORD: z.string().optional(),
   SMTP_FROM: z.string().default('Namma Dina <noreply@localhost>'),
+  ANTHROPIC_API_KEY: optionalTrimmed,
+  AI_MODEL: optionalTrimmed,
+  AI_MORNING_BRIEFING_ENABLED: featureFlag,
+  AI_QUICK_ADD_ENABLED: featureFlag,
+  AI_COMEBACK_PLAN_ENABLED: featureFlag,
+  AI_WEEKLY_REFLECTION_ENABLED: featureFlag,
 });
 
 export const env = schema.parse(process.env);

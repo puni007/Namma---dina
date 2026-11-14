@@ -21,6 +21,19 @@ Successful responses use `{ "data": value }`; resource collections may include `
 | GET | `/users/export` | Download JSON of the owner’s records |
 | DELETE | `/users/account` | Delete the account after password confirmation |
 
+## Optional AI companion
+
+AI routes require a signed-in user, server-side Anthropic configuration, a deployment feature flag, and the user’s opt-in for the companion and feature. See [AI companion data handling](AI.md) for exact fields, quotas, and retention.
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/ai/status` | Check server availability, feature opt-ins, and whether usage data exists |
+| POST | `/ai/morning-briefing` | Prepare a cached, bilingual summary for the local day; body `{ "language": "en" | "kn" }` |
+| POST | `/ai/quick-add` | Return a validated task/habit preview; body `{ "text": "...", "language": "en" | "kn" }`; does not create records |
+| POST | `/ai/comeback-plan` | Explain 1–3 owner-verified deterministic suggestions; body `{ "ids": ["..."], "language": "en" | "kn" }` |
+| POST | `/ai/weekly-reflection` | Summarize the last seven days; body `{ "language": "en" | "kn" }` |
+| DELETE | `/ai/data` | Delete token-count rows and briefing cache and turn off AI opt-ins |
+
 ## Daily planning
 
 | Method | Path | Purpose |

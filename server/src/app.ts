@@ -14,6 +14,7 @@ import { categoryRouter, foodRouter, habitLogRouter, habitRouter, notificationRo
 import { insightsRouter, overviewRouter, rescheduleRouter } from './routes/intelligence.js';
 import { pushRouter } from './routes/push.js';
 import { breathingRouter } from './routes/breathing.js';
+import { aiRouter } from './routes/ai.js';
 
 export const app = express();
 app.disable('x-powered-by');
@@ -63,9 +64,11 @@ app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, limit: 300, standardHeader
 app.use('/api', verifyCsrf);
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 25, standardHeaders: 'draft-8', legacyHeaders: false, message: { error: { code: 'RATE_LIMITED', message: 'Too many attempts. Please wait a little and try again.' } } });
 app.use('/api/auth', authLimiter, authRouter);
+app.use('/api/ai', rateLimit({ windowMs: 15 * 60 * 1000, limit: 12, standardHeaders: 'draft-8', legacyHeaders: false, message: { error: { code: 'AI_RATE_LIMITED', message: 'Please take a short pause before asking your AI companion again.' } } }));
 
 // The auth endpoints above remain public; all personal data routes require a valid session or Bearer token.
 app.use('/api', authenticate);
+app.use('/api/ai', aiRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/overview', overviewRouter);
 app.use('/api/tasks', taskRouter);
