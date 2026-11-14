@@ -177,7 +177,7 @@ function AppShell({ user }: { user: User }) {
       await sendData('/auth/logout', 'POST').catch(() => {});
       await setAuthTokens(null);
     },
-    onSuccess: () => {
+    onSettled: () => {
       queryClient.clear();
       navigate('/login');
     },
@@ -229,6 +229,7 @@ function AppShell({ user }: { user: User }) {
               {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
             </button>
           </div>
+          <button className="nav-link" onClick={() => logout.mutate()}><LogOut size={16} /><span>Sign out</span></button>
         </div>
       </aside>
 
@@ -257,6 +258,7 @@ function AppShell({ user }: { user: User }) {
             <button className="avatar avatar-small" onClick={() => navigate('/app/settings')} aria-label="Open settings">
               {user.displayName.slice(0, 1).toUpperCase()}
             </button>
+            <button className="icon-button topbar-signout" onClick={() => logout.mutate()} aria-label="Sign out" title="Sign out"><LogOut size={16} /></button>
           </div>
         </header>
 
