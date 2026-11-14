@@ -109,4 +109,56 @@ html[data-motion='calm'] .page-route>*{animation-duration:var(--motion-base)}
 html[data-motion='off'] *,html[data-motion='off'] *::before,html[data-motion='off'] *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 html[data-long-form='true'] .aurora-curtain,html[data-long-form='true'] .aurora-stars,html[data-long-form='true'] .aurora-cursor{animation:none!important}
 html:lang(kn) body{line-height:1.65}
+.aurora-particles{position:fixed;z-index:0;inset:0;width:100%;height:100%;opacity:.22;pointer-events:none}
+.dashboard-heading{position:relative;isolation:isolate}
+.dashboard-heading>*:not(.aurora-particles){position:relative;z-index:1}
+.dashboard-heading-particles{position:absolute;inset:-18px -24px;width:calc(100% + 48px);height:calc(100% + 36px);opacity:.68}
+.breathe-page{position:relative;min-height:calc(100vh - 155px);padding-bottom:calc(30px + env(safe-area-inset-bottom))}
+.breathe-page>.page-heading,.breathe-layout{position:relative;z-index:1}
+.breathe-particles{position:absolute;inset:-16vh -10vw;z-index:0;width:calc(100% + 20vw);height:120vh;opacity:.9}
+.breathe-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(290px,.95fr);align-items:start;gap:16px}
+.breath-session-card{position:relative;display:flex;min-height:568px;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:28px 24px;text-align:center;background:radial-gradient(ellipse at 50% 35%,rgba(65,205,157,.08),transparent 55%),linear-gradient(145deg,rgba(8,25,27,.76),rgba(4,17,20,.77))}
+.breath-icon{display:grid;width:38px;height:38px;place-items:center;margin-bottom:10px;border:1px solid rgba(126,242,191,.18);border-radius:13px;color:var(--mint);background:rgba(126,242,191,.07)}
+.breath-session-card>.eyebrow{margin:0;color:#92cdb6;font-size:9px;letter-spacing:.13em}
+.breath-orbit{position:relative;display:grid;width:205px;height:205px;place-items:center;margin:14px 0 3px;border:1px solid rgba(126,242,191,.13);border-radius:50%;background:radial-gradient(circle,rgba(54,205,182,.11),rgba(54,205,182,.025) 48%,transparent 72%);box-shadow:inset 0 0 42px rgba(69,217,159,.045)}
+.breath-orbit::before,.breath-orbit::after{position:absolute;inset:14px;border:1px solid rgba(126,242,191,.13);border-radius:50%;content:''}
+.breath-orbit::after{inset:31px;border-color:rgba(128,217,213,.13)}
+.breath-orbit>span{width:68px;height:68px;border:1px solid rgba(162,255,210,.32);border-radius:50%;background:radial-gradient(circle,rgba(162,255,210,.23),rgba(54,205,182,.08) 62%,transparent 75%);box-shadow:0 0 34px rgba(69,217,159,.13);transition:transform var(--motion-base) var(--ease-standard),box-shadow var(--motion-base) var(--ease-standard)}
+.breath-orbit.phase-inhale>span,.breath-orbit.phase-hold>span{transform:scale(1.14);box-shadow:0 0 48px rgba(69,217,159,.23)}
+.breath-orbit.phase-exhale>span{transform:scale(.92)}
+.breath-orbit.phase-complete{border-color:rgba(126,242,191,.38);box-shadow:0 0 36px rgba(69,217,159,.12),inset 0 0 42px rgba(69,217,159,.09)}
+.breath-cue h2{display:flex;min-height:31px;align-items:center;justify-content:center;gap:8px;margin:8px 0 2px;color:#eefff7;font-size:20px;font-weight:560;letter-spacing:-.02em}
+.breath-cue p{min-height:28px;margin:0;color:#b1e1d0;font-family:'Noto Sans Kannada','Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7}
+.breath-timer{margin:12px 0 0;color:#d8fff0;font-variant-numeric:tabular-nums;font-size:25px;font-weight:600;letter-spacing:.025em}
+.breath-session-note{max-width:360px;margin:8px 0 17px;color:#97a99f;font-size:11px;line-height:1.6}
+.breath-actions{display:flex;min-height:44px;justify-content:center;gap:9px}
+.breath-completion-note{display:flex;align-items:center;gap:7px;margin-top:14px;color:#afe8cd;font-size:11px;animation:soft-enter var(--motion-base) var(--ease-enter) both}
+.breath-settings-column{display:grid;gap:15px}
+.breath-options-card,.breath-history-card{padding:19px}
+.breath-options-card .section-head,.breath-history-card .section-head{margin-bottom:15px}
+.breath-options-card .section-head h2,.breath-history-card .section-head h2{font-size:16px}
+.breath-duration-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:17px}
+.breath-duration-options button{display:flex;min-height:62px;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid var(--line);border-radius:12px;color:#b7c9be;background:rgba(4,17,18,.4);cursor:pointer;transition:background var(--motion-base),border-color var(--motion-base),transform var(--motion-base)}
+.breath-duration-options button strong{font-size:18px;font-weight:600}
+.breath-duration-options button small{color:#82978c;font-size:10px}
+.breath-duration-options button.selected{border-color:rgba(126,242,191,.43);color:#d8fff0;background:rgba(69,217,159,.11);box-shadow:var(--glow-aurora)}
+.breath-duration-options button:active{transform:scale(.98)}
+.breath-duration-options button:disabled{cursor:default;opacity:.72}
+.breath-rhythm-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.breath-rhythm-fields .field{font-size:10px;line-height:1.4}
+.breath-rhythm-fields .input{min-height:44px;padding:8px}
+.breath-rhythm-caption{margin:10px 0 17px;color:#8da296;font-size:10px}
+.breath-haptics{padding-top:13px;border-top:1px solid var(--line)}
+.breath-haptics strong{color:#c5d8cc;font-size:11px}
+.breath-history-card>.muted{margin:0;color:#8fa198;font-size:11px;line-height:1.6}
+.breath-session-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.breath-session-list li{display:flex;align-items:center;gap:10px}
+.breath-session-list li>span:last-child{display:flex;flex-direction:column;gap:3px}
+.breath-session-list strong{color:#cee7d8;font-size:11px;font-weight:550}
+.breath-session-list small{color:#8fa198;font-size:10px}
+.breath-history-check{display:grid;width:25px;height:25px;place-items:center;border:1px solid rgba(126,242,191,.17);border-radius:9px;color:#8ce4bc;background:rgba(69,217,159,.07)}
+.breath-today-total{margin:15px 0 0;padding-top:11px;border-top:1px solid var(--line);color:#b9d7c6;font-size:10px}
+@keyframes soft-enter{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){.breathe-layout{grid-template-columns:1fr}.breath-session-card{min-height:515px}.breath-settings-column{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.breathe-page .page-heading{align-items:flex-start;flex-direction:column}.breathe-page .page-heading>.button{min-height:44px}.breathe-layout{gap:11px}.breath-session-card{min-height:480px;padding:22px 16px}.breath-orbit{width:180px;height:180px}.breath-settings-column{grid-template-columns:1fr}.breath-options-card,.breath-history-card{padding:16px}}
 @media(prefers-reduced-motion:reduce){.aurora-atmosphere::before{transition:none}.motion-fade-up,.motion-scale-in,.motion-stagger-children>*{animation:none!important}}

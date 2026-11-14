@@ -44,6 +44,7 @@ Schedule creation rejects overlaps with another user-owned block or a scheduled 
 | GET/POST/PATCH/DELETE | `/water` | Water intake logs |
 | GET/POST/PATCH/DELETE | `/sleep` | Sleep timing and duration |
 | GET/POST/PATCH/DELETE | `/workouts` | Activity and duration logs |
+| GET/POST | `/breathing-sessions` | Completed breathing pauses and configurable rhythms |
 | GET/POST/PATCH/DELETE | `/wellness` | Mood and energy check-ins |
 | GET/POST/PATCH/DELETE | `/screen-time` | Manual category/app usage logs |
 | GET/POST/PATCH/DELETE | `/food` | Meals and food spending |

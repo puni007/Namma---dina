@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Droplets, Footprints, HeartPulse, Moon } from 'lucide-react';
+import { Droplets, Footprints, HeartPulse, Moon, Wind } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { PageHeading } from '../components/ui';
 import { ResourcePage } from './ResourcePages';
 import { todayKey } from '../lib/format';
@@ -20,5 +21,5 @@ export function WellnessPage() {
     movement: <ResourcePage path="/workouts" title="Movement log" eyebrow="MOVEMENT THAT FEELS LIKE YOURS" subtitle="A walk, stretch, workout or dance break — every kind of movement can be logged." fields={[{ key: 'activityType', label: 'Activity', type: 'text' }, { key: 'durationMins', label: 'Duration (minutes)', type: 'number' }, { key: 'loggedAt', label: 'When', type: 'datetime-local', optional: true }, { key: 'notes', label: 'Notes (optional)', type: 'textarea', optional: true }]} columns={[{ key: 'activityType', label: 'Activity' }, { key: 'durationMins', label: 'Duration', suffix: ' min' }, { key: 'loggedAt', label: 'When', time: true }, { key: 'notes', label: 'Notes' }]} />,
     'check-in': <ResourcePage path="/wellness" title="Mood & energy" eyebrow="HOW ARE YOU, REALLY?" subtitle="A private check-in to notice your own patterns. No diagnosis, no judgment." fields={[{ key: 'date', label: 'Day', type: 'date', defaultValue: today }, { key: 'mood', label: 'Mood (1–5)', type: 'rating', ratingLabels: ['Low', 'Slightly low', 'Neutral', 'Good', 'Radiant'] }, { key: 'energy', label: 'Energy (1–5)', type: 'rating', ratingLabels: ['Drained', 'Sluggish', 'Steady', 'Lively', 'Full'] }, { key: 'notes', label: 'Anything you want to note (optional)', type: 'textarea', optional: true }]} columns={[{ key: 'date', label: 'Day' }, { key: 'mood', label: 'Mood' }, { key: 'energy', label: 'Energy' }, { key: 'notes', label: 'Note' }]} />,
   }[tab];
-  return <><PageHeading eyebrow="CARE FOR YOURSELF" title="Wellness" subtitle="A gentle place to notice the basics that support your day."/><div className="wellness-tabs">{tabs.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => setTab(id)} className={tab === id ? 'selected' : ''}><Icon size={15}/>{label}</button>)}</div>{active}</>;
+  return <><PageHeading eyebrow="CARE FOR YOURSELF" title="Wellness" subtitle="A gentle place to notice the basics that support your day." action={<Link className="button button-outline" to="/app/wellness/breathe"><Wind size={16}/> Take a breathing pause</Link>}/><div className="wellness-tabs">{tabs.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => setTab(id)} className={tab === id ? 'selected' : ''}><Icon size={15}/>{label}</button>)}</div>{active}</>;
 }

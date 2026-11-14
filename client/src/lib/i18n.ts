@@ -12,6 +12,8 @@ let currentLanguage: Language = (() => {
   return 'en';
 })();
 
+if (typeof document !== 'undefined') document.documentElement.lang = currentLanguage;
+
 const rawTranslations = {
   en: {
     brandName: 'namma dina',
@@ -102,6 +104,7 @@ export function getLanguage(): Language {
 
 export function setLanguage(lang: Language) {
   currentLanguage = lang;
+  if (typeof document !== 'undefined') document.documentElement.lang = lang;
   try {
     localStorage.setItem('nd_language', lang);
   } catch {

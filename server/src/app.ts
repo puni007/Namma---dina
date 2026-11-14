@@ -13,6 +13,7 @@ import { usersRouter } from './routes/users.js';
 import { categoryRouter, foodRouter, habitLogRouter, habitRouter, notificationRouter, reflectionRouter, reminderRouter, scheduleRouter, screenTimeRouter, sleepRouter, taskRouter, waterRouter, wellnessRouter, workoutRouter } from './routes/resources.js';
 import { insightsRouter, overviewRouter, rescheduleRouter } from './routes/intelligence.js';
 import { pushRouter } from './routes/push.js';
+import { breathingRouter } from './routes/breathing.js';
 
 export const app = express();
 app.disable('x-powered-by');
@@ -84,6 +85,7 @@ app.use('/api/insights', insightsRouter);
 app.use('/api/reschedule', rescheduleRouter);
 app.use('/api/notifications', notificationRouter);
 app.use('/api/push', pushRouter);
+app.use('/api/breathing-sessions', breathingRouter);
 
 app.use(notFound);
 app.use(errorHandler);

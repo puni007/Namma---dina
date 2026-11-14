@@ -51,7 +51,7 @@ insightsRouter.get('/', async (req, res) => {
   const start = localDayBounds(dates[0]!, user.timezone).start;
   const monthStart = localDayBounds(`${today.slice(0, 7)}-01`, user.timezone).start;
   const end = localDayBounds(today, user.timezone).end;
-  const [tasks, habitLogs, habits, screens, foods, events, blocks, settings, sleeps] = await Promise.all([
+  const [tasks, habitLogs, habits, screens, foods, events, blocks, settings, sleeps, breathingSessions] = await Promise.all([
     prisma.task.findMany({ where: { userId: user.id, OR: [{ dueAt: { gte: start, lt: end } }, { completedAt: { gte: start, lt: end } }] }, select: { id: true, title: true, status: true, dueAt: true, scheduledStart: true, scheduledMinutes: true, actualMinutes: true, completedAt: true, priority: true } }),
     prisma.habitLog.findMany({ where: { userId: user.id, date: { gte: parseDateOnly(dates[0]!), lte: parseDateOnly(today) } } }),
     prisma.habit.findMany({ where: { userId: user.id }, select: { id: true, targetValue: true, name: true, frequency: true, daysOfWeek: true } }),
@@ -61,6 +61,7 @@ insightsRouter.get('/', async (req, res) => {
     prisma.scheduleBlock.findMany({ where: { userId: user.id, startsAt: { gte: start, lt: end }, status: 'missed' } }),
     prisma.userSettings.findUnique({ where: { userId: user.id } }),
     prisma.sleepLog.findMany({ where: { userId: user.id, date: { gte: parseDateOnly(dates[7]!), lte: parseDateOnly(today) } }, select: { durationMins: true } }),
+    prisma.breathingSession.findMany({ where: { userId: user.id, date: { gte: parseDateOnly(dates[7]!), lte: parseDateOnly(today) } }, select: { durationMinutes: true } }),
   ]);
   const trend = dates.slice(-7).map((day) => {
     const dayTasks = tasks.filter((task) => task.dueAt && task.dueAt.toISOString().slice(0, 10) === day);
@@ -116,7 +117,7 @@ insightsRouter.get('/', async (req, res) => {
   const totalPlannedMinutes = dueTasks.reduce((sum, task) => sum + task.scheduledMinutes, 0);
   const totalActualMinutes = dueTasks.reduce((sum, task) => sum + (task.actualMinutes ?? 0), 0);
   const averageSleepMinutes = sleeps.length ? Math.round(sleeps.reduce((sum, log) => sum + log.durationMins, 0) / sleeps.length) : null;
-  res.json({ data: { score: { value: score, explanation: scoreExplanation, recoveryEvents, activeDays: Math.min(7, activeDays) }, trend, summary: { tasksCompleted: completed, tasksPlanned: planned, totalPlannedMinutes, totalActualMinutes, habitCompletions: loggedHabits, screenMinutesLast7Days: totalScreen, screenGoalMinutes: settings?.dailyScreenGoalMinutes ?? 180, foodSpendCents: totalFood, deliveryCount, repeatedFood: repeatedFood ? { name: repeatedFood[0], times: repeatedFood[1] } : null, monthlyFoodBudgetCents: settings?.monthlyFoodBudgetCents ?? 0, averageSleepMinutes, mostPostponed: mostPostponed ? { title: mostPostponed[0], times: mostPostponed[1] } : null, productiveHour, productiveHourExplanation: productiveHour === null ? 'Not enough completed tasks with scheduled times to calculate a reliable pattern. Three or more are required.' : 'The local scheduled hour with the most completed tasks in the last 14 days.' } } });
+  res.json({ data: { score: { value: score, explanation: scoreExplanation, recoveryEvents, activeDays: Math.min(7, activeDays) }, trend, summary: { tasksCompleted: completed, tasksPlanned: planned, totalPlannedMinutes, totalActualMinutes, habitCompletions: loggedHabits, screenMinutesLast7Days: totalScreen, breathingSessionsLast7Days: breathingSessions.length, breathingMinutesLast7Days: breathingSessions.reduce((total, session) => total + session.durationMinutes, 0), screenGoalMinutes: settings?.dailyScreenGoalMinutes ?? 180, foodSpendCents: totalFood, deliveryCount, repeatedFood: repeatedFood ? { name: repeatedFood[0], times: repeatedFood[1] } : null, monthlyFoodBudgetCents: settings?.monthlyFoodBudgetCents ?? 0, averageSleepMinutes, mostPostponed: mostPostponed ? { title: mostPostponed[0], times: mostPostponed[1] } : null, productiveHour, productiveHourExplanation: productiveHour === null ? 'Not enough completed tasks with scheduled times to calculate a reliable pattern. Three or more are required.' : 'The local scheduled hour with the most completed tasks in the last 14 days.' } } });
 });
 
 export const rescheduleRouter = Router();

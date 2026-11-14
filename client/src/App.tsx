@@ -25,6 +25,7 @@ import {
   Languages,
 } from 'lucide-react';
 import { Button, Field, Loading, OfflineBanner, SelectInput, TextInput } from './components/ui';
+import { AuroraParticles } from './components/AuroraParticles';
 import { useNativeLifecycle, useNetworkStatus } from './lib/native';
 import { setPreferredTimezone, todayKey } from './lib/format';
 import { useLanguage, type TranslationDict } from './lib/i18n';
@@ -51,6 +52,7 @@ const RegisterPage = lazy(() => import('./pages/AuthPages').then((module) => ({ 
 const ForgotPage = lazy(() => import('./pages/AuthPages').then((module) => ({ default: module.ForgotPage })));
 const ResetPage = lazy(() => import('./pages/AuthPages').then((module) => ({ default: module.ResetPage })));
 const WellnessPage = lazy(() => import('./pages/WellnessPage').then((module) => ({ default: module.WellnessPage })));
+const BreathePage = lazy(() => import('./pages/BreathePage').then((module) => ({ default: module.BreathePage })));
 
 function buildNav(t: TranslationDict) {
   return [
@@ -118,9 +120,11 @@ function AppRoot() {
   }
   const user = userQuery.data;
   if (user) setPreferredTimezone(user.timezone);
+  const showPublicParticles = ['/', '/login', '/register'].includes(location.pathname);
   return (
     <>
       <AuroraAtmosphere />
+      {showPublicParticles && <AuroraParticles intensity="ambient" />}
       <div className="app-content">
         <Suspense fallback={<div className="page-center"><Loading label="Opening your space" /></div>}>
           <Routes>
@@ -139,6 +143,7 @@ function AppRoot() {
               <Route path="calendar" element={<PlannerPage user={user!} />} />
               <Route path="reminders" element={<RemindersPage />} />
               <Route path="wellness" element={<WellnessPage />} />
+              <Route path="wellness/breathe" element={<BreathePage />} />
               <Route path="digital" element={<DigitalPage />} />
               <Route path="food" element={<FoodPage />} />
               <Route path="reflection" element={<ReflectionPage />} />
@@ -209,7 +214,7 @@ function AppShell({ user }: { user: User }) {
     },
   });
 
-  const activeNav = nav.find((item) => location.pathname === item.to)?.label ?? t.navDay;
+  const activeNav = nav.find((item) => location.pathname === item.to || location.pathname.startsWith(`${item.to}/`))?.label ?? t.navDay;
   useReminderWatcher();
 
   return (
