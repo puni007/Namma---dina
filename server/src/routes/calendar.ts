@@ -4,6 +4,7 @@ import { prisma } from '../lib/prisma.js';
 import { requireUser } from '../middleware/auth.js';
 import { env } from '../config/env.js';
 
+export const calendarFeedRouter = Router();
 export const calendarRouter = Router();
 
 function formatICSDate(date: Date): string {
@@ -74,7 +75,7 @@ export async function generateICSFeed(userId: string): Promise<string> {
 }
 
 // Public webcal / iCal subscription feed (unauthenticated, token-protected)
-calendarRouter.get('/feed/:token.ics', async (req: Request, res: Response) => {
+calendarFeedRouter.get('/:token.ics', async (req: Request, res: Response) => {
   const token = typeof req.params.token === 'string' ? req.params.token : Array.isArray(req.params.token) ? req.params.token[0] : '';
   if (!token) {
     res.status(404).send('Calendar feed token is required.');
@@ -109,7 +110,8 @@ calendarRouter.get('/sync', async (req, res) => {
     });
   }
 
-  const feedUrl = `${env.CLIENT_ORIGIN}/api/calendar/feed/${sync.feedToken}.ics`;
+  const origin = req.get('host') ? `${req.protocol}://${req.get('host')}` : env.CLIENT_ORIGIN;
+  const feedUrl = `${origin}/api/calendar/feed/${sync.feedToken}.ics`;
   const webcalUrl = feedUrl.replace(/^https?:/, 'webcal:');
 
   res.json({
