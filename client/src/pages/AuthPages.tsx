@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useForm, type FieldErrors, type Path, type UseFormRegister } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   ArrowDownRight,
   ArrowRight,
@@ -165,7 +165,10 @@ function PhoneOtpForm({ onSuccess }: { onSuccess: (user: { onboardingDone: boole
     onSuccess: (data) => {
       setStep('otp');
       setCooldown(data.cooldownSeconds || 60);
-      if (data.debugOtp) setDebugOtp(data.debugOtp);
+      if (data.debugOtp) {
+        setDebugOtp(data.debugOtp);
+        setOtp(data.debugOtp);
+      }
     },
     onError: (err) => {
       setError(err instanceof Error ? err.message : 'Could not send verification code.');
@@ -282,8 +285,38 @@ function PhoneOtpForm({ onSuccess }: { onSuccess: (user: { onboardingDone: boole
       </Field>
 
       {debugOtp && (
-        <div style={{ background: 'rgba(94, 234, 212, 0.1)', border: '1px solid rgba(94, 234, 212, 0.3)', borderRadius: '8px', padding: '8px 12px', fontSize: '12px', color: '#5eead4' }}>
-          💡 <strong>Dev Mode Code:</strong> {debugOtp}
+        <div style={{
+          background: 'rgba(16, 185, 129, 0.12)',
+          border: '1px solid rgba(16, 185, 129, 0.35)',
+          borderRadius: '10px',
+          padding: '10px 14px',
+          fontSize: '12px',
+          color: '#6ee7b7',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '6px'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span>⚡ <strong>Demo Verification Code:</strong> <strong style={{ fontSize: '16px', letterSpacing: '3px', color: '#fff', marginLeft: '6px' }}>{debugOtp}</strong></span>
+            <button
+              type="button"
+              onClick={() => setOtp(debugOtp)}
+              style={{
+                background: 'rgba(16, 185, 129, 0.25)',
+                border: '1px solid rgba(16, 185, 129, 0.45)',
+                borderRadius: '6px',
+                color: '#fff',
+                fontSize: '11px',
+                padding: '3px 9px',
+                cursor: 'pointer'
+              }}
+            >
+              Auto-fill
+            </button>
+          </div>
+          <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>
+            Telecom SMS requires Twilio or MSG91 gateway credentials. Since no SMS provider is configured, this instant code is provided so you can log in immediately.
+          </span>
         </div>
       )}
 
@@ -310,6 +343,34 @@ function PhoneOtpForm({ onSuccess }: { onSuccess: (user: { onboardingDone: boole
 
 function SocialLogins() {
   const { t } = useLanguage();
+  const [unconfiguredNotice, setUnconfiguredNotice] = useState<string | null>(null);
+
+  const { data: providers } = useQuery({
+    queryKey: ['auth', 'providers'],
+    queryFn: async () => {
+      try {
+        const res = await api<{
+          google?: { configured: boolean };
+          facebook?: { configured: boolean };
+        }>('/auth/providers');
+        return res.data;
+      } catch {
+        return null;
+      }
+    },
+    staleTime: 60000,
+  });
+
+  const googleConfigured = Boolean(providers?.google?.configured);
+  const facebookConfigured = Boolean(providers?.facebook?.configured);
+
+  const handleOAuthClick = (e: React.MouseEvent, providerName: 'Google' | 'Facebook', isConfigured: boolean) => {
+    if (!isConfigured) {
+      e.preventDefault();
+      setUnconfiguredNotice(providerName);
+    }
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '14px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: '4px 0' }}>
@@ -323,6 +384,7 @@ function SocialLogins() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
         <a
           href="/api/auth/google"
+          onClick={(e) => handleOAuthClick(e, 'Google', googleConfigured)}
           className="button button-outline"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '12px', textDecoration: 'none' }}
         >
@@ -331,6 +393,7 @@ function SocialLogins() {
         </a>
         <a
           href="/api/auth/facebook"
+          onClick={(e) => handleOAuthClick(e, 'Facebook', facebookConfigured)}
           className="button button-outline"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '12px', textDecoration: 'none' }}
         >
@@ -338,6 +401,31 @@ function SocialLogins() {
           <span>Facebook</span>
         </a>
       </div>
+
+      {unconfiguredNotice && (
+        <div style={{
+          marginTop: '6px',
+          background: 'rgba(245, 158, 11, 0.12)',
+          border: '1px solid rgba(245, 158, 11, 0.35)',
+          borderRadius: '10px',
+          padding: '10px 14px',
+          fontSize: '12px',
+          color: '#fbbf24',
+          position: 'relative'
+        }}>
+          <button
+            type="button"
+            onClick={() => setUnconfiguredNotice(null)}
+            style={{ position: 'absolute', top: '8px', right: '8px', background: 'none', border: 'none', color: '#fbbf24', cursor: 'pointer' }}
+          >
+            <X size={14} />
+          </button>
+          <p style={{ margin: 0, fontWeight: 600 }}>{unconfiguredNotice} sign-in is not configured yet.</p>
+          <p style={{ margin: '4px 0 0', fontSize: '11px', color: 'rgba(255,255,255,0.8)', lineHeight: 1.4 }}>
+            Requires {unconfiguredNotice === 'Google' ? 'GOOGLE_CLIENT_ID & GOOGLE_CLIENT_SECRET' : 'FACEBOOK_APP_ID & FACEBOOK_APP_SECRET'} in server environment. Please use <strong>Phone OTP</strong>, <strong>Email</strong>, or <strong>1-Click Demo</strong> above!
+          </p>
+        </div>
+      )}
     </div>
   );
 }
@@ -375,8 +463,11 @@ function AuthFrame({
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const queryClient = useQueryClient();
   const [method, setMethod] = useState<'phone' | 'email'>('phone');
+  const oauthError = searchParams.get('oauth_error') || searchParams.get('error');
+
   const form = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: '', password: '' },
@@ -397,11 +488,73 @@ export function LoginPage() {
     },
   });
 
+  const demoLogin = useMutation({
+    mutationFn: async () => {
+      const res = await api<{ user: { onboardingDone: boolean }; tokens?: AuthTokens }>('/auth/demo-login', {
+        method: 'POST',
+      });
+      if (res.data.tokens) await setAuthTokens(res.data.tokens);
+      return res.data;
+    },
+    onSuccess: (data) => {
+      void queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+      navigate('/app/day');
+    },
+  });
+
   return (
     <AuthFrame
       title="Welcome back."
       description="Pick up where you left off, or take a breath before you begin."
     >
+      {oauthError && (
+        <div style={{
+          background: 'rgba(245, 158, 11, 0.12)',
+          border: '1px solid rgba(245, 158, 11, 0.35)',
+          borderRadius: '10px',
+          padding: '10px 14px',
+          marginBottom: '14px',
+          fontSize: '12px',
+          color: '#fbbf24',
+          lineHeight: 1.4
+        }}>
+          {oauthError.includes('google')
+            ? '⚠️ Google Sign-In is not configured yet. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to enable it.'
+            : oauthError.includes('facebook')
+            ? '⚠️ Facebook Sign-In is not configured yet. Set FACEBOOK_APP_ID and FACEBOOK_APP_SECRET to enable it.'
+            : '⚠️ OAuth sign-in could not be completed.'}
+          {' '}Please use <strong>Phone OTP</strong> or <strong>1-Click Demo</strong> below.
+        </div>
+      )}
+
+      {/* 1-Click Instant Demo Login */}
+      <button
+        type="button"
+        onClick={() => demoLogin.mutate()}
+        disabled={demoLogin.isPending}
+        style={{
+          width: '100%',
+          padding: '11px 16px',
+          marginBottom: '14px',
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(99, 102, 241, 0.22))',
+          border: '1px solid rgba(16, 185, 129, 0.45)',
+          borderRadius: '10px',
+          color: '#5eead4',
+          fontSize: '13px',
+          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          cursor: 'pointer',
+          transition: 'all 0.2s ease',
+          boxShadow: '0 4px 14px rgba(16, 185, 129, 0.1)'
+        }}
+      >
+        <Sparkles size={16} />
+        <span>{demoLogin.isPending ? 'Entering your space…' : '⚡ 1-Click Demo Access (Skip Setup)'}</span>
+      </button>
+
       <div style={{ display: 'flex', gap: '6px', background: 'rgba(255,255,255,0.05)', padding: '4px', borderRadius: '10px', marginBottom: '16px' }}>
         <button
           type="button"

@@ -211,6 +211,39 @@ authRouter.post('/token', validateBody(loginSchema), async (req, res) => {
   });
 });
 
+authRouter.post('/demo-login', async (_req, res) => {
+  const email = (process.env.SEED_DEMO_EMAIL || 'demo@namma-dina.local').toLowerCase();
+  let user = await prisma.user.findUnique({ where: { email }, include: { settings: true } });
+  if (!user) {
+    const passwordHash = await bcrypt.hash(process.env.SEED_DEMO_PASSWORD || 'NammaDina!LocalDemo2026', 10);
+    user = await prisma.user.create({
+      data: {
+        email,
+        passwordHash,
+        displayName: 'Namma Dina Explorer',
+        onboardingDone: true,
+        settings: { create: { goals: ['Make space for what matters'], dailyWaterGoalMl: 2000 } },
+      },
+      include: { settings: true },
+    });
+  }
+  setSession(res, user);
+  const tokens = generateTokens(user);
+  res.json({
+    data: {
+      user: {
+        id: user.id,
+        email: user.email,
+        displayName: user.displayName,
+        timezone: user.timezone,
+        onboardingDone: user.onboardingDone,
+      },
+      settings: user.settings,
+      tokens,
+    },
+  });
+});
+
 // Phone Number OTP Flow
 authRouter.post('/phone/send-otp', validateBody(sendOtpSchema), async (req, res) => {
   const { phoneNumber, countryCode } = req.body as z.infer<typeof sendOtpSchema>;
@@ -246,15 +279,20 @@ authRouter.post('/phone/send-otp', validateBody(sendOtpSchema), async (req, res)
   });
 
   const smsResult = await sendOtpSms(normalized, otp);
+  const smsConfig = getSmsProviderConfig();
+  const isMockOrSimulated = smsResult.simulated || !smsConfig.configured;
 
   res.json({
     data: {
-      message: 'Verification code sent.',
+      message: smsConfig.configured
+        ? 'Verification code sent to your phone.'
+        : 'SMS gateway not configured in this environment. Use the demo verification code below.',
       phoneNumber: normalized,
       cooldownSeconds: 60,
-      simulated: smsResult.simulated,
-      // In development or when using mock provider, include OTP for instant verification:
-      ...(smsResult.simulated && !isProduction ? { debugOtp: otp } : {}),
+      simulated: isMockOrSimulated,
+      smsConfigured: smsConfig.configured,
+      // When SMS provider is not configured, always return debugOtp so users are never locked out:
+      ...(isMockOrSimulated ? { debugOtp: otp } : {}),
     },
   });
 });
@@ -339,6 +377,9 @@ authRouter.post('/phone/verify-otp', validateBody(verifyOtpSchema), async (req, 
 // Google OAuth
 authRouter.get('/google', (req, res) => {
   if (!isGoogleOAuthConfigured()) {
+    if (req.accepts('html')) {
+      return res.redirect(`${env.CLIENT_ORIGIN}/login?oauth_error=google_not_configured`);
+    }
     throw new HttpError(503, 'Google sign-in is not configured. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.', 'OAUTH_NOT_CONFIGURED');
   }
   const redirectUri = `${req.protocol}://${req.get('host')}/api/auth/google/callback`;
@@ -445,6 +486,9 @@ authRouter.post('/google/token', validateBody(googleTokenSchema), async (req, re
 // Facebook OAuth
 authRouter.get('/facebook', (req, res) => {
   if (!isFacebookOAuthConfigured()) {
+    if (req.accepts('html')) {
+      return res.redirect(`${env.CLIENT_ORIGIN}/login?oauth_error=facebook_not_configured`);
+    }
     throw new HttpError(503, 'Facebook sign-in is not configured. Set FACEBOOK_APP_ID and FACEBOOK_APP_SECRET.', 'OAUTH_NOT_CONFIGURED');
   }
   const redirectUri = `${req.protocol}://${req.get('host')}/api/auth/facebook/callback`;
