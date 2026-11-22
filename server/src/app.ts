@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { rateLimit } from 'express-rate-limit';
-import { env } from './config/env.js';
+import { env, isProduction } from './config/env.js';
 import { verifyCsrf } from './middleware/csrf.js';
 import { authenticate } from './middleware/auth.js';
 import { errorHandler, notFound } from './middleware/errors.js';
@@ -78,7 +78,7 @@ app.get('/api/health', async (_req, res) => {
 
 app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, limit: 300, standardHeaders: 'draft-8', legacyHeaders: false }));
 app.use('/api', verifyCsrf);
-const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 25, standardHeaders: 'draft-8', legacyHeaders: false, message: { error: { code: 'RATE_LIMITED', message: 'Too many attempts. Please wait a little and try again.' } } });
+const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: isProduction ? 25 : 500, standardHeaders: 'draft-8', legacyHeaders: false, message: { error: { code: 'RATE_LIMITED', message: 'Too many attempts. Please wait a little and try again.' } } });
 app.use('/api/auth', authLimiter, authRouter);
 app.use('/api/ai', rateLimit({ windowMs: 15 * 60 * 1000, limit: 12, standardHeaders: 'draft-8', legacyHeaders: false, message: { error: { code: 'AI_RATE_LIMITED', message: 'Please take a short pause before asking your AI companion again.' } } }));
 app.use('/api/assistant', (_req, res, next) => { res.setHeader('Cache-Control', 'no-store'); next(); });
