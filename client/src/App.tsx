@@ -29,6 +29,9 @@ import {
   X,
   Tag,
   Languages,
+  Monitor,
+  Smile,
+  Wind,
 } from 'lucide-react';
 import { Button, Field, Loading, OfflineBanner, SelectInput, TextInput } from './components/ui';
 import { AuroraParticles } from './components/AuroraParticles';
@@ -68,20 +71,20 @@ const MitraWidget = lazy(() => import('./components/MitraWidget').then((module) 
 
 function buildNav(t: TranslationDict) {
   return [
-    { to: '/app/day', label: t.navDay, icon: PanelsTopLeft, mobile: true },
-    { to: '/app/tasks', label: t.navTasks, icon: CheckSquare, mobile: true },
-    { to: '/app/categories', label: t.navCategories, icon: Tag },
+    { to: '/app/day', label: t.navHome, icon: PanelsTopLeft, mobile: true },
+    { to: '/app/calendar', label: t.navMyDay, icon: CalendarDays, mobile: true },
     { to: '/app/habits', label: t.navHabits, icon: Leaf, mobile: true },
-    { to: '/app/calendar', label: t.navCalendar, icon: CalendarDays },
+    { to: '/app/wellness', label: t.navWellness, icon: HeartPulse, mobile: true },
+    { to: '/app/settings', label: t.navProfile, icon: Settings2, mobile: true },
+    { to: '/app/tasks', label: t.navTasks, icon: CheckSquare },
+    { to: '/app/categories', label: t.navCategories, icon: Tag },
     { to: '/app/reminders', label: t.navReminders, icon: Clock3 },
-    { to: '/app/wellness', label: t.navWellness, icon: HeartPulse },
     { to: '/app/cycle', label: t.navCycle, icon: Flower2 },
     { to: '/app/digital', label: t.navDigital, icon: Smartphone },
     { to: '/app/food', label: t.navFood, icon: Utensils },
     { to: '/app/reflection', label: t.navReflection, icon: NotebookPen },
-    { to: '/app/insights', label: t.navInsights, icon: ChartNoAxesCombined, mobile: true },
+    { to: '/app/insights', label: t.navInsights, icon: ChartNoAxesCombined },
     { to: '/app/notifications', label: t.navNotifications, icon: Sparkles },
-    { to: '/app/settings', label: t.navSettings, icon: Settings2, mobile: true },
   ];
 }
 
@@ -252,10 +255,16 @@ function AppShell({ user }: { user: User }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [copyStatus, setCopyStatus] = useState('');
   const [quickAddOpen, setQuickAddOpen] = useState(false);
-  const [quickAddKind, setQuickAddKind] = useState<'task' | 'habit' | 'water' | 'reflection'>('task');
+  const [quickAddKind, setQuickAddKind] = useState<'task' | 'water' | 'habit' | 'mood' | 'reflection' | 'breathe'>('task');
   const [quickTaskTitle, setQuickTaskTitle] = useState('');
-  const [theme, setTheme] = useState<'night' | 'day'>(() => {
-    try { return localStorage.getItem('nd_theme') === 'day' ? 'day' : 'night'; } catch { return 'night'; }
+  const [theme, setTheme] = useState<'night' | 'day' | 'system'>(() => {
+    try {
+      const saved = localStorage.getItem('nd_theme');
+      if (saved === 'day' || saved === 'night' || saved === 'system') return saved;
+      return 'system';
+    } catch {
+      return 'system';
+    }
   });
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -268,15 +277,31 @@ function AppShell({ user }: { user: User }) {
     { to: '/app/account', label: t.navAccount, keywords: 'privacy export delete account' },
   ], [lang, nav, t.navAccount]);
   const navGroups = useMemo(() => [
-    { label: t.groupToday, items: nav.filter((item) => ['/app/day', '/app/tasks'].includes(item.to)) },
-    { label: t.groupPlan, items: nav.filter((item) => ['/app/categories', '/app/calendar', '/app/reminders'].includes(item.to)) },
+    { label: t.groupToday, items: nav.filter((item) => ['/app/day', '/app/calendar', '/app/tasks'].includes(item.to)) },
+    { label: t.groupPlan, items: nav.filter((item) => ['/app/categories', '/app/reminders'].includes(item.to)) },
     { label: t.groupCare, items: nav.filter((item) => ['/app/habits', '/app/wellness', '/app/cycle', '/app/digital', '/app/food'].includes(item.to)) },
     { label: t.groupReflect, items: nav.filter((item) => ['/app/reflection', '/app/insights', '/app/notifications', '/app/settings'].includes(item.to)) },
   ], [nav, t]);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    const applyResolvedTheme = () => {
+      let resolved: 'night' | 'day' = 'night';
+      if (theme === 'system') {
+        resolved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      } else {
+        resolved = theme;
+      }
+      document.documentElement.dataset.theme = resolved;
+    };
+
+    applyResolvedTheme();
     try { localStorage.setItem('nd_theme', theme); } catch { /* Ignore storage errors. */ }
+
+    if (theme === 'system') {
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      media.addEventListener('change', applyResolvedTheme);
+      return () => media.removeEventListener('change', applyResolvedTheme);
+    }
   }, [theme]);
 
   useEffect(() => {
@@ -331,6 +356,25 @@ function AppShell({ user }: { user: User }) {
     onSuccess: () => {
       setQuickAddOpen(false);
       setCopyStatus(lang === 'kn' ? 'ನೀರಿನ ದಾಖಲೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ' : 'Water log saved');
+      window.setTimeout(() => setCopyStatus(''), 2500);
+      void queryClient.invalidateQueries({ queryKey: ['overview'] });
+      void queryClient.invalidateQueries({ queryKey: ['wellness'] });
+    },
+  });
+
+  const cycleTheme = () => {
+    setTheme((curr) => {
+      if (curr === 'night') return 'day';
+      if (curr === 'day') return 'system';
+      return 'night';
+    });
+  };
+
+  const quickLogMood = useMutation({
+    mutationFn: (mood: number) => sendData('/wellness', 'POST', { date: todayKey(new Date(), user.timezone), mood }),
+    onSuccess: () => {
+      setQuickAddOpen(false);
+      setCopyStatus(lang === 'kn' ? 'ಮನಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ' : 'Mood logged');
       window.setTimeout(() => setCopyStatus(''), 2500);
       void queryClient.invalidateQueries({ queryKey: ['overview'] });
       void queryClient.invalidateQueries({ queryKey: ['wellness'] });
@@ -431,8 +475,14 @@ function AppShell({ user }: { user: User }) {
             <button className="quick-add-trigger" onClick={() => setQuickAddOpen(true)} aria-label={`${t.quickAdd} Ctrl K`} aria-keyshortcuts="Control+K Meta+K">
               <Plus size={17} aria-hidden="true" /><span>{t.quickAdd}{' '}<kbd aria-hidden="true">Ctrl K</kbd></span>
             </button>
-            <button className="icon-button theme-toggle" onClick={() => setTheme(theme === 'night' ? 'day' : 'night')} aria-label={theme === 'night' ? t.themeDay : t.themeNight} title={theme === 'night' ? t.themeDay : t.themeNight} aria-pressed={theme === 'day'}>
-              {theme === 'night' ? <Sun size={18} /> : <Moon size={18} />}
+            <button
+              className="icon-button theme-toggle"
+              onClick={cycleTheme}
+              aria-label={theme === 'night' ? t.themeDay : theme === 'day' ? t.themeSystem : t.themeNight}
+              title={theme === 'night' ? `${t.themeNight} (Switch to Day)` : theme === 'day' ? `${t.themeDay} (Switch to System)` : `${t.themeSystem} (Switch to Night)`}
+              aria-pressed={theme !== 'night'}
+            >
+              {theme === 'night' ? <Moon size={18} /> : theme === 'day' ? <Sun size={18} /> : <Monitor size={18} />}
             </button>
             <button
               className="icon-button"
@@ -482,21 +532,13 @@ function AppShell({ user }: { user: User }) {
         </div>
       </main>
 
-      <nav className="bottom-nav">
+      <nav className="bottom-nav" aria-label="Mobile Navigation">
         {nav.filter((item) => item.mobile).map(({ to, label, icon: Icon }) => (
           <NavLink key={to} to={to} className={({ isActive }) => `bottom-link ${isActive ? 'active' : ''}`}>
-            <Icon size={18} />
+            <Icon size={19} strokeWidth={1.8} />
             <small>{label}</small>
           </NavLink>
         ))}
-        <button className="bottom-link" onClick={() => window.dispatchEvent(new Event('namma-dina:open-mitra'))} aria-label={t.navMitra}>
-          <Sparkles size={18} />
-          <small>{t.navMitra}</small>
-        </button>
-        <button className={`bottom-link ${moreOpen ? 'active' : ''}`} onClick={() => setMoreOpen(!moreOpen)}>
-          <MoreHorizontal size={18} />
-          <small>{t.more}</small>
-        </button>
       </nav>
 
       {moreOpen && (
@@ -520,8 +562,8 @@ function AppShell({ user }: { user: User }) {
         </div>
       )}
 
-      <button className="quick-add-fab" onClick={() => setQuickAddOpen(true)} aria-label={t.quickAdd}>
-        <Plus size={23} />
+      <button className="quick-add-fab" onClick={() => setQuickAddOpen(true)} aria-label={t.quickAdd} title={t.quickAdd}>
+        <Plus size={24} />
       </button>
 
       {quickAddOpen && <div className="quick-add-scrim" onClick={() => setQuickAddOpen(false)}>
@@ -533,9 +575,11 @@ function AppShell({ user }: { user: User }) {
           <div className="quick-add-options" role="tablist" aria-label={t.quickAddTitle}>
             {([
               ['task', t.quickTask, CheckSquare],
-              ['habit', t.quickHabit, Leaf],
               ['water', t.quickWater, HeartPulse],
+              ['habit', t.quickHabit, Leaf],
+              ['mood', t.quickMood, Smile],
               ['reflection', t.quickReflection, NotebookPen],
+              ['breathe', t.quickBreathe, Wind],
             ] as const).map(([kind, label, Icon]) => <button key={kind} role="tab" aria-selected={quickAddKind === kind} className={quickAddKind === kind ? 'active' : ''} onClick={() => setQuickAddKind(kind)}><Icon size={17} /><span>{label}</span></button>)}
           </div>
           {quickAddKind === 'task' && <form className="quick-add-form" onSubmit={(event) => { event.preventDefault(); if (quickTaskTitle.trim()) quickCreateTask.mutate(); }}>
@@ -546,7 +590,9 @@ function AppShell({ user }: { user: User }) {
           </form>}
           {quickAddKind === 'water' && <div className="quick-add-water"><p>{lang === 'kn' ? 'ನಿಮ್ಮ ಇಂದಿನ ದಾಖಲೆಗೆ ನೀರನ್ನು ಸೇರಿಸಿ.' : 'Add water to today’s check-in.'}</p><div><Button type="button" variant="outline" onClick={() => quickLogWater.mutate(250)} disabled={quickLogWater.isPending}>{t.quickWater250}</Button><Button type="button" onClick={() => quickLogWater.mutate(500)} disabled={quickLogWater.isPending}>{t.quickWater500}</Button></div>{quickLogWater.isError && <p className="inline-error">{lang === 'kn' ? 'ನೀರಿನ ದಾಖಲೆಯನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.' : 'That water log could not be saved.'}</p>}</div>}
           {quickAddKind === 'habit' && <div className="quick-add-route"><p>{lang === 'kn' ? 'ಇಂದಿನ ಅಭ್ಯಾಸವನ್ನು ಆರಿಸಿ ದಾಖಲಿಸಿ.' : 'Choose a habit and check in for today.'}</p><Button type="button" onClick={() => { setQuickAddOpen(false); navigate('/app/habits'); }}>{lang === 'kn' ? 'ಅಭ್ಯಾಸಗಳನ್ನು ತೆರೆಯಿರಿ' : 'Open habits'}<ChevronRight size={16} /></Button></div>}
+          {quickAddKind === 'mood' && <div className="quick-add-mood"><p>{lang === 'kn' ? 'ಇಂದು ನಿಮ್ಮ ಮನಸ್ಥಿತಿ ಹೇಗಿದೆ?' : 'How are you feeling today?'}</p><div className="quick-mood-grid">{([ [5, '🌟', t.quickMoodGreat], [4, '😊', t.quickMoodGood], [3, '😐', t.quickMoodOkay], [2, '😔', t.quickMoodLow], [1, '😫', t.quickMoodTired] ] as const).map(([score, emoji, text]) => (<button key={score} type="button" className="quick-mood-btn" disabled={quickLogMood.isPending} onClick={() => quickLogMood.mutate(score)}><span style={{ fontSize: '20px' }}>{emoji}</span><small>{text}</small></button>))}</div>{quickLogMood.isError && <p className="inline-error">{lang === 'kn' ? 'ಮನಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಲಾಗಲಿಲ್ಲ.' : 'Could not save mood.'}</p>}</div>}
           {quickAddKind === 'reflection' && <div className="quick-add-route"><p>{lang === 'kn' ? 'ಇಂದಿನ ದಿನದ ಬಗ್ಗೆ ಒಂದು ಕ್ಷಣ ಗಮನಿಸಿ.' : 'Take a moment to notice the day you had.'}</p><Button type="button" onClick={() => { setQuickAddOpen(false); navigate('/app/reflection'); }}>{lang === 'kn' ? 'ಅವಲೋಕನ ತೆರೆಯಿರಿ' : 'Open reflection'}<ChevronRight size={16} /></Button></div>}
+          {quickAddKind === 'breathe' && <div className="quick-add-route"><p>{t.quickBreathePrompt}</p><Button type="button" onClick={() => { setQuickAddOpen(false); navigate('/app/wellness/breathe'); }}>{t.startBreathing}<ChevronRight size={16} /></Button></div>}
         </section>
       </div>}
       {copyStatus && <div className="copy-status" role="status" aria-live="polite">{copyStatus}</div>}

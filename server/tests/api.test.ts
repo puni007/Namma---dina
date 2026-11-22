@@ -47,9 +47,10 @@ describe('authenticated API and ownership', () => {
   it('hashes passwords and returns the current authenticated profile', async () => {
     const me = await alice.agent.get('/api/auth/me').expect(200);
     const row = await prisma.user.findUniqueOrThrow({ where: { id: me.body.data.id as string } });
+    expect(row.passwordHash).toBeDefined();
     expect(row.passwordHash).not.toBe(alice.password);
-    expect(row.passwordHash.startsWith('$2')).toBe(true);
-    expect(await bcrypt.compare(alice.password, row.passwordHash)).toBe(true);
+    expect(row.passwordHash!.startsWith('$2')).toBe(true);
+    expect(await bcrypt.compare(alice.password, row.passwordHash!)).toBe(true);
     expect(me.body.data.email).toBe(alice.email.toLowerCase());
   });
 

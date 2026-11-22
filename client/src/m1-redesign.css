@@ -922,7 +922,7 @@ html[data-theme='day'] #root {
 
 .quick-add-options {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
   margin: 22px 0;
 }
@@ -985,9 +985,44 @@ html[data-theme='day'] #root {
 }
 
 .quick-add-water,
-.quick-add-route {
+.quick-add-route,
+.quick-add-mood {
   display: grid;
   gap: 16px;
+}
+
+.quick-mood-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quick-mood-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 64px;
+  padding: 8px 4px;
+  border: 1px solid var(--nd-border);
+  border-radius: 12px;
+  background: var(--nd-surface-raised);
+  color: var(--nd-text-secondary);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.quick-mood-btn:hover,
+.quick-mood-btn:focus-visible {
+  border-color: rgba(105, 226, 170, .4);
+  background: rgba(105, 226, 170, .12);
+  color: var(--nd-text-primary);
+}
+
+.quick-mood-btn small {
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .quick-add-water > div {
@@ -1359,15 +1394,40 @@ html[data-theme='day'] .dashboard-grid .recovery-card h2 {
   }
 
   .bottom-link small {
-    font-size: 12px !important;
+    font-size: 10px !important;
   }
 
   .quick-add-fab {
-    display: none;
+    position: fixed;
+    z-index: 50;
+    right: 18px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(103, 232, 208, .4);
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    color: #031412;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, .4);
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .quick-add-fab:active {
+    transform: scale(0.94);
   }
 
   .mitra-launcher {
-    display: none !important;
+    position: fixed;
+    z-index: 50;
+    left: 18px;
+    right: auto;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    display: grid !important;
+    width: 50px;
+    height: 50px;
   }
 
   .mitra-mascot {
@@ -1387,6 +1447,7 @@ html[data-theme='day'] .dashboard-grid .recovery-card h2 {
   }
 
   .quick-add-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
     margin: 18px 0;
   }

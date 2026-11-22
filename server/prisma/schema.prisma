@@ -49,8 +49,12 @@ enum RescheduleState {
 
 model User {
   id              String   @id @default(cuid())
-  email           String   @unique
-  passwordHash    String
+  email           String?  @unique
+  phoneNumber     String?  @unique
+  googleId        String?  @unique
+  facebookId      String?  @unique
+  authProvider    String?  @default("email")
+  passwordHash    String?
   displayName     String
   timezone        String   @default("Asia/Kolkata")
   attribution     Json?
@@ -547,4 +551,16 @@ model CalendarSync {
   user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+}
+
+model PhoneOtp {
+  id          String    @id @default(cuid())
+  phoneNumber String
+  otpHash     String
+  attempts    Int       @default(0)
+  expiresAt   DateTime
+  verifiedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([phoneNumber])
 }

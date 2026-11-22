@@ -141,7 +141,7 @@ usersRouter.post('/import', async (req, res) => {
 usersRouter.delete('/account', validateBody(z.object({ password: z.string().min(1) }).strict()), async (req, res) => {
   const user = requireUser(req);
   const record = await prisma.user.findUnique({ where: { id: user.id }, select: { passwordHash: true } });
-  if (!record || !(await bcrypt.compare((req.body as { password: string }).password, record.passwordHash))) throw new HttpError(401, 'Password is incorrect.', 'INVALID_CREDENTIALS');
+  if (!record || !record.passwordHash || !(await bcrypt.compare((req.body as { password: string }).password, record.passwordHash))) throw new HttpError(401, 'Password is incorrect.', 'INVALID_CREDENTIALS');
   await prisma.user.delete({ where: { id: user.id } });
   res.clearCookie('nd_session');
   res.status(204).end();

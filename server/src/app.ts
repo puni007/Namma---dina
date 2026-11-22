@@ -19,6 +19,7 @@ import { assistantRouter } from './routes/assistant.js';
 import { mitraRouter } from './routes/mitra.js';
 import { reproductiveRouter } from './routes/reproductive.js';
 import { calendarRouter, calendarFeedRouter } from './routes/calendar.js';
+import { docsRouter } from './routes/docs.js';
 
 export const app = express();
 app.disable('x-powered-by');
@@ -58,6 +59,17 @@ app.use((req, res, next) => {
 
 app.use(express.json({ limit: '64kb' }));
 app.use(cookieParser());
+
+// Rewrite /api/v1/* to /api/* for clean versioning support
+app.use((req, _res, next) => {
+  if (req.url.startsWith('/api/v1/')) {
+    req.url = req.url.replace('/api/v1/', '/api/');
+  }
+  next();
+});
+
+// Interactive API Documentation (OpenAPI 3.0 / Swagger)
+app.use('/api/docs', docsRouter);
 
 app.get('/api/health', async (_req, res) => {
   await prisma.$queryRaw`SELECT 1`;
