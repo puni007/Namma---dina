@@ -46,7 +46,7 @@ const gradle = windows ? 'gradlew.bat' : './gradlew';
 const task = isBundle ? 'bundleRelease' : (isRelease ? 'assembleRelease' : 'assembleDebug');
 
 console.info(`\nRunning Gradle task: ${task}...`);
-run(gradle, ['--no-daemon', '--max-workers=2', task], android);
+run(gradle, ['--no-daemon', '--max-workers=1', task], android);
 
 if (isBundle) {
   const aab = join(android, 'app', 'build', 'outputs', 'bundle', 'release', 'app-release.aab');
