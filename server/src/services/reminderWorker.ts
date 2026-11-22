@@ -48,12 +48,16 @@ export async function processDueReminders(now = new Date()) {
         console.error('A due reminder could not be delivered.', error);
       }
     }
+  } catch (err) {
+    console.warn('[ReminderWorker] DB query deferred:', err instanceof Error ? err.message : err);
   } finally { running = false; }
 }
 
 export function startReminderWorker() {
-  void processDueReminders();
-  const timer = setInterval(() => void processDueReminders(), 30_000);
+  void processDueReminders().catch((err) => console.warn('[ReminderWorker] Initial check:', err));
+  const timer = setInterval(() => {
+    void processDueReminders().catch((err) => console.warn('[ReminderWorker] Scheduled check:', err));
+  }, 30_000);
   timer.unref();
   return () => clearInterval(timer);
 }

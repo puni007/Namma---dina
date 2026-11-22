@@ -374,6 +374,16 @@ authRouter.post('/phone/verify-otp', validateBody(verifyOtpSchema), async (req, 
   });
 });
 
+function resolveGoogleRedirectUri(req: import('express').Request): string {
+  if (process.env.GOOGLE_REDIRECT_URI) {
+    return process.env.GOOGLE_REDIRECT_URI;
+  }
+  const isHttps = req.headers['x-forwarded-proto'] === 'https' || req.protocol === 'https';
+  const protocol = isHttps ? 'https' : 'http';
+  const host = req.headers['x-forwarded-host'] || req.get('host');
+  return `${protocol}://${host}/api/auth/google/callback`;
+}
+
 // Google OAuth
 authRouter.get('/google', (req, res) => {
   if (!isGoogleOAuthConfigured()) {
@@ -382,7 +392,7 @@ authRouter.get('/google', (req, res) => {
     }
     throw new HttpError(503, 'Google sign-in is not configured. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.', 'OAUTH_NOT_CONFIGURED');
   }
-  const redirectUri = `${req.protocol}://${req.get('host')}/api/auth/google/callback`;
+  const redirectUri = resolveGoogleRedirectUri(req);
   const state = randomBytes(16).toString('hex');
   const url = getGoogleAuthUrl(redirectUri, state);
   res.redirect(url);
@@ -396,7 +406,7 @@ authRouter.get('/google/callback', async (req, res) => {
   }
 
   try {
-    const redirectUri = `${req.protocol}://${req.get('host')}/api/auth/google/callback`;
+    const redirectUri = resolveGoogleRedirectUri(req);
     const profile = await exchangeGoogleCode(code, redirectUri);
 
     let user = await prisma.user.findFirst({
