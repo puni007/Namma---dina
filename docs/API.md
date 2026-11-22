@@ -34,21 +34,23 @@ AI routes require a signed-in user, server-side Anthropic configuration, a deplo
 | POST | `/ai/weekly-reflection` | Summarize the last seven days; body `{ "language": "en" | "kn" }` |
 | DELETE | `/ai/data` | Delete token-count rows and briefing cache and turn off AI opt-ins |
 
-## Mitra personal assistant
+## Mitra personal assistant & evolving companion
 
-Mitra provides bilingual navigation and guide replies without an AI provider. Optional open-ended chat requires `AI_MITRA_ENABLED`, a server-side provider key/model, and explicit user consent. Saved actions are validated, shown as previews, and written only after confirmation. History is owner-scoped, capped at 50 messages, retained for up to 30 days, and included in account export.
+Mitra provides bilingual navigation, guide replies, and an evolving smiling flame spirit companion. Optional open-ended chat requires `AI_MITRA_ENABLED`, a server-side provider key/model, and explicit user consent. Saved actions are validated, shown as previews, and written only after confirmation. History is owner-scoped, capped at 50 messages, retained for up to 30 days, and included in account export.
 
 | Method | Path | Purpose |
 |---|---|---|
 | GET/PATCH | `/assistant/settings` | Read or change launcher, language, nudge, quiet-hour, voice, tour, and AI preferences/consent |
 | GET | `/assistant/history` | Read the latest 50 unexpired Mitra messages |
 | DELETE | `/assistant/history` | Clear Mitra conversation messages |
-| GET | `/assistant/nudges` | Create and return eligible in-app nudges (at most two per local day); called only while the app is active and the panel is open |
+| GET | `/assistant/nudges` | Create and return eligible in-app nudges (at most two per local day) |
 | POST | `/assistant/nudges/:id/dismiss` | Dismiss an active nudge for the signed-in owner |
-| POST | `/assistant/message` | Send `{ "text": "...", "language": "en" | "kn" }`, confirm/cancel `{ "confirmActionId": "...", "decision": "confirm" | "cancel" }`, or undo `{ "undoActionId": "..." }` |
-| DELETE | `/assistant/data` | Delete Mitra history/preferences and token usage, then turn off AI opt-ins |
+| POST | `/assistant/message` | Send prompt, confirm/cancel action, or undo previous action |
+| DELETE | `/assistant/data` | Delete Mitra history/preferences and token usage |
+| GET | `/mitra/state` | Current Mitra XP, level, evolution stage (`ember`, `flame`, `radiance`, `aurora`), and recommendations |
+| POST | `/mitra/interact` | Interact with Mitra (`pet`, `talk`, `encourage`) to trigger mood poses and reflections |
 
-## Daily planning
+## Daily planning & calendar synchronization
 
 | Method | Path | Purpose |
 |---|---|---|
@@ -61,10 +63,13 @@ Mitra provides bilingual navigation and guide replies without an AI provider. Op
 | GET/POST/PATCH/DELETE | `/reminders` | One-time or recurring reminder records |
 | POST | `/reschedule/suggestions` | Plan available slots for a date |
 | POST | `/reschedule/:id/action` | Accept or reject a suggestion |
+| GET | `/calendar/feed/:token.ics` | **Public** webcal subscription feed for Google/Apple/Outlook calendars |
+| GET | `/calendar/sync` | Read calendar sync token, webcal URL, and sync status |
+| POST | `/calendar/sync` | Trigger an on-demand export/sync refresh |
+| POST | `/calendar/import` | Import external `.ics` events with automatic conflict detection |
+| GET | `/calendar/export.ics` | Download an `.ics` calendar file for offline schedule backup |
 
-Schedule creation rejects overlaps with another user-owned block or a scheduled task. Fixed commitments are included in planning. Recommendations remain suggestions until explicitly accepted.
-
-## Tracking and reflection
+## Tracking, wellbeing, and reproductive health
 
 | Method | Path | Purpose |
 |---|---|---|
@@ -78,6 +83,11 @@ Schedule creation rejects overlaps with another user-owned block or a scheduled 
 | GET/POST/PATCH/DELETE | `/reflections` | Private day reflections |
 | GET/POST/PATCH/DELETE | `/notifications` | In-app notification records |
 | GET | `/insights` | Calculated trends, budget and Comeback Score |
+| GET | `/reproductive/profile` | Read reproductive tracking profile and active mode |
+| POST | `/reproductive/profile` | Update cycle lengths, LMP, pregnancy due date, and explicit consent |
+| GET | `/reproductive/cycles` | Retrieve cycle entries (notes & symptoms decrypted on-the-fly) |
+| POST | `/reproductive/cycles` | Log daily symptoms, kick counts, and encrypted notes (AES-256-GCM) |
+| DELETE | `/reproductive/purge` | **Right-to-be-Forgotten**: immediate hard-delete of all cycle & pregnancy data |
 | GET | `/push/key` | Optional VAPID public key |
 | GET | `/push/status` | Current account’s push-subscription count |
 | POST/DELETE | `/push/subscriptions` | Register or remove this account’s browser subscription |

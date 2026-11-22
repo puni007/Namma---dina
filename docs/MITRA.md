@@ -1,10 +1,21 @@
-# Mitra, your personal guide
+# Mitra, your personal guide and evolving companion
 
-Mitra is the small lantern companion in signed-in app pages. Its original inline SVG mascot has idle, listening, thinking, happy, and concerned poses. The launcher opens a keyboard-accessible chat sheet that adapts to mobile browser and Android keyboards, safe areas, reduced motion, and the Android back button.
+Mitra is the smiling flame spirit companion in signed-in app pages. Its custom animated SVG visualizes an organic flame body, radiant inner pulsing flame, dancing ribbons, expressive blinking eyes, and warm rosy blush. The launcher opens a keyboard-accessible sheet that adapts to mobile browsers and Android keyboards, safe areas, reduced motion, and the Android back button.
 
-## Guide and chat
+## Flame Evolution & Progression
 
-The guide works without an AI provider. It can open app sections, summarize the user's logged day/week facts and Comeback Score, offer a short breathing pause, and create task, habit, water, sleep, workout, food, reflection, completion, deletion, or habit-check-in previews. Task moves are proposed by the existing deterministic scheduling engine; Mitra only asks whether to accept a planner opening. Short help topics are searchable locally, and while offline Mitra uses that guide and navigation without saving or queueing the typed message. The first-run tour highlights the main app areas and can be replayed in Settings.
+Mitra grows alongside your consistency. Every time you mark a task or schedule block as completed, you receive **+10 XP** toward Mitra's evolution:
+
+- **Ember (Level 1–4):** A tender, curious flickering spark just beginning its journey.
+- **Flame (Level 5–14):** A steady, vibrant golden-emerald flame with fluid dancing ribbons.
+- **Radiance (Level 15–29):** A luminescent flame radiating celestial flares and bursts of warm light.
+- **Aurora (Level 30+):** A transcendent cosmic flame crowned with ethereal aurora rings and starry sparkles.
+
+The interactive Mitra widget in the topbar and command center displays real-time animated XP tracks, current level badges, and personalized suggestions.
+
+## Guide, chat, and empathetic feedback
+
+The guide works without an AI provider. It can open app sections, summarize the user's logged day/week facts and Comeback Score, offer a short breathing pause, give phase-aware cycle and wellness advice, and create task, habit, water, sleep, workout, food, reflection, completion, deletion, or habit-check-in previews. Task moves are proposed by the existing deterministic scheduling engine; Mitra only asks whether to accept a planner opening. Short help topics are searchable locally, and while offline Mitra uses that guide and navigation without saving or queueing the typed message. The first-run tour highlights the main app areas and can be replayed in Settings.
 
 Mitra can also provide open-ended AI chat when the server operator has configured Anthropic, set `AI_MITRA_ENABLED=true`, and the user has accepted the separate AI consent note and enabled AI help. The current message and only the app details needed for that reply may be sent. Previous chat messages are not sent to the provider. See [AI privacy and configuration](AI.md).
 

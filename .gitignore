@@ -20,3 +20,4 @@ scratch/
 *.keystore
 *.jks
 .neon
+.idea/

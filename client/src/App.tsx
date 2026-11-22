@@ -210,7 +210,7 @@ function AppRoot() {
           </Routes>
         </Suspense>
       </div>
-      {user && location.pathname.startsWith('/app') && <Suspense fallback={null}><MitraWidget/></Suspense>}
+      {user && location.pathname.startsWith('/app') && <Suspense fallback={null}><MitraWidget /></Suspense>}
       {!isOnline && <OfflineBanner />}
       <SiteUtilities isApp={location.pathname.startsWith('/app')} />
     </>
@@ -306,7 +306,7 @@ function AppShell({ user }: { user: User }) {
 
   const logout = useMutation({
     mutationFn: async () => {
-      await sendData('/auth/logout', 'POST').catch(() => {});
+      await sendData('/auth/logout', 'POST').catch(() => { });
       await setAuthTokens(null);
     },
     onSettled: () => {
@@ -367,7 +367,7 @@ function AppShell({ user }: { user: User }) {
     <div className="app-shell">
       <aside className="sidebar">
         <Link to="/app/day" className="brand" aria-label={`${t.brandName} ${t.brandSub}`}>
-          <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6"/><path d="M9 29c4-6 9-9 15-9s11 3 15 9"/><path d="M7 33h34M12 38h24"/></svg></span>
+          <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6" /><path d="M9 29c4-6 9-9 15-9s11 3 15 9" /><path d="M7 33h34M12 38h24" /></svg></span>
           <span><strong>{t.brandName}</strong>{' '}<small>{t.brandSub}</small></span>
         </Link>
         <nav className="side-nav">
@@ -455,7 +455,7 @@ function AppShell({ user }: { user: User }) {
           <nav className="mobile-drawer" id="mobile-navigation" aria-label={t.yourSpace}>
             <div className="mobile-drawer-head">
               <Link to="/app/day" className="brand mobile-drawer-brand" onClick={() => setMobileOpen(false)} aria-label={`${t.brandName} ${t.brandSub}`}>
-                <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6"/><path d="M9 29c4-6 9-9 15-9s11 3 15 9"/><path d="M7 33h34M12 38h24"/></svg></span>
+                <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6" /><path d="M9 29c4-6 9-9 15-9s11 3 15 9" /><path d="M7 33h34M12 38h24" /></svg></span>
                 <span><strong>{t.brandName}</strong><small>{t.brandSub}</small></span>
               </Link>
               <button className="icon-button" onClick={() => setMobileOpen(false)} aria-label="Close navigation"><X size={18} /></button>
@@ -633,21 +633,21 @@ function OnboardingPage({ user }: { user: User }) {
         <h1>Shape a day that feels like yours.</h1>
         <p className="muted">A few preferences help us make your first plan feel more natural. You can change these anytime.</p>
         <div className="onboarding-progress" role="progressbar" aria-label="Onboarding progress" aria-valuemin={1} aria-valuemax={3} aria-valuenow={step + 1}>
-          <div className="onboarding-dots" aria-hidden="true">{[0, 1, 2].map((index) => <span key={index} className={index <= step ? 'complete' : ''}/>)}</div>
+          <div className="onboarding-dots" aria-hidden="true">{[0, 1, 2].map((index) => <span key={index} className={index <= step ? 'complete' : ''} />)}</div>
           <span>Step {step + 1} of 3</span>
         </div>
         <div key={step} className={`onboarding-step onboarding-step-${step}`}>
-          <svg className="onboarding-illustration" viewBox="0 0 64 48" aria-hidden="true"><circle cx="49" cy="11" r="4"/><path d="M3 34c10-12 18-12 29-3 7 6 14 7 22 0 3-3 5-4 7-3v17H3Z"/><path d="M3 39c9-5 16-5 25 0s17 5 25 0 7-3 8-2"/></svg>
+          <svg className="onboarding-illustration" viewBox="0 0 64 48" aria-hidden="true"><circle cx="49" cy="11" r="4" /><path d="M3 34c10-12 18-12 29-3 7 6 14 7 22 0 3-3 5-4 7-3v17H3Z" /><path d="M3 39c9-5 16-5 25 0s17 5 25 0 7-3 8-2" /></svg>
           <h2>{step === 0 ? 'Start with your day.' : step === 1 ? 'Make room for what matters.' : 'Choose a gentle rhythm.'}</h2>
           {step === 0 && <div className="form-stack"><Field label="When do you like to start your day?"><TextInput type="time" value={wake} onChange={(e) => setWake(e.target.value)} /></Field><Field label="When do you usually wind down?"><TextInput type="time" value={sleep} onChange={(e) => setSleep(e.target.value)} /></Field><Field label="Timezone"><TextInput value={timezone} onChange={(e) => setTimezone(e.target.value)} placeholder="Asia/Kolkata" /></Field></div>}
           {step === 1 && <div className="form-stack"><Field label="One thing you want more room for"><TextInput value={goal} onChange={(e) => setGoal(e.target.value)} placeholder="e.g. time to read, regular walks" /></Field><Field label="Planning style"><SelectInput value={style} onChange={(e) => setStyle(e.target.value)}><option value="focused">Focused blocks</option><option value="balanced">A balanced mix</option><option value="flexible">Loose and flexible</option></SelectInput></Field></div>}
-          {step === 2 && <div className="form-stack"><div className="onboarding-choices"><span>Any habits you’d like to start with? <small>Optional</small></span><div>{habitChoices.map((name) => <label key={name}><input type="checkbox" checked={selectedHabits.includes(name)} onChange={(e) => setSelectedHabits((current) => e.target.checked ? [...current, name] : current.filter((item) => item !== name))}/>{name}</label>)}</div></div><label className="check-row"><input type="checkbox" checked={reminders} onChange={(e) => setReminders(e.target.checked)}/><span><strong>Keep gentle reminders on</strong><small>Browser permission is optional and can be enabled later.</small></span></label></div>}
+          {step === 2 && <div className="form-stack"><div className="onboarding-choices"><span>Any habits you’d like to start with? <small>Optional</small></span><div>{habitChoices.map((name) => <label key={name}><input type="checkbox" checked={selectedHabits.includes(name)} onChange={(e) => setSelectedHabits((current) => e.target.checked ? [...current, name] : current.filter((item) => item !== name))} />{name}</label>)}</div></div><label className="check-row"><input type="checkbox" checked={reminders} onChange={(e) => setReminders(e.target.checked)} /><span><strong>Keep gentle reminders on</strong><small>Browser permission is optional and can be enabled later.</small></span></label></div>}
         </div>
         {save.isError && <p className="inline-error">{save.error instanceof Error ? save.error.message : 'Could not save onboarding.'}</p>}
         <div className="onboarding-actions">
           {step > 0 && <Button variant="quiet" onClick={() => setStep(step - 1)} disabled={save.isPending}>Back</Button>}
-          {step < 2 && <Button onClick={() => setStep(step + 1)}>Continue <ChevronRight size={16}/></Button>}
-          {step === 2 && <Button onClick={() => save.mutate()} disabled={save.isPending}>{save.isPending ? 'Saving…' : 'Finish setup'} <ChevronRight size={16}/></Button>}
+          {step < 2 && <Button onClick={() => setStep(step + 1)}>Continue <ChevronRight size={16} /></Button>}
+          {step === 2 && <Button onClick={() => save.mutate()} disabled={save.isPending}>{save.isPending ? 'Saving…' : 'Finish setup'} <ChevronRight size={16} /></Button>}
         </div>
         <button
           className="text-button"

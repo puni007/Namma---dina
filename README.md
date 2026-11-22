@@ -16,7 +16,15 @@ Namma Dina is a personal day-management and lifestyle app for planning, routines
 - **Habits & Wellbeing:** Daily/weekly/custom habits with 7-day visual rhythm indicators, water tracking, sleep logs, workouts, mood/energy rating, manual digital wellbeing tracking, food spending, private daily reflections, and completed breathing sessions.
 - **Aurora motion:** User-selectable Full/Calm/Off motion, reduced-motion support, time-of-day tint, and a lightweight ambient particle canvas that pauses in the background.
 - **Optional AI companion:** Server-only Anthropic integration for morning briefings, confirmed quick-add previews, deterministic comeback explanations, and weekly reflections. Every feature is off by default; see [AI companion privacy and configuration](docs/AI.md).
-- **Mitra personal guide:** Original animated lantern mascot, bilingual navigation and searchable offline help, a guided app tour, optional private 30-day chat history, confirmation-first actions with undo, and quiet in-app nudges. See [Mitra guide and data controls](docs/MITRA.md).
+- **Mitra evolving flame companion:** Original smiling flame mascot with animated eye blinks, rosy cheeks, and 4 evolution tiers (Ember, Flame, Radiance, Aurora). Automatically gains +10 XP upon task or schedule block completion, with real-time level progress, empathetic wellness feedback, bilingual navigation, searchable offline help, and optional private chat history. See [Mitra guide and data controls](docs/MITRA.md).
+- **Reproductive & Pregnancy Health (Privacy-First):**
+  - Dedicated modes for menstrual cycle tracking and pregnancy tracking (`/app/cycle`).
+  - Explicit consent gate and zero third-party data transmission.
+  - Field-level **AES-256-GCM encryption** for sensitive notes, symptoms, and cycle milestones.
+  - One-click **Right to be Forgotten** instant purge (`DELETE /api/reproductive/purge`).
+- **Bidirectional Calendar Engine:**
+  - Token-authenticated webcal subscription feed (`/api/calendar/feed/:token.ics`) compatible with Google Calendar, Apple Calendar, and Outlook.
+  - Event import with conflict detection and one-click `.ics` schedule file export.
 - **Native Android Experience:**
   - Hardware back-button routing via `@capacitor/app`.
   - Polished status-bar theming and splash screen via `@capacitor/status-bar` and `@capacitor/splash-screen`.
@@ -103,7 +111,7 @@ Run all test suites and quality gates:
 ```powershell
 npm run typecheck   # TypeScript check on client and server
 npm run lint        # ESLint check
-npm test            # Vitest suite (14 API/business server tests + client format tests)
+npm test            # Vitest suite (29 tests across server/client suites: crypto, mitra, api, business, ai)
 npm run build       # Production client and server build
 ```
 
