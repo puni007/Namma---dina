@@ -8,7 +8,9 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   backgroundColor: '#01070a',
   server: {
-    url: process.env.CAPACITOR_SERVER_URL,
+    ...(process.env.CAPACITOR_SERVER_URL
+      ? { url: process.env.CAPACITOR_SERVER_URL }
+      : {}),
     hostname: process.env.CAPACITOR_HOSTNAME || 'localhost',
     androidScheme: 'https',
     cleartext: !isProduction,
