@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, Navigate, NavLink, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getData, sendData, setAuthTokens, type User } from './lib/api';
@@ -6,19 +6,25 @@ import {
   CalendarDays,
   ChartNoAxesCombined,
   CheckSquare,
+  Copy,
   ChevronRight,
   CircleHelp,
   Clock3,
+  Flower2,
   HeartPulse,
   Leaf,
   LogOut,
   Menu,
   MoreHorizontal,
+  Moon,
   NotebookPen,
   PanelsTopLeft,
+  Plus,
+  Search,
   Settings2,
   Smartphone,
   Sparkles,
+  Sun,
   Utensils,
   X,
   Tag,
@@ -26,10 +32,14 @@ import {
 } from 'lucide-react';
 import { Button, Field, Loading, OfflineBanner, SelectInput, TextInput } from './components/ui';
 import { AuroraParticles } from './components/AuroraParticles';
+import { AuroraVideo } from './components/AuroraVideo';
 import { useNativeLifecycle, useNetworkStatus } from './lib/native';
 import { setPreferredTimezone, todayKey } from './lib/format';
 import { useLanguage, type TranslationDict } from './lib/i18n';
 import { getTimeOfDay, resolveMotionMode } from './lib/motion';
+import { SiteSearch } from './components/SiteSearch';
+import { SiteUtilities } from './components/SiteUtilities';
+import { NotFoundPage } from './pages/NotFoundPage';
 import {
   AccountPage,
   CategoriesPage,
@@ -52,6 +62,7 @@ const RegisterPage = lazy(() => import('./pages/AuthPages').then((module) => ({ 
 const ForgotPage = lazy(() => import('./pages/AuthPages').then((module) => ({ default: module.ForgotPage })));
 const ResetPage = lazy(() => import('./pages/AuthPages').then((module) => ({ default: module.ResetPage })));
 const WellnessPage = lazy(() => import('./pages/WellnessPage').then((module) => ({ default: module.WellnessPage })));
+const ReproductivePage = lazy(() => import('./pages/ReproductivePage').then((module) => ({ default: module.ReproductivePage })));
 const BreathePage = lazy(() => import('./pages/BreathePage').then((module) => ({ default: module.BreathePage })));
 const MitraWidget = lazy(() => import('./components/MitraWidget').then((module) => ({ default: module.MitraWidget })));
 
@@ -64,6 +75,7 @@ function buildNav(t: TranslationDict) {
     { to: '/app/calendar', label: t.navCalendar, icon: CalendarDays },
     { to: '/app/reminders', label: t.navReminders, icon: Clock3 },
     { to: '/app/wellness', label: t.navWellness, icon: HeartPulse },
+    { to: '/app/cycle', label: t.navCycle, icon: Flower2 },
     { to: '/app/digital', label: t.navDigital, icon: Smartphone },
     { to: '/app/food', label: t.navFood, icon: Utensils },
     { to: '/app/reflection', label: t.navReflection, icon: NotebookPen },
@@ -81,6 +93,35 @@ function useCurrentUser() {
   });
 }
 
+const pageMetadataMap: Record<string, { title: string; description: string }> = {
+  '/': { title: 'Namma Dina — Make today meaningful', description: 'A thoughtful space for your plans, habits and wellbeing in English and ಕನ್ನಡ.' },
+  '/login': { title: 'Sign in — Namma Dina', description: 'Sign in to continue planning your day with Namma Dina.' },
+  '/register': { title: 'Create an account — Namma Dina', description: 'Create your personal Namma Dina space for plans, habits and wellbeing.' },
+  '/forgot-password': { title: 'Reset your password — Namma Dina', description: 'Request password reset instructions for your Namma Dina account.' },
+  '/reset-password': { title: 'Choose a new password — Namma Dina', description: 'Set a new password for your Namma Dina account.' },
+  '/onboarding': { title: 'Set up your day — Namma Dina', description: 'Choose a few preferences to make your Namma Dina space feel like yours.' },
+  '/app/day': { title: 'My Day — Namma Dina', description: 'See today’s plans, habits and gentle next steps in Namma Dina.' },
+  '/app/tasks': { title: 'Tasks — Namma Dina', description: 'Plan, organize and complete your tasks in Namma Dina.' },
+  '/app/categories': { title: 'Categories — Namma Dina', description: 'Organize your tasks with personal categories.' },
+  '/app/habits': { title: 'Habits — Namma Dina', description: 'Build flexible habits and track your check-ins.' },
+  '/app/calendar': { title: 'Calendar — Namma Dina', description: 'View your schedule and planned time in Namma Dina.' },
+  '/app/reminders': { title: 'Reminders — Namma Dina', description: 'Manage reminders for the things you want to remember.' },
+  '/app/wellness': { title: 'Wellness — Namma Dina', description: 'Keep gentle track of the basics that support your day.' },
+  '/app/cycle': { title: 'Cycle & Health — Namma Dina', description: 'Private, end-to-end encrypted cycle and health tracking.' },
+  '/app/wellness/breathe': { title: 'Breathing pause — Namma Dina', description: 'Take a short guided breathing pause.' },
+  '/app/digital': { title: 'Digital wellbeing — Namma Dina', description: 'Notice and reflect on your screen time.' },
+  '/app/food': { title: 'Food — Namma Dina', description: 'Keep track of food spending and delivery patterns.' },
+  '/app/reflection': { title: 'Reflection — Namma Dina', description: 'Make room to reflect on how your day felt.' },
+  '/app/insights': { title: 'Insights — Namma Dina', description: 'Explore patterns in your plans, habits and wellbeing.' },
+  '/app/notifications': { title: 'Notifications — Namma Dina', description: 'Review updates and reminders from Namma Dina.' },
+  '/app/settings': { title: 'Settings — Namma Dina', description: 'Manage your profile, preferences and privacy choices.' },
+  '/app/account': { title: 'Account and privacy — Namma Dina', description: 'Export your information or manage your Namma Dina account.' },
+};
+
+function pageMetadata(pathname: string) {
+  return pageMetadataMap[pathname] ?? { title: 'Page not found — Namma Dina', description: 'This page could not be found. Return to Namma Dina to continue.' };
+}
+
 function AppRoot() {
   useNativeLifecycle();
   const location = useLocation();
@@ -88,6 +129,15 @@ function AppRoot() {
   const userQuery = useCurrentUser();
   const savedMotionMode = userQuery.data?.settings?.motionMode;
   const timezone = userQuery.data?.timezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone;
+  useEffect(() => {
+    const page = pageMetadata(location.pathname);
+    document.title = page.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', page.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', page.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', page.description);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', page.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', page.description);
+  }, [location.pathname]);
   useEffect(() => {
     const root = document.documentElement;
     const preference = savedMotionMode ?? 'auto';
@@ -124,6 +174,7 @@ function AppRoot() {
   const showPublicParticles = ['/', '/login', '/register'].includes(location.pathname);
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <AuroraAtmosphere />
       {showPublicParticles && <AuroraParticles intensity="ambient" />}
       <div className="app-content">
@@ -144,6 +195,7 @@ function AppRoot() {
               <Route path="calendar" element={<PlannerPage user={user!} />} />
               <Route path="reminders" element={<RemindersPage />} />
               <Route path="wellness" element={<WellnessPage />} />
+              <Route path="cycle" element={<ReproductivePage />} />
               <Route path="wellness/breathe" element={<BreathePage />} />
               <Route path="digital" element={<DigitalPage />} />
               <Route path="food" element={<FoodPage />} />
@@ -152,14 +204,15 @@ function AppRoot() {
               <Route path="notifications" element={<NotificationsPage />} />
               <Route path="settings" element={<SettingsPage user={user!} />} />
               <Route path="account" element={<AccountPage />} />
-              <Route path="*" element={<Navigate to="/app/day" replace />} />
+              <Route path="*" element={<NotFoundPage homeTo="/app/day" inApp />} />
             </Route>
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage homeTo={user ? '/app/day' : '/'} />} />
           </Routes>
         </Suspense>
       </div>
       {user && location.pathname.startsWith('/app') && <Suspense fallback={null}><MitraWidget/></Suspense>}
       {!isOnline && <OfflineBanner />}
+      <SiteUtilities isApp={location.pathname.startsWith('/app')} />
     </>
   );
 }
@@ -184,11 +237,8 @@ function AuroraAtmosphere() {
   }, []);
   return (
     <div className="aurora-atmosphere" aria-hidden="true">
+      <AuroraVideo />
       <span ref={atmosphereRef} className="aurora-cursor" />
-      <span className="aurora-curtain aurora-curtain-one" />
-      <span className="aurora-curtain aurora-curtain-two" />
-      <span className="aurora-curtain aurora-curtain-three" />
-      <span className="aurora-stars" />
       <span className="aurora-horizon" />
       <span className="aurora-vignette" />
     </div>
@@ -199,11 +249,60 @@ function AppShell({ user }: { user: User }) {
   const { lang, setLanguage, t } = useLanguage();
   const [moreOpen, setMoreOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [copyStatus, setCopyStatus] = useState('');
+  const [quickAddOpen, setQuickAddOpen] = useState(false);
+  const [quickAddKind, setQuickAddKind] = useState<'task' | 'habit' | 'water' | 'reflection'>('task');
+  const [quickTaskTitle, setQuickTaskTitle] = useState('');
+  const [theme, setTheme] = useState<'night' | 'day'>(() => {
+    try { return localStorage.getItem('nd_theme') === 'day' ? 'day' : 'night'; } catch { return 'night'; }
+  });
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const location = useLocation();
 
   const nav = useMemo(() => buildNav(t), [t]);
+  const searchItems = useMemo(() => [
+    ...nav.map((item) => ({ ...item, keywords: `${item.label} plan track manage` })),
+    { to: '/app/wellness/breathe', label: lang === 'kn' ? 'ಉಸಿರಾಟದ ವಿರಾಮ' : 'Breathing pause', keywords: 'breathe calm pause wellness' },
+    { to: '/app/account', label: t.navAccount, keywords: 'privacy export delete account' },
+  ], [lang, nav, t.navAccount]);
+  const navGroups = useMemo(() => [
+    { label: t.groupToday, items: nav.filter((item) => ['/app/day', '/app/tasks'].includes(item.to)) },
+    { label: t.groupPlan, items: nav.filter((item) => ['/app/categories', '/app/calendar', '/app/reminders'].includes(item.to)) },
+    { label: t.groupCare, items: nav.filter((item) => ['/app/habits', '/app/wellness', '/app/cycle', '/app/digital', '/app/food'].includes(item.to)) },
+    { label: t.groupReflect, items: nav.filter((item) => ['/app/reflection', '/app/insights', '/app/notifications', '/app/settings'].includes(item.to)) },
+  ], [nav, t]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('nd_theme', theme); } catch { /* Ignore storage errors. */ }
+  }, [theme]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setMoreOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        setQuickAddOpen(true);
+      }
+      if (event.key === 'Escape') {
+        setQuickAddOpen(false);
+        setMobileOpen(false);
+        setMoreOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    if (!quickAddOpen) setQuickTaskTitle('');
+  }, [quickAddOpen]);
 
   const logout = useMutation({
     mutationFn: async () => {
@@ -216,25 +315,72 @@ function AppShell({ user }: { user: User }) {
     },
   });
 
+  const quickCreateTask = useMutation({
+    mutationFn: () => sendData('/tasks', 'POST', { title: quickTaskTitle.trim(), priority: 'MEDIUM', scheduledMinutes: 30 }),
+    onSuccess: () => {
+      setQuickAddOpen(false);
+      setQuickTaskTitle('');
+      setCopyStatus(lang === 'kn' ? 'ಕೆಲಸವನ್ನು ಸೇರಿಸಲಾಗಿದೆ' : 'Task added');
+      window.setTimeout(() => setCopyStatus(''), 2500);
+      void queryClient.invalidateQueries({ queryKey: ['overview'] });
+      void queryClient.invalidateQueries({ queryKey: ['tasks'] });
+    },
+  });
+  const quickLogWater = useMutation({
+    mutationFn: (amountMl: number) => sendData('/water', 'POST', { date: todayKey(new Date(), user.timezone), amountMl }),
+    onSuccess: () => {
+      setQuickAddOpen(false);
+      setCopyStatus(lang === 'kn' ? 'ನೀರಿನ ದಾಖಲೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ' : 'Water log saved');
+      window.setTimeout(() => setCopyStatus(''), 2500);
+      void queryClient.invalidateQueries({ queryKey: ['overview'] });
+      void queryClient.invalidateQueries({ queryKey: ['wellness'] });
+    },
+  });
+
   const activeNav = nav.find((item) => location.pathname === item.to || location.pathname.startsWith(`${item.to}/`))?.label ?? t.navDay;
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
+  const copyCurrentPage = async () => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(window.location.href);
+      } else {
+        const fallback = document.createElement('textarea');
+        fallback.value = window.location.href;
+        fallback.setAttribute('readonly', '');
+        fallback.style.position = 'fixed';
+        fallback.style.opacity = '0';
+        document.body.appendChild(fallback);
+        fallback.select();
+        const copied = document.execCommand('copy');
+        fallback.remove();
+        if (!copied) throw new Error('Clipboard access unavailable');
+      }
+      setCopyStatus(lang === 'kn' ? 'ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ' : 'Page link copied');
+    } catch {
+      setCopyStatus(lang === 'kn' ? 'ಲಿಂಕ್ ನಕಲಿಸಲಾಗಲಿಲ್ಲ' : 'Could not copy the page link');
+    }
+    window.setTimeout(() => setCopyStatus(''), 2500);
+  };
   useReminderWatcher();
 
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <Link to="/app/day" className="brand">
-          <span className="brand-mark"><span /></span>
-          <span><strong>{t.brandName}</strong><small>{t.brandSub}</small></span>
+        <Link to="/app/day" className="brand" aria-label={`${t.brandName} ${t.brandSub}`}>
+          <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6"/><path d="M9 29c4-6 9-9 15-9s11 3 15 9"/><path d="M7 33h34M12 38h24"/></svg></span>
+          <span><strong>{t.brandName}</strong>{' '}<small>{t.brandSub}</small></span>
         </Link>
-        <div className="sidebar-label">{t.yourSpace}</div>
         <nav className="side-nav">
-          {nav.map(({ to, label, icon: Icon }) => (
-            <NavLink key={to} to={to} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-              <Icon size={17} strokeWidth={1.8} />
-              <span>{label}</span>
-              {label === t.navDay && <span className="nav-dot" />}
-            </NavLink>
-          ))}
+          {navGroups.map((group) => <div className="side-nav-group" key={group.label}>
+            <div className="sidebar-label">{group.label}</div>
+            {group.items.map(({ to, label, icon: Icon }) => (
+              <NavLink key={to} to={to} aria-label={label} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+                <Icon size={18} strokeWidth={1.8} />
+                <span>{label}</span>
+                {label === t.navDay && <span className="nav-dot" />}
+              </NavLink>
+            ))}
+          </div>)}
         </nav>
         <div className="sidebar-bottom">
           <div className="sidebar-note">
@@ -257,19 +403,19 @@ function AppShell({ user }: { user: User }) {
               onClick={() => setLanguage(lang === 'en' ? 'kn' : 'en')}
               title={lang === 'en' ? 'ಕನ್ನಡಕ್ಕೆ ಬದಲಾಯಿಸಿ' : 'Switch to English'}
               style={{ width: '38px', height: '38px', fontSize: '11px', fontWeight: 700 }}
-              aria-label="Toggle language"
+              aria-label={lang === 'en' ? 'ಕನ್ನಡ, switch to Kannada' : 'EN, switch to English'}
             >
               {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
             </button>
           </div>
-          <button className="nav-link" onClick={() => logout.mutate()}><LogOut size={16} /><span>Sign out</span></button>
+          <button className="nav-link" onClick={() => logout.mutate()}><LogOut size={16} /><span>{t.signOut}</span></button>
         </div>
       </aside>
 
-      <main className="app-main">
+      <main className="app-main" id="main-content" tabIndex={-1}>
         <header className="topbar">
-          <button className="mobile-menu icon-button" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Open navigation">
-            <Menu size={20} />
+          <button className="mobile-menu icon-button" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={mobileOpen} aria-controls="mobile-navigation">
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
           <div className="crumb">
             <span>{activeNav}</span>
@@ -277,32 +423,47 @@ function AppShell({ user }: { user: User }) {
             <span className="muted">{todayKey()}</span>
           </div>
           <div className="topbar-right">
+            <button className="icon-button site-search-trigger" type="button" onClick={() => setSearchOpen(true)} aria-label="Search pages" title="Search pages"><Search size={18} /></button>
+            <button className="icon-button copy-page-trigger" type="button" onClick={() => void copyCurrentPage()} aria-label="Copy page link" title="Copy page link"><Copy size={17} /></button>
+            <button className="assistant-trigger" onClick={() => window.dispatchEvent(new Event('namma-dina:open-mitra'))} aria-label={t.navMitra}>
+              <Sparkles size={17} /><span>{t.navMitra}</span>
+            </button>
+            <button className="quick-add-trigger" onClick={() => setQuickAddOpen(true)} aria-label={`${t.quickAdd} Ctrl K`} aria-keyshortcuts="Control+K Meta+K">
+              <Plus size={17} aria-hidden="true" /><span>{t.quickAdd}{' '}<kbd aria-hidden="true">Ctrl K</kbd></span>
+            </button>
+            <button className="icon-button theme-toggle" onClick={() => setTheme(theme === 'night' ? 'day' : 'night')} aria-label={theme === 'night' ? t.themeDay : t.themeNight} title={theme === 'night' ? t.themeDay : t.themeNight} aria-pressed={theme === 'day'}>
+              {theme === 'night' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <button
               className="icon-button"
               onClick={() => setLanguage(lang === 'en' ? 'kn' : 'en')}
               title={lang === 'en' ? 'ಕನ್ನಡಕ್ಕೆ ಬದಲಾಯಿಸಿ' : 'Switch to English'}
-              style={{ height: '30px', padding: '0 8px', width: 'auto', fontSize: '11px', fontWeight: 700, gap: '4px' }}
+              style={{ height: '30px', padding: '0 8px', width: 'auto', fontSize: '12px', fontWeight: 700, gap: '4px' }}
+              aria-label={lang === 'en' ? 'ಕನ್ನಡ, switch to Kannada' : 'EN, switch to English'}
             >
               <Languages size={14} />
               <span>{lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}</span>
             </button>
-            <span className="topbar-pulse" />
-            <span>{t.spacePace}</span>
             <button className="avatar avatar-small" onClick={() => navigate('/app/settings')} aria-label="Open settings">
               {user.displayName.slice(0, 1).toUpperCase()}
             </button>
-            <button className="icon-button topbar-signout" onClick={() => logout.mutate()} aria-label="Sign out" title="Sign out"><LogOut size={16} /></button>
+            <button className="icon-button topbar-signout" onClick={() => logout.mutate()} aria-label={t.signOut} title={t.signOut}><LogOut size={16} /></button>
           </div>
         </header>
 
         {mobileOpen && (
-          <div className="mobile-drawer">
+          <nav className="mobile-drawer" id="mobile-navigation" aria-label={t.yourSpace}>
             <div className="mobile-drawer-head">
-              <span className="eyebrow">{t.yourSpace}</span>
+              <Link to="/app/day" className="brand mobile-drawer-brand" onClick={() => setMobileOpen(false)} aria-label={`${t.brandName} ${t.brandSub}`}>
+                <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6"/><path d="M9 29c4-6 9-9 15-9s11 3 15 9"/><path d="M7 33h34M12 38h24"/></svg></span>
+                <span><strong>{t.brandName}</strong><small>{t.brandSub}</small></span>
+              </Link>
               <button className="icon-button" onClick={() => setMobileOpen(false)} aria-label="Close navigation"><X size={18} /></button>
             </div>
+            <button className="nav-link mobile-tool-link" type="button" onClick={() => { setMobileOpen(false); setSearchOpen(true); }}><Search size={18} />Search pages</button>
+            <button className="nav-link mobile-tool-link" type="button" onClick={() => void copyCurrentPage()}><Copy size={18} />Copy page link</button>
             {nav.map(({ to, label, icon: Icon }) => (
-              <NavLink onClick={() => setMobileOpen(false)} key={to} to={to} className="nav-link">
+              <NavLink onClick={() => setMobileOpen(false)} key={to} to={to} aria-label={label} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                 <Icon size={18} />
                 {label}
               </NavLink>
@@ -311,7 +472,7 @@ function AppShell({ user }: { user: User }) {
               <LogOut size={18} />
               {t.signOut}
             </button>
-          </div>
+          </nav>
         )}
 
         <div className="page-wrap">
@@ -328,6 +489,10 @@ function AppShell({ user }: { user: User }) {
             <small>{label}</small>
           </NavLink>
         ))}
+        <button className="bottom-link" onClick={() => window.dispatchEvent(new Event('namma-dina:open-mitra'))} aria-label={t.navMitra}>
+          <Sparkles size={18} />
+          <small>{t.navMitra}</small>
+        </button>
         <button className={`bottom-link ${moreOpen ? 'active' : ''}`} onClick={() => setMoreOpen(!moreOpen)}>
           <MoreHorizontal size={18} />
           <small>{t.more}</small>
@@ -336,6 +501,8 @@ function AppShell({ user }: { user: User }) {
 
       {moreOpen && (
         <div className="more-panel">
+          <button onClick={() => { setMoreOpen(false); setSearchOpen(true); }} className="nav-link"><Search size={17} />Search pages</button>
+          <button onClick={() => void copyCurrentPage()} className="nav-link"><Copy size={17} />Copy page link</button>
           {nav.filter((item) => !item.mobile).map(({ to, label, icon: Icon }) => (
             <NavLink onClick={() => setMoreOpen(false)} key={to} to={to} className="nav-link">
               <Icon size={17} />
@@ -352,6 +519,38 @@ function AppShell({ user }: { user: User }) {
           </button>
         </div>
       )}
+
+      <button className="quick-add-fab" onClick={() => setQuickAddOpen(true)} aria-label={t.quickAdd}>
+        <Plus size={23} />
+      </button>
+
+      {quickAddOpen && <div className="quick-add-scrim" onClick={() => setQuickAddOpen(false)}>
+        <section className="quick-add-dialog" role="dialog" aria-modal="true" aria-labelledby="quick-add-title" onClick={(event) => event.stopPropagation()}>
+          <div className="quick-add-heading">
+            <div><p className="eyebrow">{t.quickAdd}</p><h2 id="quick-add-title">{t.quickAddTitle}</h2><p>{t.quickAddHint}</p></div>
+            <button className="icon-button" onClick={() => setQuickAddOpen(false)} aria-label={lang === 'kn' ? 'ಮುಚ್ಚಿ' : 'Close'}><X size={19} /></button>
+          </div>
+          <div className="quick-add-options" role="tablist" aria-label={t.quickAddTitle}>
+            {([
+              ['task', t.quickTask, CheckSquare],
+              ['habit', t.quickHabit, Leaf],
+              ['water', t.quickWater, HeartPulse],
+              ['reflection', t.quickReflection, NotebookPen],
+            ] as const).map(([kind, label, Icon]) => <button key={kind} role="tab" aria-selected={quickAddKind === kind} className={quickAddKind === kind ? 'active' : ''} onClick={() => setQuickAddKind(kind)}><Icon size={17} /><span>{label}</span></button>)}
+          </div>
+          {quickAddKind === 'task' && <form className="quick-add-form" onSubmit={(event) => { event.preventDefault(); if (quickTaskTitle.trim()) quickCreateTask.mutate(); }}>
+            <label htmlFor="quick-task-title">{t.quickTask}</label>
+            <TextInput id="quick-task-title" autoFocus value={quickTaskTitle} onChange={(event) => setQuickTaskTitle(event.target.value)} placeholder={t.quickTaskPlaceholder} maxLength={160} />
+            {quickCreateTask.isError && <p className="inline-error">{lang === 'kn' ? 'ಕೆಲಸವನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.' : 'That task could not be saved. Try again.'}</p>}
+            <Button type="submit" disabled={!quickTaskTitle.trim() || quickCreateTask.isPending}>{quickCreateTask.isPending ? (lang === 'kn' ? 'ಸೇರಿಸಲಾಗುತ್ತಿದೆ…' : 'Adding…') : t.quickCreateTask}<Plus size={16} /></Button>
+          </form>}
+          {quickAddKind === 'water' && <div className="quick-add-water"><p>{lang === 'kn' ? 'ನಿಮ್ಮ ಇಂದಿನ ದಾಖಲೆಗೆ ನೀರನ್ನು ಸೇರಿಸಿ.' : 'Add water to today’s check-in.'}</p><div><Button type="button" variant="outline" onClick={() => quickLogWater.mutate(250)} disabled={quickLogWater.isPending}>{t.quickWater250}</Button><Button type="button" onClick={() => quickLogWater.mutate(500)} disabled={quickLogWater.isPending}>{t.quickWater500}</Button></div>{quickLogWater.isError && <p className="inline-error">{lang === 'kn' ? 'ನೀರಿನ ದಾಖಲೆಯನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.' : 'That water log could not be saved.'}</p>}</div>}
+          {quickAddKind === 'habit' && <div className="quick-add-route"><p>{lang === 'kn' ? 'ಇಂದಿನ ಅಭ್ಯಾಸವನ್ನು ಆರಿಸಿ ದಾಖಲಿಸಿ.' : 'Choose a habit and check in for today.'}</p><Button type="button" onClick={() => { setQuickAddOpen(false); navigate('/app/habits'); }}>{lang === 'kn' ? 'ಅಭ್ಯಾಸಗಳನ್ನು ತೆರೆಯಿರಿ' : 'Open habits'}<ChevronRight size={16} /></Button></div>}
+          {quickAddKind === 'reflection' && <div className="quick-add-route"><p>{lang === 'kn' ? 'ಇಂದಿನ ದಿನದ ಬಗ್ಗೆ ಒಂದು ಕ್ಷಣ ಗಮನಿಸಿ.' : 'Take a moment to notice the day you had.'}</p><Button type="button" onClick={() => { setQuickAddOpen(false); navigate('/app/reflection'); }}>{lang === 'kn' ? 'ಅವಲೋಕನ ತೆರೆಯಿರಿ' : 'Open reflection'}<ChevronRight size={16} /></Button></div>}
+        </section>
+      </div>}
+      {copyStatus && <div className="copy-status" role="status" aria-live="polite">{copyStatus}</div>}
+      {searchOpen && <SiteSearch items={searchItems} onClose={closeSearch} />}
     </div>
   );
 }
@@ -425,7 +624,7 @@ function OnboardingPage({ user }: { user: User }) {
   return (
     <div className="auth-layout">
       <div className="auth-glow" />
-      <section className="auth-card glass-card">
+      <section id="main-content" tabIndex={-1} className="auth-card glass-card">
         <Link to="/" className="brand auth-brand">
           <span className="brand-mark"><span /></span>
           <span><strong>namma dina</strong><small>ನಮ್ಮ ದಿನ · OUR DAY</small></span>

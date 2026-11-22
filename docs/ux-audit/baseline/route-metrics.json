@@ -1,0 +1,1688 @@
+{
+  "seededAccountLabel": "UX Audit Demo - Seeded; local screenshots only",
+  "screenshotCount": 42,
+  "routes": [
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1089
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "h1",
+          "text": "Make todaymeaningful.",
+          "fontPx": "88px",
+          "color": "rgb(240, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.hero-tomorrow",
+          "text": "Make tomorrow better.",
+          "fontPx": "23px",
+          "color": "rgb(179, 189, 208)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.hero-description",
+          "text": "A thoughtful space for your plans, habits and wellbeing. When a day goes si",
+          "fontPx": "13px",
+          "color": "rgb(151, 164, 190)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.eyebrow",
+          "text": "MY DAY",
+          "fontPx": "8px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "text": "A little room to begin.",
+          "fontPx": "17px",
+          "color": "rgb(233, 242, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted",
+          "text": "Your plans will appear here.",
+          "fontPx": "9px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "There is always room to begin again.",
+          "fontPx": "9px",
+          "color": "rgb(170, 161, 208)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "Shape the day around what matters, leaving room for life to happen.",
+          "fontPx": "10px",
+          "color": "rgb(142, 156, 182)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "See how your time and energy move, with insights based on your own entries.",
+          "fontPx": "10px",
+          "color": "rgb(142, 156, 182)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "Missed a plan? Get a useful next step, never a lecture about your streak.",
+          "fontPx": "10px",
+          "color": "rgb(142, 156, 182)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "text": "Every day is a new page.",
+          "fontPx": "14px",
+          "color": "rgb(233, 240, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "Your day management space, in English and ಕನ್ನಡ.",
+          "fontPx": "10px",
+          "color": "rgb(136, 153, 178)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "landing",
+      "size": "desktop"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        1654
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "h1",
+          "text": "Make todaymeaningful.",
+          "fontPx": "64px",
+          "color": "rgb(240, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.hero-tomorrow",
+          "text": "Make tomorrow better.",
+          "fontPx": "17px",
+          "color": "rgb(179, 189, 208)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.hero-description",
+          "text": "A thoughtful space for your plans, habits and wellbeing. When a day goes si",
+          "fontPx": "12px",
+          "color": "rgb(151, 164, 190)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.eyebrow",
+          "text": "MY DAY",
+          "fontPx": "8px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "text": "A little room to begin.",
+          "fontPx": "17px",
+          "color": "rgb(233, 242, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted",
+          "text": "Your plans will appear here.",
+          "fontPx": "9px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "There is always room to begin again.",
+          "fontPx": "9px",
+          "color": "rgb(170, 161, 208)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "Shape the day around what matters, leaving room for life to happen.",
+          "fontPx": "10px",
+          "color": "rgb(142, 156, 182)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "See how your time and energy move, with insights based on your own entries.",
+          "fontPx": "10px",
+          "color": "rgb(142, 156, 182)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "Missed a plan? Get a useful next step, never a lecture about your streak.",
+          "fontPx": "10px",
+          "color": "rgb(142, 156, 182)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "text": "Every day is a new page.",
+          "fontPx": "14px",
+          "color": "rgb(233, 240, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p",
+          "text": "Your day management space, in English and ಕನ್ನಡ.",
+          "fontPx": "10px",
+          "color": "rgb(136, 153, 178)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "landing",
+      "size": "mobile"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/login",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "Welcome back.",
+          "fontPx": "26px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "Pick up where you left off, or take a breath before you begin.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Email address",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Password",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Sign in",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-switch",
+          "text": "New to Namma Dina? Create an account",
+          "fontPx": "10px",
+          "color": "rgb(142, 157, 184)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Your day does not have to be perfect to be worth planning.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "login",
+      "size": "desktop"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/login",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "Welcome back.",
+          "fontPx": "23px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "Pick up where you left off, or take a breath before you begin.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Email address",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Password",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Sign in",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-switch",
+          "text": "New to Namma Dina? Create an account",
+          "fontPx": "10px",
+          "color": "rgb(142, 157, 184)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Your day does not have to be perfect to be worth planning.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "login",
+      "size": "mobile"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/register",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "A space for your day.",
+          "fontPx": "26px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "A few details to create your personal Namma Dina space.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "What should we call you?",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Email address",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Create a password",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.field-hint",
+          "text": "Use at least 10 characters. Your private notes stay in your account.",
+          "fontPx": "11px",
+          "color": "rgb(135, 150, 180)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Create my space",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-switch",
+          "text": "Already have an account? Sign in",
+          "fontPx": "10px",
+          "color": "rgb(142, 157, 184)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Your day does not have to be perfect to be worth planning.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "register",
+      "size": "desktop"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/register",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "A space for your day.",
+          "fontPx": "23px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "A few details to create your personal Namma Dina space.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "What should we call you?",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Email address",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Create a password",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.field-hint",
+          "text": "Use at least 10 characters. Your private notes stay in your account.",
+          "fontPx": "11px",
+          "color": "rgb(135, 150, 180)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Create my space",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-switch",
+          "text": "Already have an account? Sign in",
+          "fontPx": "10px",
+          "color": "rgb(142, 157, 184)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Your day does not have to be perfect to be worth planning.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "register",
+      "size": "mobile"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/forgot-password",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "Let’s find your way in.",
+          "fontPx": "26px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "Enter your email and we’ll help you choose a new password.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Email address",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Send reset instructions",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-switch",
+          "text": "Back to sign in",
+          "fontPx": "10px",
+          "color": "rgb(142, 157, 184)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Reset links expire after 30 minutes.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "forgot-password",
+      "size": "desktop"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/forgot-password",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "Let’s find your way in.",
+          "fontPx": "23px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "Enter your email and we’ll help you choose a new password.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Email address",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Send reset instructions",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-switch",
+          "text": "Back to sign in",
+          "fontPx": "10px",
+          "color": "rgb(142, 157, 184)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Reset links expire after 30 minutes.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "forgot-password",
+      "size": "mobile"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/reset-password",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "A fresh start.",
+          "fontPx": "26px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "Choose a new password for your Namma Dina space.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Reset token",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "New password",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Save new password",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Your day does not have to be perfect to be worth planning.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "reset-password",
+      "size": "desktop"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/reset-password",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "YOUR DAY, AT YOUR PACE",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "A fresh start.",
+          "fontPx": "23px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted.auth-description",
+          "text": "Choose a new password for your Namma Dina space.",
+          "fontPx": "11px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Reset token",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "New password",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary.full-width",
+          "text": "Save new password",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-aside",
+          "text": "Your day does not have to be perfect to be worth planning.",
+          "fontPx": "9px",
+          "color": "rgb(130, 146, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "ನಮ್ಮ ದಿನ · Make today meaningful. Make tomorrow better.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "reset-password",
+      "size": "mobile"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/onboarding",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "A GENTLE START",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "Shape a day that feels like yours.",
+          "fontPx": "26px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted",
+          "text": "A few preferences help us make your first plan feel more natural. You can c",
+          "fontPx": "16px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "text": "Start with your day.",
+          "fontPx": "17px",
+          "color": "rgb(232, 255, 241)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "When do you like to start your day?",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "When do you usually wind down?",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Timezone",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary",
+          "text": "Continue",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.text-button",
+          "text": "Skip for now",
+          "fontPx": "12px",
+          "color": "rgb(169, 217, 211)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "UX Audit Demo - Seeded, your day can start small.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "onboarding",
+      "size": "desktop",
+      "redirectedTo": "/onboarding"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "url": "/onboarding",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "samples": [
+        {
+          "selector": "p.eyebrow",
+          "text": "A GENTLE START",
+          "fontPx": "10px",
+          "color": "rgb(134, 162, 189)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h1",
+          "text": "Shape a day that feels like yours.",
+          "fontPx": "23px",
+          "color": "rgb(239, 244, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.muted",
+          "text": "A few preferences help us make your first plan feel more natural. You can c",
+          "fontPx": "16px",
+          "color": "rgb(161, 180, 172)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "h2",
+          "text": "Start with your day.",
+          "fontPx": "17px",
+          "color": "rgb(232, 255, 241)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "When do you like to start your day?",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "When do you usually wind down?",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "label.field",
+          "text": "Timezone",
+          "fontPx": "11px",
+          "color": "rgb(214, 222, 238)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.button.button-primary",
+          "text": "Continue",
+          "fontPx": "13px",
+          "color": "rgb(6, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "button.text-button",
+          "text": "Skip for now",
+          "fontPx": "12px",
+          "color": "rgb(169, 217, 211)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "p.auth-foot",
+          "text": "UX Audit Demo - Seeded, your day can start small.",
+          "fontPx": "8px",
+          "color": "rgb(100, 114, 142)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "route": "onboarding",
+      "size": "mobile",
+      "redirectedTo": "/onboarding"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "url": "/app/day",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1600
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 38,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "route": "my-day",
+      "size": "desktop",
+      "requestedPath": "/app/day"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "url": "/app/tasks",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 12,
+      "minTextPx": 10,
+      "route": "tasks",
+      "size": "desktop",
+      "requestedPath": "/app/tasks"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "url": "/app/categories",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "route": "categories",
+      "size": "desktop",
+      "requestedPath": "/app/categories"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "url": "/app/habits",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 10,
+      "minTextPx": 9,
+      "route": "habits",
+      "size": "desktop",
+      "requestedPath": "/app/habits"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "url": "/app/calendar",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 28,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "route": "planner-calendar",
+      "size": "desktop",
+      "requestedPath": "/app/calendar"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "url": "/app/reminders",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "route": "reminders",
+      "size": "desktop",
+      "requestedPath": "/app/reminders"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "url": "/app/wellness",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 20,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "route": "wellness",
+      "size": "desktop",
+      "requestedPath": "/app/wellness"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "url": "/app/wellness/breathe",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1534,
+        1039
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 29,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "route": "breathe",
+      "size": "desktop",
+      "requestedPath": "/app/wellness/breathe"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "url": "/app/digital",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "route": "digital-wellbeing",
+      "size": "desktop",
+      "requestedPath": "/app/digital"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "url": "/app/food",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "route": "food-spending",
+      "size": "desktop",
+      "requestedPath": "/app/food"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "url": "/app/reflection",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "route": "reflection",
+      "size": "desktop",
+      "requestedPath": "/app/reflection"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "url": "/app/insights",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1486
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 14,
+      "minTextPx": 8,
+      "route": "insights",
+      "size": "desktop",
+      "requestedPath": "/app/insights"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "url": "/app/notifications",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "route": "notifications",
+      "size": "desktop",
+      "requestedPath": "/app/notifications"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "url": "/app/settings",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1878
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 45,
+      "textBelow12px": 15,
+      "minTextPx": 10,
+      "route": "settings",
+      "size": "desktop",
+      "requestedPath": "/app/settings"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "url": "/app/account",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "route": "account",
+      "size": "desktop",
+      "requestedPath": "/app/account"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "url": "/app/day",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        421,
+        2169
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 30,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "route": "my-day",
+      "size": "mobile",
+      "requestedPath": "/app/day"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "url": "/app/tasks",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 11,
+      "minTextPx": 10,
+      "route": "tasks",
+      "size": "mobile",
+      "requestedPath": "/app/tasks"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "url": "/app/categories",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "route": "categories",
+      "size": "mobile",
+      "requestedPath": "/app/categories"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "url": "/app/habits",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 9,
+      "minTextPx": 9,
+      "route": "habits",
+      "size": "mobile",
+      "requestedPath": "/app/habits"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "url": "/app/calendar",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        923
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 14,
+      "minTextPx": 9,
+      "route": "planner-calendar",
+      "size": "mobile",
+      "requestedPath": "/app/calendar"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "url": "/app/reminders",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "route": "reminders",
+      "size": "mobile",
+      "requestedPath": "/app/reminders"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "url": "/app/wellness",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "route": "wellness",
+      "size": "mobile",
+      "requestedPath": "/app/wellness"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "url": "/app/wellness/breathe",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        438,
+        1393
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "route": "breathe",
+      "size": "mobile",
+      "requestedPath": "/app/wellness/breathe"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "url": "/app/digital",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "route": "digital-wellbeing",
+      "size": "mobile",
+      "requestedPath": "/app/digital"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "url": "/app/food",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "route": "food-spending",
+      "size": "mobile",
+      "requestedPath": "/app/food"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "url": "/app/reflection",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "route": "reflection",
+      "size": "mobile",
+      "requestedPath": "/app/reflection"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "url": "/app/insights",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        1833
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "route": "insights",
+      "size": "mobile",
+      "requestedPath": "/app/insights"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "url": "/app/notifications",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "route": "notifications",
+      "size": "mobile",
+      "requestedPath": "/app/notifications"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "url": "/app/settings",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        2574
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 14,
+      "minTextPx": 10,
+      "route": "settings",
+      "size": "mobile",
+      "requestedPath": "/app/settings"
+    },
+    {
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "url": "/app/account",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "route": "account",
+      "size": "mobile",
+      "requestedPath": "/app/account"
+    }
+  ],
+  "pageErrors": [],
+  "privateScreenshotsCapturedWithSPAAuth": 30,
+  "overflow": [
+    {
+      "route": "breathe",
+      "viewport": "desktop",
+      "document": [
+        1534,
+        1039
+      ]
+    },
+    {
+      "route": "my-day",
+      "viewport": "mobile",
+      "document": [
+        421,
+        2169
+      ]
+    },
+    {
+      "route": "breathe",
+      "viewport": "mobile",
+      "document": [
+        438,
+        1393
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1491 @@
+{
+  "generatedAt": "2026-11-14T10:01:48.152Z",
+  "baseUrl": "http://localhost:5173",
+  "dimensions": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "mobile",
+      "width": 412,
+      "height": 915
+    }
+  ],
+  "screenshotCount": 24,
+  "videoCount": 12,
+  "stateCount": 2,
+  "localeCount": 2,
+  "themeCount": 2,
+  "screenshots": [
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/empty/desktop/en/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        1440,
+        1769
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/empty/desktop/en/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        1440,
+        1769
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/empty/tablet/en/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        768,
+        2773
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/empty/tablet/en/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        768,
+        2773
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/empty/mobile/en/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        412,
+        2870
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/empty/mobile/en/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        412,
+        2870
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/empty/desktop/kn/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        1440,
+        1816
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 1095,
+          "right": 1149,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/empty/desktop/kn/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        1440,
+        1816
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 1095,
+          "right": 1149,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/empty/tablet/kn/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        768,
+        2820
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 271,
+          "right": 325,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/empty/tablet/kn/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        768,
+        2820
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 271,
+          "right": 325,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/empty/mobile/kn/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        412,
+        2869
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 144,
+          "right": 198,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        },
+        {
+          "tag": "a",
+          "className": "bottom-link ",
+          "left": 206,
+          "right": 273,
+          "width": 67,
+          "scrollWidth": 69,
+          "clientWidth": 67
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/empty/mobile/kn/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        412,
+        2869
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 144,
+          "right": 198,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        },
+        {
+          "tag": "a",
+          "className": "bottom-link ",
+          "left": 206,
+          "right": 273,
+          "width": 67,
+          "scrollWidth": 69,
+          "clientWidth": 67
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/populated/desktop/en/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        1440,
+        1769
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/populated/desktop/en/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        1440,
+        1623
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/populated/tablet/en/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        768,
+        2251
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/populated/tablet/en/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        768,
+        2251
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/populated/mobile/en/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        412,
+        2320
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/populated/mobile/en/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "Good afternoon, M1✦",
+      "document": [
+        412,
+        2320
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        }
+      ],
+      "fonts": "\"DM Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/populated/desktop/kn/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        1440,
+        1816
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 1095,
+          "right": 1149,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/populated/desktop/kn/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        1440,
+        1636
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 316,
+          "right": 1382,
+          "width": 1067,
+          "scrollWidth": 1091,
+          "clientWidth": 1067
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 931,
+          "right": 1382,
+          "width": 451,
+          "scrollWidth": 499,
+          "clientWidth": 449
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 1095,
+          "right": 1149,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/populated/tablet/kn/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        768,
+        2820
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 271,
+          "right": 325,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/populated/tablet/kn/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        768,
+        2251
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "page-route",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 655,
+          "clientWidth": 631
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 107,
+          "right": 737,
+          "width": 631,
+          "scrollWidth": 679,
+          "clientWidth": 629
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 271,
+          "right": 325,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "night",
+      "path": "docs/ux-audit/m1/screenshots/populated/mobile/kn/night.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        412,
+        2869
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 144,
+          "right": 198,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        },
+        {
+          "tag": "a",
+          "className": "bottom-link ",
+          "left": 206,
+          "right": 273,
+          "width": 67,
+          "scrollWidth": 69,
+          "clientWidth": 67
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "locale": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "theme": "day",
+      "path": "docs/ux-audit/m1/screenshots/populated/mobile/kn/day.png",
+      "title": "Namma Dina — Make today meaningful",
+      "pageHeading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, M1✦",
+      "document": [
+        412,
+        2323
+      ],
+      "horizontalOverflow": false,
+      "smallestTextPx": 12,
+      "textBelow12px": 0,
+      "smallText": [],
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "dashboard-heading",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 404,
+          "clientWidth": 380
+        },
+        {
+          "tag": "canvas",
+          "className": "aurora-particles dashboard-heading-particles",
+          "left": -8,
+          "right": 420,
+          "width": 428,
+          "scrollWidth": 428,
+          "clientWidth": 428
+        },
+        {
+          "tag": "section",
+          "className": "glass-card progress-card",
+          "left": 16,
+          "right": 396,
+          "width": 380,
+          "scrollWidth": 428,
+          "clientWidth": 378
+        },
+        {
+          "tag": "span",
+          "className": "",
+          "left": 144,
+          "right": 198,
+          "width": 54,
+          "scrollWidth": 63,
+          "clientWidth": 54
+        },
+        {
+          "tag": "a",
+          "className": "bottom-link ",
+          "left": 206,
+          "right": 273,
+          "width": 67,
+          "scrollWidth": 69,
+          "clientWidth": 67
+        }
+      ],
+      "fonts": "\"Noto Sans Kannada\", \"DM Sans\", sans-serif",
+      "notoKannadaLoaded": true
+    }
+  ],
+  "axeAudits": [
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": "desktop",
+      "theme": "night",
+      "scope": [
+        ".brand",
+        ".quick-add-trigger"
+      ],
+      "violations": []
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": "tablet",
+      "theme": "night",
+      "scope": [
+        ".brand",
+        ".quick-add-trigger"
+      ],
+      "violations": []
+    },
+    {
+      "state": "empty",
+      "locale": "en",
+      "viewport": "mobile",
+      "theme": "night",
+      "scope": [
+        ".brand",
+        ".quick-add-trigger"
+      ],
+      "violations": []
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": "desktop",
+      "theme": "night",
+      "scope": [
+        ".brand",
+        ".quick-add-trigger"
+      ],
+      "violations": []
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": "tablet",
+      "theme": "night",
+      "scope": [
+        ".brand",
+        ".quick-add-trigger"
+      ],
+      "violations": []
+    },
+    {
+      "state": "empty",
+      "locale": "kn",
+      "viewport": "mobile",
+      "theme": "night",
+      "scope": [
+        ".brand",
+        ".quick-add-trigger"
+      ],
+      "violations": []
+    }
+  ],
+  "pageErrors": [],
+  "overflow": [],
+  "smallText": [],
+  "screenshotMatrixGeneratedAt": "2026-11-14T09:55:29Z",
+  "axeCoverage": {
+    "state": "empty",
+    "theme": "night",
+    "locales": [
+      "en",
+      "kn"
+    ],
+    "viewports": [
+      "desktop",
+      "tablet",
+      "mobile"
+    ],
+    "scope": [
+      ".brand",
+      ".quick-add-trigger"
+    ],
+    "rules": [
+      "label-content-name-mismatch",
+      "link-name",
+      "button-name"
+    ],
+    "followUp": "follow-up-review.json"
+  }
+}

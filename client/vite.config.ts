@@ -68,7 +68,7 @@ export default defineConfig(({ mode }) => {
             }),
           ]),
     ],
-    server: { proxy: { '/api': 'http://localhost:4000' } },
+    server: { port: 5155, strictPort: true, proxy: { '/api': 'http://localhost:4000' } },
     test: { environment: 'node' },
   };
 });

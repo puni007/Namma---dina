@@ -8,6 +8,8 @@ import './styles.css';
 import './aurora.css';
 import './ai.css';
 import './mitra.css';
+import './m1-redesign.css';
+import './site-extras.css';
 
 void initAuthTokens();
 

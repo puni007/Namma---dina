@@ -1,0 +1,5564 @@
+{
+  "capturedAt": "2026-11-14T07:20:33.336Z",
+  "screenshotCount": 216,
+  "uniqueRoutes": [
+    "landing",
+    "login",
+    "register",
+    "forgot-password",
+    "reset-password",
+    "my-day",
+    "tasks",
+    "categories",
+    "habits",
+    "planner-calendar",
+    "reminders",
+    "wellness",
+    "breathe",
+    "digital-wellbeing",
+    "food-spending",
+    "reflection",
+    "insights",
+    "notifications",
+    "settings",
+    "account",
+    "onboarding"
+  ],
+  "combinations": {
+    "publicPages": 30,
+    "onboardingEmpty": 6,
+    "privateEmpty": 90,
+    "privatePopulated": 90
+  },
+  "overflow": [
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": "desktop",
+      "route": "breathe",
+      "documentWidth": 1534,
+      "viewportWidth": 1440,
+      "overflowPx": 94
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": "tablet",
+      "route": "breathe",
+      "documentWidth": 821,
+      "viewportWidth": 768,
+      "overflowPx": 53
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": "mobile",
+      "route": "my-day",
+      "documentWidth": 421,
+      "viewportWidth": 412,
+      "overflowPx": 9
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": "mobile",
+      "route": "breathe",
+      "documentWidth": 438,
+      "viewportWidth": 412,
+      "overflowPx": 26
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": "desktop",
+      "route": "breathe",
+      "documentWidth": 1534,
+      "viewportWidth": 1440,
+      "overflowPx": 94
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": "tablet",
+      "route": "breathe",
+      "documentWidth": 821,
+      "viewportWidth": 768,
+      "overflowPx": 53
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": "mobile",
+      "route": "my-day",
+      "documentWidth": 421,
+      "viewportWidth": 412,
+      "overflowPx": 9
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": "mobile",
+      "route": "breathe",
+      "documentWidth": 438,
+      "viewportWidth": 412,
+      "overflowPx": 26
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewport": "desktop",
+      "route": "breathe",
+      "documentWidth": 1534,
+      "viewportWidth": 1440,
+      "overflowPx": 94
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewport": "tablet",
+      "route": "breathe",
+      "documentWidth": 821,
+      "viewportWidth": 768,
+      "overflowPx": 53
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewport": "mobile",
+      "route": "my-day",
+      "documentWidth": 421,
+      "viewportWidth": 412,
+      "overflowPx": 9
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewport": "mobile",
+      "route": "breathe",
+      "documentWidth": 438,
+      "viewportWidth": 412,
+      "overflowPx": 26
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewport": "desktop",
+      "route": "breathe",
+      "documentWidth": 1534,
+      "viewportWidth": 1440,
+      "overflowPx": 94
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewport": "tablet",
+      "route": "breathe",
+      "documentWidth": 821,
+      "viewportWidth": 768,
+      "overflowPx": 53
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewport": "mobile",
+      "route": "my-day",
+      "documentWidth": 421,
+      "viewportWidth": 412,
+      "overflowPx": 9
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewport": "mobile",
+      "route": "breathe",
+      "documentWidth": 438,
+      "viewportWidth": 412,
+      "overflowPx": 26
+    }
+  ],
+  "fontFallbacks": 186,
+  "routes": [
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "landing",
+      "path": "/",
+      "screenshot": "matrix/public/en/desktop/landing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Make todaymeaningful.",
+      "actualPath": "/",
+      "document": [
+        1440,
+        1089
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "login",
+      "path": "/login",
+      "screenshot": "matrix/public/en/desktop/login.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Welcome back.",
+      "actualPath": "/login",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "register",
+      "path": "/register",
+      "screenshot": "matrix/public/en/desktop/register.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A space for your day.",
+      "actualPath": "/register",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "forgot-password",
+      "path": "/forgot-password",
+      "screenshot": "matrix/public/en/desktop/forgot-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Let’s find your way in.",
+      "actualPath": "/forgot-password",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "reset-password",
+      "path": "/reset-password",
+      "screenshot": "matrix/public/en/desktop/reset-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A fresh start.",
+      "actualPath": "/reset-password",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "landing",
+      "path": "/",
+      "screenshot": "matrix/public/en/tablet/landing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Make todaymeaningful.",
+      "actualPath": "/",
+      "document": [
+        768,
+        1104
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "login",
+      "path": "/login",
+      "screenshot": "matrix/public/en/tablet/login.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Welcome back.",
+      "actualPath": "/login",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "register",
+      "path": "/register",
+      "screenshot": "matrix/public/en/tablet/register.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A space for your day.",
+      "actualPath": "/register",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "forgot-password",
+      "path": "/forgot-password",
+      "screenshot": "matrix/public/en/tablet/forgot-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Let’s find your way in.",
+      "actualPath": "/forgot-password",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "reset-password",
+      "path": "/reset-password",
+      "screenshot": "matrix/public/en/tablet/reset-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A fresh start.",
+      "actualPath": "/reset-password",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "landing",
+      "path": "/",
+      "screenshot": "matrix/public/en/mobile/landing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Make todaymeaningful.",
+      "actualPath": "/",
+      "document": [
+        412,
+        1654
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "login",
+      "path": "/login",
+      "screenshot": "matrix/public/en/mobile/login.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Welcome back.",
+      "actualPath": "/login",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "register",
+      "path": "/register",
+      "screenshot": "matrix/public/en/mobile/register.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A space for your day.",
+      "actualPath": "/register",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "forgot-password",
+      "path": "/forgot-password",
+      "screenshot": "matrix/public/en/mobile/forgot-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Let’s find your way in.",
+      "actualPath": "/forgot-password",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "reset-password",
+      "path": "/reset-password",
+      "screenshot": "matrix/public/en/mobile/reset-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A fresh start.",
+      "actualPath": "/reset-password",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "landing",
+      "path": "/",
+      "screenshot": "matrix/public/kn/desktop/landing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Make todaymeaningful.",
+      "actualPath": "/",
+      "document": [
+        1440,
+        1105
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "login",
+      "path": "/login",
+      "screenshot": "matrix/public/kn/desktop/login.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Welcome back.",
+      "actualPath": "/login",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "register",
+      "path": "/register",
+      "screenshot": "matrix/public/kn/desktop/register.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A space for your day.",
+      "actualPath": "/register",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "forgot-password",
+      "path": "/forgot-password",
+      "screenshot": "matrix/public/kn/desktop/forgot-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Let’s find your way in.",
+      "actualPath": "/forgot-password",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "reset-password",
+      "path": "/reset-password",
+      "screenshot": "matrix/public/kn/desktop/reset-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A fresh start.",
+      "actualPath": "/reset-password",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "landing",
+      "path": "/",
+      "screenshot": "matrix/public/kn/tablet/landing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Make todaymeaningful.",
+      "actualPath": "/",
+      "document": [
+        768,
+        1114
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "login",
+      "path": "/login",
+      "screenshot": "matrix/public/kn/tablet/login.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Welcome back.",
+      "actualPath": "/login",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "register",
+      "path": "/register",
+      "screenshot": "matrix/public/kn/tablet/register.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A space for your day.",
+      "actualPath": "/register",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "forgot-password",
+      "path": "/forgot-password",
+      "screenshot": "matrix/public/kn/tablet/forgot-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Let’s find your way in.",
+      "actualPath": "/forgot-password",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "reset-password",
+      "path": "/reset-password",
+      "screenshot": "matrix/public/kn/tablet/reset-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A fresh start.",
+      "actualPath": "/reset-password",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "landing",
+      "path": "/",
+      "screenshot": "matrix/public/kn/mobile/landing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Make todaymeaningful.",
+      "actualPath": "/",
+      "document": [
+        412,
+        1677
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "login",
+      "path": "/login",
+      "screenshot": "matrix/public/kn/mobile/login.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Welcome back.",
+      "actualPath": "/login",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 7,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "register",
+      "path": "/register",
+      "screenshot": "matrix/public/kn/mobile/register.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A space for your day.",
+      "actualPath": "/register",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 11,
+      "textBelow12px": 9,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "forgot-password",
+      "path": "/forgot-password",
+      "screenshot": "matrix/public/kn/mobile/forgot-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Let’s find your way in.",
+      "actualPath": "/forgot-password",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "public",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "reset-password",
+      "path": "/reset-password",
+      "screenshot": "matrix/public/kn/mobile/reset-password.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "A fresh start.",
+      "actualPath": "/reset-password",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 8,
+      "textBelow12px": 6,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": true
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/populated/en/desktop/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "actualPath": "/app/day",
+      "document": [
+        1440,
+        1379
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 34,
+      "textBelow12px": 21,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/populated/en/desktop/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 12,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/populated/en/desktop/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/populated/en/desktop/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 10,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/populated/en/desktop/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 28,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/populated/en/desktop/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/populated/en/desktop/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 20,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/populated/en/desktop/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "document": [
+        1534,
+        1039
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 29,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/populated/en/desktop/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/populated/en/desktop/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/populated/en/desktop/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/populated/en/desktop/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "document": [
+        1440,
+        1486
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 14,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/populated/en/desktop/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/populated/en/desktop/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "document": [
+        1440,
+        1878
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 45,
+      "textBelow12px": 15,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/populated/en/desktop/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/populated/en/tablet/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "actualPath": "/app/day",
+      "document": [
+        768,
+        1404
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 30,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/populated/en/tablet/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 10,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/populated/en/tablet/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/populated/en/tablet/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 8,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/populated/en/tablet/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/populated/en/tablet/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/populated/en/tablet/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/populated/en/tablet/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "document": [
+        821,
+        1239
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/populated/en/tablet/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/populated/en/tablet/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/populated/en/tablet/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/populated/en/tablet/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/insights",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/populated/en/tablet/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/populated/en/tablet/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "document": [
+        768,
+        1886
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 13,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/populated/en/tablet/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/populated/en/mobile/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "actualPath": "/app/day",
+      "document": [
+        421,
+        2169
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 30,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/populated/en/mobile/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 11,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/populated/en/mobile/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/populated/en/mobile/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 9,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/populated/en/mobile/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "document": [
+        412,
+        923
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 14,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/populated/en/mobile/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/populated/en/mobile/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/populated/en/mobile/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "document": [
+        438,
+        1393
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/populated/en/mobile/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/populated/en/mobile/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/populated/en/mobile/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/populated/en/mobile/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "document": [
+        412,
+        1833
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/populated/en/mobile/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/populated/en/mobile/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "document": [
+        412,
+        2574
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 14,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "en",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/populated/en/mobile/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/populated/kn/desktop/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, UX✦",
+      "actualPath": "/app/day",
+      "document": [
+        1440,
+        1388
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 34,
+      "textBelow12px": 21,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/populated/kn/desktop/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 12,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/populated/kn/desktop/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/populated/kn/desktop/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 10,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/populated/kn/desktop/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 28,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/populated/kn/desktop/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/populated/kn/desktop/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 20,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/populated/kn/desktop/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "document": [
+        1534,
+        1039
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 29,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/populated/kn/desktop/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/populated/kn/desktop/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/populated/kn/desktop/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/populated/kn/desktop/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "document": [
+        1440,
+        1517
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 14,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/populated/kn/desktop/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/populated/kn/desktop/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "document": [
+        1440,
+        1920
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 45,
+      "textBelow12px": 15,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        1440,
+        900
+      ],
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/populated/kn/desktop/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/populated/kn/tablet/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, UX✦",
+      "actualPath": "/app/day",
+      "document": [
+        768,
+        1422
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 30,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/populated/kn/tablet/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 10,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/populated/kn/tablet/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/populated/kn/tablet/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 8,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/populated/kn/tablet/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/populated/kn/tablet/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/populated/kn/tablet/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/populated/kn/tablet/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "document": [
+        821,
+        1254
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/populated/kn/tablet/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/populated/kn/tablet/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/populated/kn/tablet/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/populated/kn/tablet/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "document": [
+        768,
+        1525
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/populated/kn/tablet/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/populated/kn/tablet/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "document": [
+        768,
+        1928
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 13,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/populated/kn/tablet/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/populated/kn/mobile/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, UX✦",
+      "actualPath": "/app/day",
+      "document": [
+        421,
+        2194
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 30,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/populated/kn/mobile/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 15,
+      "textBelow12px": 11,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/populated/kn/mobile/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/populated/kn/mobile/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 9,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/populated/kn/mobile/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "document": [
+        412,
+        940
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 14,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/populated/kn/mobile/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/populated/kn/mobile/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/populated/kn/mobile/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "document": [
+        438,
+        1411
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/populated/kn/mobile/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/populated/kn/mobile/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/populated/kn/mobile/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 9,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/populated/kn/mobile/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "document": [
+        412,
+        1869
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/populated/kn/mobile/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/populated/kn/mobile/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "document": [
+        412,
+        2635
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 14,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "populated",
+      "language": "kn",
+      "viewport": [
+        412,
+        915
+      ],
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/populated/kn/mobile/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "onboarding",
+      "path": "/onboarding",
+      "screenshot": "matrix/empty/en/desktop/onboarding.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Shape a day that feels like yours.",
+      "actualPath": "/onboarding",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "onboarding",
+      "path": "/onboarding",
+      "screenshot": "matrix/empty/en/tablet/onboarding.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Shape a day that feels like yours.",
+      "actualPath": "/onboarding",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "onboarding",
+      "path": "/onboarding",
+      "screenshot": "matrix/empty/en/mobile/onboarding.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Shape a day that feels like yours.",
+      "actualPath": "/onboarding",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "onboarding",
+      "path": "/onboarding",
+      "screenshot": "matrix/empty/kn/desktop/onboarding.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Shape a day that feels like yours.",
+      "actualPath": "/onboarding",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "onboarding",
+      "path": "/onboarding",
+      "screenshot": "matrix/empty/kn/tablet/onboarding.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Shape a day that feels like yours.",
+      "actualPath": "/onboarding",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "onboarding",
+      "path": "/onboarding",
+      "screenshot": "matrix/empty/kn/mobile/onboarding.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Shape a day that feels like yours.",
+      "actualPath": "/onboarding",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 10,
+      "textBelow12px": 5,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/empty/en/desktop/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "actualPath": "/app/day",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1600
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 38,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/empty/en/desktop/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 20,
+      "textBelow12px": 11,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/empty/en/desktop/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/empty/en/desktop/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 17,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/empty/en/desktop/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 28,
+      "textBelow12px": 14,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/empty/en/desktop/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/empty/en/desktop/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 23,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/empty/en/desktop/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1534,
+        1039
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 29,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/empty/en/desktop/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/empty/en/desktop/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/empty/en/desktop/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/empty/en/desktop/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/insights",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/empty/en/desktop/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/empty/en/desktop/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1878
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 45,
+      "textBelow12px": 15,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "desktop",
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/empty/en/desktop/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/empty/en/tablet/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "actualPath": "/app/day",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1613
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 34,
+      "textBelow12px": 17,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/empty/en/tablet/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 9,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/empty/en/tablet/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/empty/en/tablet/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/empty/en/tablet/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 12,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/empty/en/tablet/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/empty/en/tablet/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/empty/en/tablet/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        821,
+        1239
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/empty/en/tablet/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/empty/en/tablet/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/empty/en/tablet/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/empty/en/tablet/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1531
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/empty/en/tablet/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/empty/en/tablet/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1886
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 13,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "tablet",
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/empty/en/tablet/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/empty/en/mobile/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Good afternoon, UX✦",
+      "actualPath": "/app/day",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        421,
+        2474
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 34,
+      "textBelow12px": 17,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/empty/en/mobile/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 10,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/empty/en/mobile/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/empty/en/mobile/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/empty/en/mobile/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        1049
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/empty/en/mobile/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/empty/en/mobile/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/empty/en/mobile/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        438,
+        1393
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/empty/en/mobile/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/empty/en/mobile/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/empty/en/mobile/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/empty/en/mobile/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        1836
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/empty/en/mobile/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/empty/en/mobile/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        2574
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 14,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "en",
+      "viewportName": "mobile",
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/empty/en/mobile/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/empty/kn/desktop/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, UX✦",
+      "actualPath": "/app/day",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1622
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 38,
+      "textBelow12px": 19,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/empty/kn/desktop/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 20,
+      "textBelow12px": 11,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/empty/kn/desktop/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/empty/kn/desktop/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 17,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/empty/kn/desktop/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 28,
+      "textBelow12px": 14,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/empty/kn/desktop/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/empty/kn/desktop/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 23,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/empty/kn/desktop/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1534,
+        1039
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 29,
+      "textBelow12px": 15,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/empty/kn/desktop/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/empty/kn/desktop/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/empty/kn/desktop/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/empty/kn/desktop/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1516
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 26,
+      "textBelow12px": 14,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/empty/kn/desktop/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 6,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/empty/kn/desktop/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        1920
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 45,
+      "textBelow12px": 15,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "desktop",
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/empty/kn/desktop/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "viewport": [
+        1440,
+        900
+      ],
+      "document": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 18,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/empty/kn/tablet/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, UX✦",
+      "actualPath": "/app/day",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1636
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 34,
+      "textBelow12px": 17,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/empty/kn/tablet/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 9,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/empty/kn/tablet/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/empty/kn/tablet/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/empty/kn/tablet/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 12,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/empty/kn/tablet/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/empty/kn/tablet/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/empty/kn/tablet/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        821,
+        1254
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/empty/kn/tablet/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/empty/kn/tablet/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/empty/kn/tablet/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/empty/kn/tablet/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1566
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/empty/kn/tablet/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 4,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/empty/kn/tablet/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1928
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 13,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "tablet",
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/empty/kn/tablet/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "viewport": [
+        768,
+        1024
+      ],
+      "document": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "my-day",
+      "path": "/app/day",
+      "screenshot": "matrix/empty/kn/mobile/my-day.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "ಶುಭ ಮಧ್ಯಾಹ್ನ, UX✦",
+      "actualPath": "/app/day",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        421,
+        2515
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 34,
+      "textBelow12px": 17,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "tasks",
+      "path": "/app/tasks",
+      "screenshot": "matrix/empty/kn/mobile/tasks.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Tasks",
+      "actualPath": "/app/tasks",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 16,
+      "textBelow12px": 10,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "categories",
+      "path": "/app/categories",
+      "screenshot": "matrix/empty/kn/mobile/categories.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Task categories",
+      "actualPath": "/app/categories",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "habits",
+      "path": "/app/habits",
+      "screenshot": "matrix/empty/kn/mobile/habits.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Habits",
+      "actualPath": "/app/habits",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 13,
+      "textBelow12px": 6,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "planner-calendar",
+      "path": "/app/calendar",
+      "screenshot": "matrix/empty/kn/mobile/planner-calendar.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Calendar",
+      "actualPath": "/app/calendar",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        1061
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 24,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "reminders",
+      "path": "/app/reminders",
+      "screenshot": "matrix/empty/kn/mobile/reminders.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Reminders",
+      "actualPath": "/app/reminders",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "wellness",
+      "path": "/app/wellness",
+      "screenshot": "matrix/empty/kn/mobile/wellness.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Wellness",
+      "actualPath": "/app/wellness",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 19,
+      "textBelow12px": 7,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "breathe",
+      "path": "/app/wellness/breathe",
+      "screenshot": "matrix/empty/kn/mobile/breathe.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Breathe",
+      "actualPath": "/app/wellness/breathe",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        438,
+        1411
+      ],
+      "horizontalOverflow": true,
+      "visibleTextCount": 25,
+      "textBelow12px": 13,
+      "minTextPx": 9,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "digital-wellbeing",
+      "path": "/app/digital",
+      "screenshot": "matrix/empty/kn/mobile/digital-wellbeing.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Digital wellbeing",
+      "actualPath": "/app/digital",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "food-spending",
+      "path": "/app/food",
+      "screenshot": "matrix/empty/kn/mobile/food-spending.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Food & spending",
+      "actualPath": "/app/food",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "reflection",
+      "path": "/app/reflection",
+      "screenshot": "matrix/empty/kn/mobile/reflection.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Daily reflection",
+      "actualPath": "/app/reflection",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "insights",
+      "path": "/app/insights",
+      "screenshot": "matrix/empty/kn/mobile/insights.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Your insights",
+      "actualPath": "/app/insights",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        1876
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 22,
+      "textBelow12px": 12,
+      "minTextPx": 8,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "notifications",
+      "path": "/app/notifications",
+      "screenshot": "matrix/empty/kn/mobile/notifications.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Notifications",
+      "actualPath": "/app/notifications",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 12,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "settings",
+      "path": "/app/settings",
+      "screenshot": "matrix/empty/kn/mobile/settings.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Settings",
+      "actualPath": "/app/settings",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        2635
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 41,
+      "textBelow12px": 14,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    },
+    {
+      "state": "empty",
+      "language": "kn",
+      "viewportName": "mobile",
+      "route": "account",
+      "path": "/app/account",
+      "screenshot": "matrix/empty/kn/mobile/account.jpg",
+      "title": "Namma Dina — Make today meaningful",
+      "heading": "Account & privacy",
+      "actualPath": "/app/account",
+      "viewport": [
+        412,
+        915
+      ],
+      "document": [
+        412,
+        915
+      ],
+      "horizontalOverflow": false,
+      "visibleTextCount": 14,
+      "textBelow12px": 5,
+      "minTextPx": 10,
+      "fontFace": "\"Plus Jakarta Sans\", \"Noto Sans Kannada\", sans-serif",
+      "notoKannadaLoaded": false,
+      "tourVisible": false
+    }
+  ],
+  "captureErrors": [],
+  "captureDiagnostics": {
+    "uncaughtPageExceptions": 0,
+    "consoleErrorEvents": 83,
+    "summary": "Generic resource failures and unauthenticated API responses were recorded in browser console; Lighthouse production results are the baseline. External font availability is tracked separately by notoKannadaLoaded."
+  }
+}

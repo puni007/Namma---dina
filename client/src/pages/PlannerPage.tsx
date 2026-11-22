@@ -1,6 +1,6 @@
 import { useMemo, useState, type FormEvent } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { ArrowDown, ArrowRight, CalendarDays, Check, Clock3, Compass, LockKeyhole, Plus, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowRight, CalendarDays, Check, Clock3, Compass, Copy, Download, LockKeyhole, Plus, RefreshCw, Sparkles, X } from 'lucide-react';
 import { getData, sendData, type User } from '../lib/api';
 import { Button, Card, EmptyState, Field, Loading, Modal, PageHeading, SelectInput, TextArea, TextInput, Badge } from '../components/ui';
 import { dateTimeFromLocal, dateTimeLocalInput, formatTime, todayKey } from '../lib/format';
@@ -12,7 +12,34 @@ function addDays(day: string, amount: number) { const date = new Date(`${day}T12
 function weekStart(day: string) { const date = new Date(`${day}T00:00:00.000Z`); date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 6) % 7); return date.toISOString().slice(0, 10); }
 
 export function PlannerPage({ user }: { user: User }) {
-  const client = useQueryClient(); const [date, setDate] = useState(todayKey(new Date(), user.timezone)); const [mode, setMode] = useState<'day' | 'week'>('day'); const [editing, setEditing] = useState(false); const [suggestions, setSuggestions] = useState<Suggestion[]>([]); const [title, setTitle] = useState(''); const [description, setDescription] = useState(''); const [startsAt, setStartsAt] = useState(dateTimeLocalInput(new Date(Date.now() + 3600000), user.timezone)); const [endsAt, setEndsAt] = useState(dateTimeLocalInput(new Date(Date.now() + 7200000), user.timezone)); const [fixed, setFixed] = useState(false); const [taskId, setTaskId] = useState(''); const [error, setError] = useState('');
+  const client = useQueryClient();
+  const [date, setDate] = useState(todayKey(new Date(), user.timezone));
+  const [mode, setMode] = useState<'day' | 'week'>('day');
+  const [editing, setEditing] = useState(false);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [startsAt, setStartsAt] = useState(dateTimeLocalInput(new Date(Date.now() + 3600000), user.timezone));
+  const [endsAt, setEndsAt] = useState(dateTimeLocalInput(new Date(Date.now() + 7200000), user.timezone));
+  const [fixed, setFixed] = useState(false);
+  const [taskId, setTaskId] = useState('');
+  const [error, setError] = useState('');
+  const [syncModalOpen, setSyncModalOpen] = useState(false);
+  const [copiedFeed, setCopiedFeed] = useState(false);
+
+  const syncInfo = useQuery({
+    queryKey: ['calendar-sync'],
+    queryFn: () => getData<{ feedUrl: string; webcalUrl: string; lastSyncedAt?: string }>('/calendar/sync'),
+    enabled: syncModalOpen,
+  });
+
+  const triggerSync = useMutation({
+    mutationFn: () => sendData('/calendar/sync', 'POST'),
+    onSuccess: () => {
+      void client.invalidateQueries({ queryKey: ['calendar-sync'] });
+      void client.invalidateQueries({ queryKey: ['schedule'] });
+    },
+  });
   const fromDay = mode === 'day' ? date : weekStart(date); const toDay = addDays(fromDay, mode === 'day' ? 1 : 7);
   const fromDate = new Date(`${fromDay}T00:00:00.000Z`); const lastDate = new Date(`${addDays(toDay, -1)}T00:00:00.000Z`);
   const schedule = useQuery({ queryKey: ['schedule', fromDay, toDay], queryFn: () => getData<Block[]>(`/schedule?fromDay=${fromDay}&toDay=${toDay}`) });
@@ -32,7 +59,7 @@ export function PlannerPage({ user }: { user: User }) {
   const heading = mode === 'day' ? new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(fromDate) : `${new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(fromDate)} – ${new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(lastDate)}`;
   function move(amount: number) { setDate(addDays(date, amount * (mode === 'day' ? 1 : 7))); }
   function submit(event: FormEvent) { event.preventDefault(); setError(''); if (!title.trim()) return setError('Give this calendar activity a name.'); create.mutate(); }
-  return <><PageHeading eyebrow="PLAN WITH ROOM TO BREATHE" title="Calendar" subtitle="Your day has shape, but it can still change." action={<Button onClick={() => setEditing(true)}><Plus size={16}/> Add block</Button>} />
+  return <><PageHeading eyebrow="PLAN WITH ROOM TO BREATHE" title="Calendar" subtitle="Your day has shape, but it can still change." action={<div style={{ display: 'flex', gap: '8px' }}><Button variant="outline" onClick={() => setSyncModalOpen(true)}><RefreshCw size={15}/> Calendar Sync</Button><Button onClick={() => setEditing(true)}><Plus size={16}/> Add block</Button></div>} />
     <div className="calendar-toolbar"><div className="calendar-heading"><div className="calendar-icon"><CalendarDays size={18}/></div><div><h2>{heading}</h2><p className="muted">Activities that overlap are kept out of your schedule.</p></div></div><div className="calendar-controls"><div className="segmented"><button className={mode === 'day' ? 'selected' : ''} onClick={() => setMode('day')}>Day</button><button className={mode === 'week' ? 'selected' : ''} onClick={() => setMode('week')}>Week</button></div><Button variant="quiet" onClick={() => setDate(todayKey(new Date(), user.timezone))}>Today</Button><button className="calendar-arrow" aria-label="Previous" onClick={() => move(-1)}>‹</button><button className="calendar-arrow" aria-label="Next" onClick={() => move(1)}>›</button><TextInput type="date" value={date} onChange={(e) => setDate(e.target.value)}/></div></div>
     <div className="planner-layout"><Card className="timeline-card"><div className="timeline-head"><div><span className="eyebrow">YOUR SCHEDULE</span><h2>{mode === 'day' ? 'A little structure' : 'The week ahead'}</h2></div><Badge tone="blue">{blocks.length} {blocks.length === 1 ? 'block' : 'blocks'}</Badge></div>{schedule.isLoading ? <Loading/> : !blocks.length ? <EmptyState icon={<CalendarDays size={18}/>} title="Nothing set in this window" body="Add a commitment or give an activity a time. Leave some open space, too." action={<Button variant="outline" onClick={() => setEditing(true)}><Plus size={15}/> Add a block</Button>}/> : <div className="schedule-groups">{grouped.map(([day, rows]) => <div className="schedule-day-group" key={day}><div className="schedule-day-label"><span>{new Intl.DateTimeFormat(undefined, { weekday: 'short', timeZone: 'UTC' }).format(new Date(`${day}T00:00:00.000Z`))}</span><strong>{new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(`${day}T00:00:00.000Z`))}</strong></div><div className="schedule-events">{rows.map((block) => <div className={`schedule-event ${block.isFixed ? 'fixed' : ''}`} key={block.id}><div className="event-time"><strong>{formatTime(block.startsAt)}</strong><span>{formatTime(block.endsAt)}</span></div><span className="event-line"/><div className="event-content"><h3>{block.title}</h3>{block.description && <p className="muted">{block.description}</p>}<span className="event-tag">{block.isFixed ? <><LockKeyhole size={12}/> Fixed commitment</> : <><Clock3 size={12}/> Planned activity</>}</span>{block.status === 'planned' && <div className="block-actions"><button onClick={() => blockStatus.mutate({ id: block.id, status: 'done' })}><Check size={12}/> Done</button><button onClick={() => blockStatus.mutate({ id: block.id, status: 'missed' })}>Missed</button></div>}{block.status !== 'planned' && <span className="event-result">{block.status === 'done' ? 'Completed' : block.status === 'missed' ? 'Missed · eligible for a gentle reset' : block.status}</span>}</div><button className="quiet-icon" aria-label="Remove schedule block" onClick={() => remove.mutate(block.id)}><X size={15}/></button></div>)}</div></div>)}</div>}</Card>
       <div className="planner-aside"><Card className="intelligence-card"><div className="intelligence-mark"><Sparkles size={18}/></div><p className="eyebrow">A GENTLE RESET</p><h2>Plans change. Find your next open space.</h2><p className="muted">We’ll look for unfinished tasks, respect fixed commitments, and offer a shorter option when the day gets full.</p><Button variant="outline" onClick={() => build.mutate()} disabled={build.isPending}>{build.isPending ? 'Finding room…' : 'Suggest a fresh plan'} <ArrowRight size={15}/></Button><small>Nothing moves unless you choose it.</small></Card>
@@ -40,5 +67,66 @@ export function PlannerPage({ user }: { user: User }) {
         <Card className="planner-note"><Sparkles size={15}/><p>Short versions count. A 15-minute start can be enough for today.</p></Card></div></div>
     {error && <p className="inline-error">{error}</p>}{action.isError && <p className="inline-error">{action.error instanceof Error ? action.error.message : 'Could not save your choice.'}</p>}
     {editing && <Modal title="Add to your day" onClose={() => setEditing(false)}><form className="form-stack" onSubmit={submit}><Field label="What is this time for?"><TextInput value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Focus time, class, lunch" autoFocus/></Field><Field label="A little context (optional)"><TextArea value={description} onChange={(e) => setDescription(e.target.value)} rows={2}/></Field><Field label="Link to a task (optional)"><SelectInput value={taskId} onChange={(e) => setTaskId(e.target.value)}><option value="">No task link</option>{(tasks.data ?? []).map((task) => <option key={task.id} value={task.id}>{task.title}</option>)}</SelectInput></Field><div className="form-grid"><Field label="Starts"><TextInput type="datetime-local" value={startsAt} onChange={(e) => setStartsAt(e.target.value)}/></Field><Field label="Ends"><TextInput type="datetime-local" value={endsAt} onChange={(e) => setEndsAt(e.target.value)}/></Field></div><label className="check-row"><input type="checkbox" checked={fixed} onChange={(e) => setFixed(e.target.checked)}/><span><strong>Fixed commitment</strong><small>Adaptive planning will always leave this time alone.</small></span></label><div className="modal-actions"><Button type="button" variant="quiet" onClick={() => setEditing(false)}>Cancel</Button><Button disabled={create.isPending}>{create.isPending ? 'Adding…' : 'Add to calendar'}</Button></div></form></Modal>}
+    {syncModalOpen && (
+      <Modal title="Bidirectional Calendar Sync" onClose={() => setSyncModalOpen(false)}>
+        <div className="space-y-4 text-xs text-muted" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <p>
+            Connect Namma Dina to Google Calendar, Apple Calendar, or Outlook. Scheduled blocks and tasks sync automatically.
+          </p>
+
+          <div style={{ padding: '12px', borderRadius: '12px', background: 'rgba(103, 232, 208, 0.06)', border: '1px solid rgba(103, 232, 208, 0.18)' }}>
+            <strong style={{ display: 'block', color: '#f6fff9', marginBottom: '6px' }}>Live Calendar Subscription URL:</strong>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <input
+                readOnly
+                value={syncInfo.data?.feedUrl ?? 'Loading subscription URL…'}
+                className="input"
+                style={{ flex: 1, fontSize: '11px', padding: '6px 10px' }}
+              />
+              <Button
+                variant="outline"
+                onClick={() => {
+                  if (syncInfo.data?.feedUrl) {
+                    void navigator.clipboard.writeText(syncInfo.data.feedUrl);
+                    setCopiedFeed(true);
+                    setTimeout(() => setCopiedFeed(false), 2000);
+                  }
+                }}
+              >
+                {copiedFeed ? <Check size={14} /> : <Copy size={14} />} {copiedFeed ? 'Copied' : 'Copy'}
+              </Button>
+            </div>
+            <small style={{ display: 'block', marginTop: '6px', color: '#a1b4ac' }}>
+              Paste into Google Calendar (“From URL”) or Apple Calendar (“New Calendar Subscription”).
+            </small>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '8px' }}>
+            <span style={{ fontSize: '11px', color: '#71877d' }}>
+              {syncInfo.data?.lastSyncedAt
+                ? `Last synced: ${new Date(syncInfo.data.lastSyncedAt).toLocaleString()}`
+                : 'Not synced yet'}
+            </span>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  window.open('/api/calendar/export.ics', '_blank');
+                }}
+              >
+                <Download size={14} /> Download .ics
+              </Button>
+              <Button
+                onClick={() => triggerSync.mutate()}
+                disabled={triggerSync.isPending}
+              >
+                <RefreshCw size={14} className={triggerSync.isPending ? 'spin' : ''} />
+                {triggerSync.isPending ? 'Syncing…' : 'Sync Now'}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+    )}
   </>;
 }

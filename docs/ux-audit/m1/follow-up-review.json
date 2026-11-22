@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-11-14T10:01:48.152Z",
+  "responsiveControls": [
+    {
+      "locale": "en",
+      "viewport": "desktop",
+      "violations": []
+    },
+    {
+      "locale": "en",
+      "viewport": "tablet",
+      "violations": []
+    },
+    {
+      "locale": "en",
+      "viewport": "mobile",
+      "violations": []
+    },
+    {
+      "locale": "kn",
+      "viewport": "desktop",
+      "violations": []
+    },
+    {
+      "locale": "kn",
+      "viewport": "tablet",
+      "violations": []
+    },
+    {
+      "locale": "kn",
+      "viewport": "mobile",
+      "violations": []
+    }
+  ],
+  "motionPreference": [
+    {
+      "preference": "no-preference",
+      "appMotionMode": "full",
+      "canvasChanged": true
+    },
+    {
+      "preference": "reduce",
+      "appMotionMode": "off",
+      "canvasChanged": false
+    }
+  ]
+}

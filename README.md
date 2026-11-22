@@ -69,7 +69,7 @@ Prerequisites: Node.js 20.19 or newer, npm, and Docker Desktop.
    ```powershell
    npm run dev
    ```
-   Open [http://localhost:5173](http://localhost:5173). The API runs at `http://localhost:4000`.
+   Open [http://localhost:5155](http://localhost:5155). The API runs at `http://localhost:4000`.
 
 ---
 

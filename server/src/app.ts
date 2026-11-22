@@ -16,6 +16,9 @@ import { pushRouter } from './routes/push.js';
 import { breathingRouter } from './routes/breathing.js';
 import { aiRouter } from './routes/ai.js';
 import { assistantRouter } from './routes/assistant.js';
+import { mitraRouter } from './routes/mitra.js';
+import { reproductiveRouter } from './routes/reproductive.js';
+import { calendarRouter } from './routes/calendar.js';
 
 export const app = express();
 app.disable('x-powered-by');
@@ -69,8 +72,14 @@ app.use('/api/ai', rateLimit({ windowMs: 15 * 60 * 1000, limit: 12, standardHead
 app.use('/api/assistant', (_req, res, next) => { res.setHeader('Cache-Control', 'no-store'); next(); });
 app.use('/api/assistant', rateLimit({ windowMs: 15 * 60 * 1000, limit: 40, standardHeaders: 'draft-8', legacyHeaders: false, message: { error: { code: 'ASSISTANT_RATE_LIMITED', message: 'Mitra needs a small pause. Please try again shortly.' } } }));
 
+// Public calendar subscription feed (token authenticated, safe for external calendar apps)
+app.use('/api/calendar/feed', calendarRouter);
+
 // The auth endpoints above remain public; all personal data routes require a valid session or Bearer token.
 app.use('/api', authenticate);
+app.use('/api/mitra', mitraRouter);
+app.use('/api/reproductive', reproductiveRouter);
+app.use('/api/calendar', calendarRouter);
 app.use('/api/ai', aiRouter);
 app.use('/api/assistant', assistantRouter);
 app.use('/api/users', usersRouter);

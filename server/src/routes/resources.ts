@@ -5,6 +5,7 @@ import { localDayBounds, nextLocalReminderDate, parseDateOnly, todayInTimezone }
 import { HttpError } from '../lib/errors.js';
 import { requireUser } from '../middleware/auth.js';
 import { crudRouter } from './crud.js';
+import { awardMitraXP } from './mitra.js';
 
 const day = z.string().regex(/^\d{4}-\d\d-\d\d$/).transform(parseDateOnly);
 const dateTime = z.coerce.date();
@@ -59,6 +60,7 @@ export const taskRouter = crudRouter({
         where: { taskId: row.id, userId, status: 'planned' },
         data: { status: 'done' },
       });
+      await awardMitraXP(userId, 10, 'task_complete').catch(() => {});
     }
     if (data.status === 'COMPLETED' && before.status !== 'COMPLETED' && before.recurrenceRule) {
       const rule = String(before.recurrenceRule).toUpperCase();
@@ -141,6 +143,7 @@ scheduleRouter.patch('/:id', async (req, res) => {
       where: { id: updated.taskId, userId: user.id, status: { not: 'COMPLETED' } },
       data: { status: 'COMPLETED', completedAt: new Date() },
     });
+    await awardMitraXP(user.id, 10, 'task_complete').catch(() => {});
   }
 
   res.json({ data: updated });

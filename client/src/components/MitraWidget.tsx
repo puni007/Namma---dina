@@ -75,7 +75,26 @@ export function MitraWidget() {
   const [offline, setOffline] = useState(!navigator.onLine);
   const [ephemeral, setEphemeral] = useState<AssistantMessage[]>([]);
   const [keyboardHeight, setKeyboardHeight] = useState(0);
+  useEffect(() => {
+    const openFromNavigation = () => { setOpen(true); setTourStep(null); };
+    window.addEventListener('namma-dina:open-mitra', openFromNavigation);
+    return () => window.removeEventListener('namma-dina:open-mitra', openFromNavigation);
+  }, []);
   const settings = useQuery({ queryKey: ['assistant-settings'], queryFn: () => getData<MitraPreferences>('/assistant/settings'), staleTime: 30_000 });
+  const mitraState = useQuery({
+    queryKey: ['mitra-state'],
+    queryFn: () => getData<{
+      level: number;
+      xp: number;
+      totalXp: number;
+      evolutionStage: 'ember' | 'flame' | 'radiance' | 'aurora';
+      mood: 'idle' | 'happy' | 'thinking' | 'listening' | 'sleepy' | 'celebrating' | 'concerned';
+      requiredXp: number;
+      progressPercent: number;
+      stageTitle: string;
+    }>('/mitra/state'),
+    refetchInterval: 15_000,
+  });
   const history = useQuery({ queryKey: ['assistant-history'], queryFn: () => getData<AssistantMessage[]>('/assistant/history'), enabled: open && navigator.onLine, retry: false });
   const nudgeLanguage = settings.data?.language === 'kn' || (settings.data?.language !== 'en' && lang === 'kn') ? 'kn' : 'en';
   const nudges = useQuery({ queryKey: ['assistant-nudges', nudgeLanguage], queryFn: () => getData<AssistantMessage[]>(`/assistant/nudges?language=${nudgeLanguage}`), enabled: open && navigator.onLine && document.visibilityState === 'visible' && Boolean(settings.data?.proactiveNudgesEnabled), retry: false });
@@ -230,11 +249,27 @@ export function MitraWidget() {
   </>;
 
   return <>
-    {!open && <button ref={launcherRef} className="mitra-launcher" onClick={() => { setOpen(true); setTourStep(null); }} aria-label={chosenLanguage === 'kn' ? 'ಮಿತ್ರ ಸಹಾಯಕ ತೆರೆಯಿರಿ' : 'Open Mitra assistant'} title="Mitra"><MitraMascot pose={pose}/></button>}
+    {!open && <button ref={launcherRef} className="mitra-launcher" onClick={() => { setOpen(true); setTourStep(null); }} aria-label={chosenLanguage === 'kn' ? 'ಮಿತ್ರ ಸಹಾಯಕ ತೆರೆಯಿರಿ' : 'Open Mitra assistant'} title="Mitra"><MitraMascot pose={pose} stage={mitraState.data?.evolutionStage ?? 'flame'} level={mitraState.data?.level ?? 1}/></button>}
     {open && <>
       <button className="mitra-sheet-scrim" aria-label="Close Mitra" onClick={() => setOpen(false)}/>
       <section ref={panelRef} className="mitra-panel" role="dialog" aria-modal="true" aria-labelledby="mitra-title" aria-describedby="mitra-description" onKeyDown={keyDown} style={{ '--mitra-keyboard-height': `${keyboardHeight}px` } as CSSProperties}>
-        <header className="mitra-header"><MitraMascot pose={pose}/><div><h2 id="mitra-title">Mitra <small>ಮಿತ್ರ</small></h2><p id="mitra-description">{offline ? copy.offline : guideStatus}</p></div><button className="icon-button" aria-label={copy.close} onClick={() => setOpen(false)}><X size={18}/></button></header>
+        <header className="mitra-header">
+          <MitraMascot pose={pose} stage={mitraState.data?.evolutionStage ?? 'flame'} level={mitraState.data?.level ?? 1}/>
+          <div>
+            <h2 id="mitra-title">Mitra <small>ಮಿತ್ರ</small></h2>
+            {mitraState.data && (
+              <div className="mitra-level-bar" title={`${mitraState.data.xp} / ${mitraState.data.requiredXp} XP`}>
+                <span><strong>Lvl {mitraState.data.level}</strong> · {mitraState.data.stageTitle}</span>
+                <div className="mitra-xp-track">
+                  <div className="mitra-xp-fill" style={{ width: `${mitraState.data.progressPercent}%` }} />
+                </div>
+                <span>{mitraState.data.progressPercent}%</span>
+              </div>
+            )}
+            <p id="mitra-description">{offline ? copy.offline : guideStatus}</p>
+          </div>
+          <button className="icon-button" aria-label={copy.close} onClick={() => setOpen(false)}><X size={18}/></button>
+        </header>
         <div className="mitra-messages" aria-live="polite" aria-relevant="additions text">
           {history.isLoading && <p className="mitra-loading">{copy.loading}</p>}
           {nudges.isError && <p className="mitra-error">{chosenLanguage === 'kn' ? 'ಈಗ ಚಿಕ್ಕ ನೆನಪನ್ನು ಪರಿಶೀಲಿಸಲಾಗಲಿಲ್ಲ.' : 'I couldn’t check for a gentle nudge right now.'}</p>}

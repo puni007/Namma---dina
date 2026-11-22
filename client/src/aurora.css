@@ -54,6 +54,12 @@ body{background:#01060a}
 @keyframes signal-pulse{0%{box-shadow:0 0 0 0 rgba(126,242,191,.42)}70%{box-shadow:0 0 0 7px rgba(126,242,191,0)}100%{box-shadow:0 0 0 0 rgba(126,242,191,0)}}
 @keyframes active-tab-in{from{opacity:0;transform:scaleX(.35)}to{opacity:1;transform:scaleX(1)}}
 @keyframes spark-tilt{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(12deg) scale(1.18)}}
+
+/* Procedural Northern Lights sky, kept separate from the interaction layers. */
+.aurora-sky{position:absolute;inset:0;width:100%;height:100%;opacity:.9;mix-blend-mode:screen;pointer-events:none}
+@media(max-width:700px){.aurora-sky{opacity:.7}}
+@media(prefers-reduced-motion:reduce){.aurora-sky{opacity:.64}}
+html[data-theme='day'] .aurora-sky{opacity:.17;mix-blend-mode:multiply}
 @media(max-width:700px){.aurora-curtain{filter:blur(24px)}.aurora-curtain-one{opacity:.62}.aurora-curtain-two{opacity:.43}.aurora-curtain-three{opacity:.26;filter:blur(32px)}.aurora-stars{opacity:.22}.aurora-cursor{display:none}.dashboard-grid>.glass-card:hover{transform:none}.priority-row:hover,.today-habit:hover,.habit-card:hover,.schedule-event:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.aurora-curtain,.aurora-stars,.aurora-cursor,.page-route>*,.progress-spark,.comeback-icon,.topbar-pulse,.bottom-link.active::before,.dashboard-heading .greeting-spark{animation:none!important;will-change:auto}.aurora-curtain-one{transform:rotate(-9deg) skewY(-6deg)}.aurora-curtain-two{transform:rotate(-11deg) skewY(-8deg)}.aurora-curtain-three{transform:rotate(-10deg) skewY(-6deg)}.dashboard-grid>.glass-card,.large-ring,.large-ring .ring-value,.priority-row,.today-habit,.habit-card,.schedule-event,.task-check,.habit-check,.bottom-link,.icon-button,.nav-link{transition:none!important}}
 

@@ -3,6 +3,7 @@ import { randomBytes, createHash } from 'node:crypto';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
+import { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma.js';
 import { env, isProduction } from '../config/env.js';
 import { HttpError } from '../lib/errors.js';
@@ -11,7 +12,8 @@ import { validateBody } from '../middleware/validate.js';
 import { issueCsrf } from '../middleware/csrf.js';
 import { emailIsConfigured, sendPasswordReset } from '../services/mailer.js';
 
-const registerSchema = z.object({ email: z.email().transform((v) => v.toLowerCase()), password: z.string().min(10).max(100), displayName: z.string().trim().min(1).max(60) }).strict();
+const attributionSchema = z.object({ source: z.string().max(200).optional(), medium: z.string().max(200).optional(), campaign: z.string().max(200).optional(), term: z.string().max(200).optional(), content: z.string().max(200).optional(), capturedAt: z.iso.datetime().optional() }).strict();
+const registerSchema = z.object({ email: z.email().transform((v) => v.toLowerCase()), password: z.string().min(10).max(100), displayName: z.string().trim().min(1).max(60), attribution: attributionSchema.optional() }).strict();
 const loginSchema = z.object({ email: z.email().transform((v) => v.toLowerCase()), password: z.string().min(1).max(100) }).strict();
 const refreshSchema = z.object({ refreshToken: z.string().min(10) }).strict();
 const resetSchema = z.object({ token: z.string().min(20), password: z.string().min(10).max(100) }).strict();
@@ -32,9 +34,10 @@ export const authRouter = Router();
 authRouter.get('/csrf', issueCsrf);
 
 authRouter.post('/register', validateBody(registerSchema), async (req, res) => {
-  const { email, password, displayName } = req.body as z.infer<typeof registerSchema>;
+  const { email, password, displayName, attribution } = req.body as z.infer<typeof registerSchema>;
   const passwordHash = await bcrypt.hash(password, 12);
-  const user = await prisma.user.create({ data: { email, passwordHash, displayName, settings: { create: {} } }, select: { id: true, email: true, displayName: true, timezone: true, tokenVersion: true, settings: true } });
+  const attributionData = attribution ? attribution as Prisma.InputJsonObject : undefined;
+  const user = await prisma.user.create({ data: { email, passwordHash, displayName, attribution: attributionData, settings: { create: {} } }, select: { id: true, email: true, displayName: true, timezone: true, tokenVersion: true, settings: true } });
   setSession(res, user);
   const tokens = generateTokens(user);
   res.status(201).json({ data: { user: { id: user.id, email: user.email, displayName: user.displayName, timezone: user.timezone, onboardingDone: false }, settings: user.settings, tokens } });
