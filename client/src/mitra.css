@@ -16,3 +16,25 @@
 .mitra-level-bar{display:flex;align-items:center;gap:7px;margin:2px 0 4px;padding:3px 8px;border:1px solid rgba(103,232,208,.2);border-radius:8px;background:rgba(103,232,208,.07);font-size:9px;color:#a7f3d0}
 .mitra-xp-track{flex:1;height:5px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.12)}
 .mitra-xp-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#67e8d0,#38bdf8);transition:width .4s ease}
+
+/* 3D Cute Flame Mascot Styling */
+.mitra-character-wrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;animation:mitraFloat 4.5s ease-in-out infinite;transform-origin:center bottom}
+.mitra-3d-flame{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(245,158,11,.42)) drop-shadow(0 0 18px rgba(251,191,36,.2));transition:transform .25s cubic-bezier(.34,1.56,.64,1),filter .25s ease;will-change:transform,filter;pointer-events:none}
+.mitra-halo-glow{position:absolute;inset:-15%;border-radius:50%;background:radial-gradient(circle at 50% 55%,rgba(245,158,11,.35) 0%,rgba(16,185,129,.16) 50%,transparent 72%);filter:blur(8px);animation:mitraGlow 4s ease-in-out infinite;pointer-events:none;z-index:0}
+.mitra-halo-glow.stage-ember{background:radial-gradient(circle at 50% 55%,rgba(245,158,11,.32) 0%,rgba(239,68,68,.15) 50%,transparent 70%)}
+.mitra-halo-glow.stage-flame{background:radial-gradient(circle at 50% 55%,rgba(245,158,11,.42) 0%,rgba(16,185,129,.22) 50%,transparent 70%)}
+.mitra-halo-glow.stage-radiance{background:radial-gradient(circle at 50% 55%,rgba(251,191,36,.48) 0%,rgba(99,102,241,.28) 55%,transparent 75%)}
+.mitra-halo-glow.stage-aurora{background:radial-gradient(circle at 50% 55%,rgba(16,185,129,.45) 0%,rgba(192,132,252,.35) 45%,rgba(56,189,248,.25) 65%,transparent 80%)}
+.mitra-crown-flourish{position:absolute;top:-8px;left:50%;transform:translateX(-50%);z-index:3;filter:drop-shadow(0 0 6px rgba(254,240,138,.85));animation:crownGleam 2.8s ease-in-out infinite alternate}
+.pose-happy .mitra-character-wrap,.pose-celebrating .mitra-character-wrap{animation:mitraHappy 650ms ease-out 1}
+.pose-thinking .mitra-character-wrap{animation:mitraThink 3.5s ease-in-out infinite}
+.pose-sleepy .mitra-character-wrap{animation:mitraSleep 4s ease-in-out infinite}
+.pose-sleepy .mitra-3d-flame{filter:drop-shadow(0 2px 8px rgba(245,158,11,.25)) brightness(.92)}
+.mitra-pose-sparkles{position:absolute;inset:-8px;pointer-events:none;font-size:13px;z-index:4}
+.mitra-pose-sparkles .s1{position:absolute;top:-4px;right:-4px;animation:mitraTwinkle 1.2s ease-in-out infinite alternate}
+.mitra-pose-sparkles .s2{position:absolute;bottom:0px;left:-4px;color:#fde047;font-size:10px;animation:mitraTwinkle 1.5s ease-in-out infinite alternate .3s}
+.mitra-thinking-dots{position:absolute;top:-6px;right:-6px;display:flex;gap:3px;z-index:4}
+.mitra-thinking-dots .dot{width:4px;height:4px;border-radius:50%;background:#a7f3d0;box-shadow:0 0 6px #67e8d0;animation:mitraDot 1.4s infinite alternate}
+.mitra-thinking-dots .d1{animation-delay:0s}
+.mitra-thinking-dots .d2{animation-delay:.25s}
+.mitra-thinking-dots .d3{animation-delay:.5s}
