@@ -278,9 +278,8 @@ function AppShell({ user }: { user: User }) {
   ], [lang, nav, t.navAccount]);
   const navGroups = useMemo(() => [
     { label: t.groupToday, items: nav.filter((item) => ['/app/day', '/app/calendar', '/app/tasks'].includes(item.to)) },
-    { label: t.groupPlan, items: nav.filter((item) => ['/app/categories', '/app/reminders'].includes(item.to)) },
-    { label: t.groupCare, items: nav.filter((item) => ['/app/habits', '/app/wellness', '/app/cycle', '/app/digital', '/app/food'].includes(item.to)) },
-    { label: t.groupReflect, items: nav.filter((item) => ['/app/reflection', '/app/insights', '/app/notifications', '/app/settings'].includes(item.to)) },
+    { label: t.groupPlan, items: nav.filter((item) => ['/app/habits', '/app/categories', '/app/reminders'].includes(item.to)) },
+    { label: t.groupCare, items: nav.filter((item) => ['/app/wellness', '/app/cycle', '/app/digital', '/app/reflection'].includes(item.to)) },
   ], [nav, t]);
 
   useEffect(() => {
@@ -432,26 +431,14 @@ function AppShell({ user }: { user: User }) {
             <p>{t.progressQuote}</p>
             <span>{t.takeDayAsItComes}</span>
           </div>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <button
-              className="profile-chip"
-              style={{ flex: 1 }}
-              onClick={() => navigate('/app/settings')}
-            >
-              <span className="avatar">{user.displayName.slice(0, 1).toUpperCase()}</span>
-              <span><strong>{user.displayName}</strong><small>{t.personalSpace}</small></span>
-              <ChevronRight size={15} />
-            </button>
-            <button
-              className="icon-button"
-              onClick={() => setLanguage(lang === 'en' ? 'kn' : 'en')}
-              title={lang === 'en' ? 'ಕನ್ನಡಕ್ಕೆ ಬದಲಾಯಿಸಿ' : 'Switch to English'}
-              style={{ width: '38px', height: '38px', fontSize: '11px', fontWeight: 700 }}
-              aria-label={lang === 'en' ? 'ಕನ್ನಡ, switch to Kannada' : 'EN, switch to English'}
-            >
-              {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
-            </button>
-          </div>
+          <button
+            className="profile-chip"
+            onClick={() => navigate('/app/settings')}
+          >
+            <span className="avatar">{user.displayName.slice(0, 1).toUpperCase()}</span>
+            <span><strong>{user.displayName}</strong><small>{t.personalSpace}</small></span>
+            <ChevronRight size={15} />
+          </button>
           <button className="nav-link" onClick={() => logout.mutate()}><LogOut size={16} /><span>{t.signOut}</span></button>
         </div>
       </aside>
@@ -485,14 +472,16 @@ function AppShell({ user }: { user: User }) {
               {theme === 'night' ? <Moon size={18} /> : theme === 'day' ? <Sun size={18} /> : <Monitor size={18} />}
             </button>
             <button
-              className="icon-button"
+              type="button"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-slate-200 transition-colors"
               onClick={() => setLanguage(lang === 'en' ? 'kn' : 'en')}
               title={lang === 'en' ? 'ಕನ್ನಡಕ್ಕೆ ಬದಲಾಯಿಸಿ' : 'Switch to English'}
-              style={{ height: '30px', padding: '0 8px', width: 'auto', fontSize: '12px', fontWeight: 700, gap: '4px' }}
-              aria-label={lang === 'en' ? 'ಕನ್ನಡ, switch to Kannada' : 'EN, switch to English'}
+              aria-label={lang === 'en' ? 'Switch to Kannada' : 'Switch to English'}
             >
-              <Languages size={14} />
-              <span>{lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}</span>
+              <Languages size={13} className="text-emerald-400" />
+              <span className={lang === 'en' ? 'text-emerald-300 font-bold' : 'text-slate-400'}>EN</span>
+              <span className="text-slate-600">/</span>
+              <span className={lang === 'kn' ? 'text-emerald-300 font-bold' : 'text-slate-400'}>ಕನ್ನಡ</span>
             </button>
             <button className="avatar avatar-small" onClick={() => navigate('/app/settings')} aria-label="Open settings">
               {user.displayName.slice(0, 1).toUpperCase()}
