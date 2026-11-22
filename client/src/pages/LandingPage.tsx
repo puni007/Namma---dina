@@ -14,6 +14,7 @@ import {
   X,
 } from 'lucide-react';
 import { MitraMascot, type MitraPose } from '../components/MitraMascot';
+import { AuroraVideo } from '../components/AuroraVideo';
 
 interface PreviewItem {
   id: string;
@@ -158,10 +159,11 @@ export function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#060B14] text-slate-100 font-['Plus_Jakarta_Sans','Noto_Sans_Kannada',sans-serif] selection:bg-emerald-500/20 selection:text-emerald-300 overflow-x-hidden">
+    <div className="relative min-h-screen bg-transparent text-slate-100 font-['Plus_Jakarta_Sans','Noto_Sans_Kannada',sans-serif] selection:bg-emerald-500/20 selection:text-emerald-300 overflow-x-hidden">
       {/* =========================================================================
-          BACKGROUND: Deep Midnight-Indigo Base + Organic Aurora Ribbons
+          BACKGROUND: Borealis 4K Live Sky + Organic Aurora Atmosphere
       ========================================================================= */}
+      <AuroraVideo />
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         {/* Soft emerald-teal organic aurora ribbon */}
         <div className="absolute -top-[20%] -left-[10%] w-[75vw] h-[65vw] max-w-[950px] max-h-[800px] rounded-full aurora-ribbon-emerald blur-[90px]" />
@@ -169,11 +171,8 @@ export function LandingPage() {
         {/* Soft twilight-indigo ribbon drifting across center-right */}
         <div className="absolute top-[10%] -right-[15%] w-[70vw] h-[60vw] max-w-[900px] max-h-[750px] rounded-full aurora-ribbon-twilight blur-[100px]" />
 
-        {/* Ambient subtle starry grain / particle dots */}
-        <div className="absolute inset-0 bg-[radial-gradient(1px_1px_at_20px_30px,rgba(255,255,255,0.15),transparent_100%),radial-gradient(1px_1px_at_80px_120px,rgba(110,231,183,0.12),transparent_100%)] bg-[length:140px_140px] opacity-40" />
-
         {/* Vignette depth gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#060B14]/30 to-[#060B14] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#02090d]/50 via-transparent to-[#02090d]/80 pointer-events-none" />
       </div>
 
       {/* =========================================================================

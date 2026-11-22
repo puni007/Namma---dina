@@ -279,6 +279,60 @@ html[data-motion='off'] .onboarding-step{animation:none}
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
+
+/* Borealis Living 4K Aurora Video Scene */
+.borealis-scene {
+  position: fixed;
+  inset: 0;
+  background: #03151b;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.borealis-scene video,
+.borealis-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.015);
+  filter: saturate(1.08) contrast(1.04) brightness(0.78);
+  pointer-events: none;
+}
+
+.borealis-scene::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(1, 7, 11, 0.54) 0%, rgba(1, 7, 11, 0.12) 18%, rgba(1, 7, 11, 0.05) 42%, rgba(1, 7, 11, 0.22) 67%, rgba(1, 7, 11, 0.77) 100%),
+    radial-gradient(ellipse at 50% 44%, transparent 24%, rgba(0, 7, 10, 0.27) 100%);
+}
+
+.borealis-scene::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+html[data-theme='day'] .borealis-scene {
+  background: #0a171c;
+}
+
+html[data-theme='day'] .borealis-scene video {
+  opacity: 0.28;
+  filter: saturate(0.85) contrast(1.02) brightness(1.1);
+}
 @media(max-width:850px){.breathe-layout{grid-template-columns:1fr}.breath-session-card{min-height:515px}.breath-settings-column{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.breathe-page .page-heading{align-items:flex-start;flex-direction:column}.breathe-page .page-heading>.button{min-height:44px}.breathe-layout{gap:11px}.breath-session-card{min-height:480px;padding:22px 16px}.breath-orbit{width:180px;height:180px}.breath-settings-column{grid-template-columns:1fr}.breath-options-card,.breath-history-card{padding:16px}}
 @media(prefers-reduced-motion:reduce){.aurora-atmosphere::before{transition:none}.motion-fade-up,.motion-scale-in,.motion-stagger-children>*{animation:none!important}}
